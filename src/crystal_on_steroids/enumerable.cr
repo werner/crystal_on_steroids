@@ -32,11 +32,18 @@ module Enumerable(T)
   end
 
   # Returns `true` if the collection does not contains *obj*, `false` otherwise.
-  # 
   #
   #     [1, 2, 3].excludes?(4) #=> true
   #     [1, 2, 3].excludes?(3) #=> false
   def excludes?(obj)
     !includes?(obj)
+  end
+
+  # Returns a copy of the enumerable without the specified items.
+  #
+  # [1, 2, 3, 4, 5].without 3, 5
+  # => [1, 2, 4]
+  def without(*items)
+    reject { |item| items.includes?(item) }
   end
 end

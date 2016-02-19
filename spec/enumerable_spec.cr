@@ -49,4 +49,11 @@ describe Enumerable do
       array.excludes?(3).should eq(false)
     end
   end
+
+  describe "without" do
+    it "excludes a group of items from the array" do
+      array = [1, 2, 3, 4, 5]
+      array.without(3, 5).should eq([1, 2, 4])
+    end
+  end
 end
