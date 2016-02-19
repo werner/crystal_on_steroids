@@ -37,4 +37,16 @@ describe Enumerable do
       array.pluck(:name, :age, :color).should eq([{"James", 20, nil}, {"Jhon", 30, nil}])
     end
   end
+
+  describe "excludes?" do
+    it "returns true if object is not in the array" do
+      array = [1, 2, 3, 4]
+      array.excludes?(5).should eq(true)
+    end
+
+    it "returns false if object is in the array" do
+      array = [1, 2, 3, 4]
+      array.excludes?(3).should eq(false)
+    end
+  end
 end

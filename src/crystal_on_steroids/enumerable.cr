@@ -30,4 +30,13 @@ module Enumerable(T)
       map { |item| item[keys.first] }
     end
   end
+
+  # Returns `true` if the collection does not contains *obj*, `false` otherwise.
+  # 
+  #
+  #     [1, 2, 3].excludes?(4) #=> true
+  #     [1, 2, 3].excludes?(3) #=> false
+  def excludes?(obj)
+    !includes?(obj)
+  end
 end
