@@ -1,6 +1,6 @@
-# crystal_on_steroids
+# Crystal on Steroids
 
-TODO: Write a description here
+A group of methods to make Crystal more programmer friendly, this is practically a Rails ActiveSupport clone
 
 ## Installation
 
@@ -10,7 +10,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   crystal_on_steroids:
-    github: [your-github-name]/crystal_on_steroids
+    github: werner/crystal_on_steroids
 ```
 
 
@@ -30,7 +30,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/crystal_on_steroids/fork )
+1. Fork it ( https://github.com/werner/crystal_on_steroids/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -38,4 +38,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Werner - creator, maintainer
+- [werner](https://github.com/werner) Werner - creator, maintainer
