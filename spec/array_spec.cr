@@ -31,7 +31,7 @@ describe Array do
   end
 
   describe "rest" do
-    it "" do
+    it "returns the rest of elements" do
       array = [1, 2, 3, 4, 5]
       array.rest.should eq([2, 3, 4, 5])
     end
