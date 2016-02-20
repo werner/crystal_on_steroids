@@ -24,4 +24,23 @@ describe Object do
       test.blank?.should eq(true)
     end
   end
+
+  describe "present?" do
+    it "returns true for strings" do
+      test = "hello world"
+      test.present?.should eq(true)
+    end
+
+    it "returns true for numbers" do
+      test = 54
+      test.present?.should eq(true)
+    end
+
+    it "returns true for collections" do
+      test = [4, 5]
+      test.present?.should eq(true)
+      test = {four: 4, five: 5}
+      test.present?.should eq(true)
+    end
+  end
 end
