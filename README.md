@@ -1,9 +1,8 @@
-# Crystal on Steroids
+# Crystal on Steroids [![Build Status](https://travis-ci.org/werner/crystal_on_steroids.png)](https://travis-ci.org/werner/crystal_on_steroids) [![docrystal.org](http://www.docrystal.org/badge.svg?style=round)](http://www.docrystal.org/github.com/werner/crystal_on_steroids)
 
 A group of methods to make Crystal more programmer friendly. Methods taken from Rails ActiveSupport and others.
 
 ## Installation
-
 
 Add this to your application's `shard.yml`:
 
@@ -13,20 +12,13 @@ dependencies:
     github: werner/crystal_on_steroids
 ```
 
-
 ## Usage
-
 
 ```crystal
 require "crystal_on_steroids"
 ```
 
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
+Methods are displayed in the [docs](http://www.docrystal.org/github.com/werner/crystal_on_steroids)
 
 ## Contributing
 
