@@ -18,4 +18,17 @@ class Object
     !blank?
   end
 
+  # Returns the receiver if it's present otherwise returns `nil`.
+  # `object.presence` is equivalent to
+  #
+  #    ```
+  #    object.present? ? object : nil
+  #    ```
+  #
+  # @return [Object]
+  # 
+  # source: Rails ActiveSupport
+  def presence
+    self if present?
+  end
 end

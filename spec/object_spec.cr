@@ -43,4 +43,16 @@ describe Object do
       test.present?.should eq(true)
     end
   end
+
+  describe "presence" do
+    it "returns the int if present" do
+      test = 45
+      test.presence.should eq(45)
+    end
+
+    it "returns nil for nil object" do
+      test = nil
+      test.presence.should eq(nil)
+    end
+  end
 end
