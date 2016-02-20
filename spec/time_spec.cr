@@ -12,4 +12,11 @@ describe Time do
       Time.new(2015, 8, 1, 14, 35, 0).next_day.should eq(Time.new(2015, 8, 2, 14, 35, 0))
     end
   end
+
+  describe "today?" do
+    it "returns true for today? method" do
+      Time.new.today?.should eq(true)
+    end
+  end
+
 end

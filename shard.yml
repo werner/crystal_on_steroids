@@ -1,6 +1,11 @@
 name: crystal_on_steroids
 version: 0.1.0
 
+dependencies:
+  mocks:
+    github: waterlink/mocks.cr
+    version: 0.5.0
+
 authors:
   - Werner <werner_a_e@yahoo.es>
 

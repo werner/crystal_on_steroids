@@ -18,4 +18,9 @@ struct Time
   def tomorrow
     next_day
   end
+
+  #Check if the especified time is corresponding to today
+  def today?
+    self.to_s("%Y-%m-%d") == Time.now.to_s("%Y-%m-%d")
+  end
 end
