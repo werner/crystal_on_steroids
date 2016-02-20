@@ -56,4 +56,11 @@ describe Enumerable do
       array.without(3, 5).should eq([1, 2, 4])
     end
   end
+
+  describe "avg" do
+    it "calculates the average of a numeric collection" do
+      array = [1, 2, 3, 4, 5]
+      array.avg.should eq(3)
+    end
+  end
 end

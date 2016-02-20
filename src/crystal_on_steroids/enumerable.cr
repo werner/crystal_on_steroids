@@ -62,4 +62,26 @@ module Enumerable(T)
   def without(*items)
     reject { |item| items.includes?(item) }
   end
+
+  # Returns the average of a collection of numbers.
+  #
+  # ```
+  # [1, 2, 3, 4, 5].avg
+  # => 3
+  # ```
+  def avg
+    self.sum / self.size
+  end
+
+  # Returns the average of the passed block for each element in a collection of numbers.
+  #
+  # ```
+  # [1, 2, 3, 4, 5].avg { |x| x + 2 }
+  # => 5
+  # ```
+  def avg(&block)
+    self.avg(block) do |value|
+      yield value
+    end
+  end
 end
