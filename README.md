@@ -1,6 +1,6 @@
 # Crystal on Steroids
 
-A group of methods to make Crystal more programmer friendly, this is practically a Rails ActiveSupport clone
+A group of methods to make Crystal more programmer friendly. Methods taken from Rails ActiveSupport and others.
 
 ## Installation
 
