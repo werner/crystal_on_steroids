@@ -29,4 +29,11 @@ describe Array do
       end
     end
   end
+
+  describe "rest" do
+    it "" do
+      array = [1, 2, 3, 4, 5]
+      array.rest.should eq([2, 3, 4, 5])
+    end
+  end
 end
