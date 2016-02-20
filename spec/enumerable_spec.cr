@@ -1,7 +1,6 @@
 require "./spec_helper"
 
 describe Enumerable do
-
   describe "many" do
     it "returns true if there are many elements in array" do
       array = [1, 2, 3]
