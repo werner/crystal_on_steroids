@@ -2,11 +2,6 @@ require "./spec_helper"
 
 describe Object do
   describe "blank?" do
-    it "returns true for empty string" do
-      test = ""
-      test.blank?.should eq(true)
-    end
-
     it "returns true for false value" do
       test = false
       test.blank?.should eq(true)
