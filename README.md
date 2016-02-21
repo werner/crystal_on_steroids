@@ -18,7 +18,46 @@ dependencies:
 require "crystal_on_steroids"
 ```
 
-Methods are displayed in the [docs](http://www.docrystal.org/github.com/werner/crystal_on_steroids)
+#### Methods
+
+**Object**
+
+* blank?
+* present?
+* presence
+* to_query
+* to_param
+
+**Array**
+
+* second
+* third
+* fourth
+* fifth
+* rest
+
+**Hash**
+
+* compact
+* compact!
+
+**Enumerable**
+
+* many?
+* pluck
+* excludes?
+* without
+* avg (average)
+
+**Time**
+
+* prev_day
+* next_day
+* yesterday
+* tomorrow
+* today?
+
+More details in [docs](http://www.docrystal.org/github.com/werner/crystal_on_steroids)
 
 ## Contributing
 
@@ -30,4 +69,4 @@ Methods are displayed in the [docs](http://www.docrystal.org/github.com/werner/c
 
 ## Contributors
 
-- [werner](https://github.com/werner) Werner - creator, maintainer
+- [werner](https://github.com/werner) Werner Echezuría - creator, maintainer
