@@ -10,7 +10,7 @@ describe Hash do
     end
 
     it "returns the same modified hash compacted" do
-      hash = { a: true, b: false, c: nil}
+      hash = { a: true, b: false, c: nil }
       hash.compact!
       hash.should eq({ a: true, b: false })
     end
