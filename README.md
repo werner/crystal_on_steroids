@@ -42,6 +42,7 @@ require "crystal_on_steroids"
 
 * compact
 * compact!
+* dig
 
 **Enumerable**
 
