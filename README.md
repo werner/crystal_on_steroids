@@ -27,6 +27,8 @@ require "crystal_on_steroids"
 * presence
 * to_query
 * to_param
+* in?
+* presence_in
 
 **Array**
 
