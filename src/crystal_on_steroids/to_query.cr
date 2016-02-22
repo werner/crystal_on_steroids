@@ -76,4 +76,9 @@ class Hash(K, V)
       end
     end
   end
+
+  # Alias for to_query
+  def to_param
+    to_query
+  end
 end
