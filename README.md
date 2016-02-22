@@ -62,6 +62,8 @@ require "crystal_on_steroids"
 **String**
 
 * remove
+* truncate
+* truncate_words
 
 More details in [docs](http://www.docrystal.org/github.com/werner/crystal_on_steroids)
 

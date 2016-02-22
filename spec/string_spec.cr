@@ -12,7 +12,42 @@ describe String do
 
   describe "remove" do
     it "removes all ocurrences of the pattern" do
-      "Hello World".remove(/Hello /).should eq("World")
+      test = "Hello World"
+      test.remove(/Hello /).should eq("World")
+    end
+  end
+
+  describe "truncate" do
+    it "truncates a given text after a given size" do
+      test = "Once upon a time in a world far far away"
+      test.truncate(27).should eq("Once upon a time in a wo...")
+    end
+
+    it "truncates a text at a natural break" do
+      test = "Once upon a time in a world far far away"
+      test.truncate(27, { separator: " " }).should eq("Once upon a time in a...")
+    end
+
+    it "truncates and replace the last string" do
+      test = "And they found that many people were sleeping better."
+      test.truncate(25, { omission: "... (continued)" }).should eq("And they f... (continued)")
+    end
+  end
+
+  describe "truncate" do
+    it "truncates a text after a number of words" do
+      test = "Once upon a time in a world far far away"
+      test.truncate_words(4).should eq("Once upon a time...")
+    end
+
+    it "truncates passing a string :separator" do
+      test = "Once<br>upon<br>a<br>time<br>in<br>a<br>world"
+      test.truncate_words(5, { separator: "<br>" }).should eq("Once<br>upon<br>a<br>time<br>in...")
+    end
+
+    it "truncates with an omission string" do
+      test = "And they found that many people were sleeping better."
+      test.truncate_words(5, { omission: "... (continued)" }).should eq("And they found that many... (continued)")
     end
   end
 end
