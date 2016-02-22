@@ -21,7 +21,7 @@ class Hash(K, V)
   #   hash # => { a: true, b: false }
   #   ```
   #
-  # source: ActiveSupport
+  # source: Rails ActiveSupport
   def compact!
     self.reject! { |_, value| value.nil? }
   end

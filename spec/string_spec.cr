@@ -9,4 +9,10 @@ describe String do
       test.blank?.should eq(true)
     end
   end
+
+  describe "remove" do
+    it "removes all ocurrences of the pattern" do
+      "Hello World".remove(/Hello /).should eq("World")
+    end
+  end
 end
