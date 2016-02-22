@@ -59,6 +59,10 @@ require "crystal_on_steroids"
 * tomorrow
 * today?
 
+**String**
+
+* remove
+
 More details in [docs](http://www.docrystal.org/github.com/werner/crystal_on_steroids)
 
 ## Contributing
