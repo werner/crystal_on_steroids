@@ -20,25 +20,25 @@ class String
 
   # Truncates a given `text` after a given `size` if `text` is longer than `size`:
   #
-  #  ```
-  #  "Once upon a time in a world far far away".truncate(27)
-  #  # => "Once upon a time in a wo..."
-  #  ```
+  # ```
+  # "Once upon a time in a world far far away".truncate(27)
+  # # => "Once upon a time in a wo..."
+  # ```
   #
   # Pass a string or regexp `:separator` to truncate `text` at a natural break:
   #
-  #  ```
-  #  "Once upon a time in a world far far away".truncate(27, separator: " ")
-  #  # => "Once upon a time in a..."
-  #  ```
+  # ```
+  # "Once upon a time in a world far far away".truncate(27, separator: " ")
+  # # => "Once upon a time in a..."
+  # ```
   #
   # The last characters will be replaced with the `:omission` string (defaults to "...")
   # for a total size not exceeding `size`:
   #
-  #  ```
-  #  "And they found that many people were sleeping better.".truncate(25, omission: "... (continued)")
-  #  # => "And they f... (continued)"
-  #  ```
+  # ```
+  # "And they found that many people were sleeping better.".truncate(25, omission: "... (continued)")
+  # # => "And they f... (continued)"
+  # ```
   #
   # source: Rails ActiveSupport
   def truncate(truncate_at, options = {} of Symbol => String)

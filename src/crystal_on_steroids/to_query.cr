@@ -39,8 +39,10 @@ class Array(T)
 
   # Cast an array as a HTTP::Params and buils an url-encode string.
   #
-  # `["michael", "jhon"].to_query("user")`
-  # `=> "user%5B%5D=michael&user%5B%5D=jhon"`
+  # ```
+  # ["michael", "jhon"].to_query("user")
+  # => "user%5B%5D=michael&user%5B%5D=jhon"
+  # ```
   def to_query(key)
     prefix = "#{key}[]"
     HTTP::Params.build do |form|
@@ -55,17 +57,17 @@ class Hash(K, V)
   # Returns a string representation of the receiver suitable for use as a URL
   # query string:
   #
-  #   ```
-  #   {name: "David", nationality: "Danish"}.to_query
-  #   # => "name=David&nationality=Danish"
-  #   ```
+  # ```
+  # {name: "David", nationality: "Danish"}.to_query
+  # # => "name=David&nationality=Danish"
+  # ```
   #
   # An optional namespace can be passed to enclose key names:
   #
-  #   ```
-  #   {name: "David", nationality: "Danish"}.to_query("user")
-  #   # => "user%5Bname%5D=David&user%5Bnationality%5D=Danish"
-  #   ```
+  # ```
+  # {name: "David", nationality: "Danish"}.to_query("user")
+  # # => "user%5Bname%5D=David&user%5Bnationality%5D=Danish"
+  # ```
   #
   def to_query(namespace = nil)
     HTTP::Params.build do |form|

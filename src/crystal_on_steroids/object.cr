@@ -21,9 +21,9 @@ class Object
   # Returns the receiver if it's present otherwise returns `nil`.
   # `object.presence` is equivalent to
   #
-  #    ```
-  #    object.present? ? object : nil
-  #    ```
+  # ```
+  # object.present? ? object : nil
+  # ```
   #
   # @return [Object]
   # 
