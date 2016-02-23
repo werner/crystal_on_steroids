@@ -15,16 +15,4 @@ describe Hash do
       hash.should eq({ a: true, b: false })
     end
   end
-
-  describe "dig" do
-    it "search for a value recursively" do
-      h = { foo: {bar: {baz: 5}}}
-      h.dig(:foo, :bar, :baz).should eq(5)
-    end
-    
-    it "returns nil when there is no value" do
-      h = { foo: {bar: {baz: 5}}}
-      h.dig(:foo, :blah).should be_nil
-    end
-  end
 end

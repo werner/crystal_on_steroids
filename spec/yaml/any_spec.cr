@@ -21,7 +21,7 @@ describe YAML::Any do
     it "concat all values from a yaml type" do
       data.reduce("test") do |acc, item, value|
         acc = "#{acc} - #{item} - #{value}"
-      end.should eq("test - country")
+      end.should eq("test - country - {\"city\" => {\"age\" => [\"23\", \"49\"]}}")
     end
   end
 
