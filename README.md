@@ -29,6 +29,7 @@ require "crystal_on_steroids"
 * to_param
 * in?
 * presence_in
+* dig
 
 **Array**
 
@@ -42,7 +43,6 @@ require "crystal_on_steroids"
 
 * compact
 * compact!
-* dig
 
 **Enumerable**
 
@@ -69,12 +69,10 @@ require "crystal_on_steroids"
 **JSON::Any**
 
 * reduce
-* dig
 
 **YAML::Any**
 
 * reduce
-* dig
 
 More details in [docs](http://www.docrystal.org/github.com/werner/crystal_on_steroids)
 

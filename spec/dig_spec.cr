@@ -43,8 +43,16 @@ describe YAML::Any do
     end
 
     it "returns nil when there is no value" do
-      data = JSON.parse(%({"access": {"name": {"greetings": "hi" }, "speed": 43}}))
       data.dig("country", "city", "color").should eq(nil)
+    end
+  end
+end
+
+describe "Object" do
+  describe "dig" do
+    it "returns nil when object does not implements #[]?" do
+      data = 34
+      data.dig(45).should eq(nil)
     end
   end
 end
