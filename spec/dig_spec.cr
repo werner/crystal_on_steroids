@@ -49,10 +49,15 @@ describe YAML::Any do
 end
 
 describe "Object" do
-  describe "dig" do
+  describe "dig?" do
     it "returns nil when object does not implements #[]?" do
       data = 34
-      data.dig(45).should eq(nil)
+      data.dig?(45).should eq(nil)
+    end
+
+    it "behaves the same as dig" do
+      data = JSON.parse(%({"access": {"name": {"greetings": "hi" }, "speed": 43}}))
+      data.dig?("access", "name", "greetings").should eq("hi")
     end
   end
 end
