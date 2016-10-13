@@ -1,14 +1,16 @@
 require "./spec_helper"
+require "json"
+require "yaml"
 
 describe Hash do
   describe "dig" do
     it "search for a value recursively" do
-      h = { foo: {bar: {baz: 5}}}
+      h = {foo: {bar: {baz: 5}}}
       h.dig(:foo, :bar, :baz).should eq(5)
     end
     
     it "returns nil when there is no value" do
-      h = { foo: {bar: {baz: 5}}}
+      h = {foo: {bar: {baz: 5}}}
       h.dig(:foo, :blah).should be_nil
     end
   end
@@ -58,6 +60,11 @@ describe "Object" do
     it "behaves the same as dig" do
       data = JSON.parse(%({"access": {"name": {"greetings": "hi" }, "speed": 43}}))
       data.dig?("access", "name", "greetings").should eq("hi")
+    end
+
+    it "digs on an array" do
+      data = [[1], [2, 3], [4, [5]]]
+      data.dig?(2, 1, 0).should eq(5)
     end
   end
 end

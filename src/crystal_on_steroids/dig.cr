@@ -60,3 +60,11 @@ end
 struct YAML::Any
   include Dig
 end
+
+struct Tuple
+  include Dig
+end
+
+struct NamedTuple
+  include Dig
+end

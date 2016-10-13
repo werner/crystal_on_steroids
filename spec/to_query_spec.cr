@@ -29,12 +29,12 @@ describe Hash do
   describe "to_query" do
     it "returns an url encode string for a hash without namespace" do
       hash = {name: "David", nationality: "Danish"}
-      hash.to_query.should eq("name=David&nationality=Danish")
+      hash.to_query.should eq("%7Bname%3A%20%22David%22%2C%20nationality%3A%20%22Danish%22%7D")
     end
 
     it "returns an url encode string for a hash with namespace" do
       hash = {name: "David", nationality: "Danish"}
-      hash.to_query("user").should eq("user%5Bname%5D=David&user%5Bnationality%5D=Danish")
+      hash.to_query("user").should eq("user=%7Bname%3A%20%22David%22%2C%20nationality%3A%20%22Danish%22%7D")
     end
   end
 end

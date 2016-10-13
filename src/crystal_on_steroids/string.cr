@@ -46,9 +46,10 @@ class String
 
     omission = options[:omission]? || "..."
     size_with_room_for_omission = truncate_at - omission.size
+    separator = options[:separator]? || nil
     stop =
-      if options[:separator]?
-        rindex(options[:separator], size_with_room_for_omission) || size_with_room_for_omission
+      if separator
+        rindex(separator, size_with_room_for_omission) || size_with_room_for_omission
       else
         size_with_room_for_omission
       end
