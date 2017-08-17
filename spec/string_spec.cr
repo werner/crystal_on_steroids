@@ -50,4 +50,17 @@ describe String do
       test.truncate_words(5, { omission: "... (continued)" }).should eq("And they found that many... (continued)")
     end
   end
+
+  describe "squish" do
+    it "squish all spaces in a sentence" do
+      test = "  foo   bar    \n   \t   boo"
+      test.squish.should eq("foo bar boo")
+    end
+
+    it "squish all spaces in a multiline sentence" do
+      test = %{ Multi-line
+                string }
+      test.squish.should eq("Multi-line string")
+    end
+  end
 end
