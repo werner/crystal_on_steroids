@@ -67,6 +67,7 @@ require "crystal_on_steroids"
 * remove
 * truncate
 * truncate_words
+* squish
 
 **JSON::Any**
 
