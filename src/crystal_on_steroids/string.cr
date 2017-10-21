@@ -54,7 +54,8 @@ class String
         size_with_room_for_omission
       end
 
-    "#{self[0, stop]}#{omission}"
+    string = self
+    "#{string[0, stop]}#{omission}"
   end
 
   # Truncates a given `text` after a given number of words (`words_count`):

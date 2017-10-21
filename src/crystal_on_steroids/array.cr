@@ -17,7 +17,8 @@ class Array(T)
   # => [2, 3, 4, 5]
   # ```
   def rest
-    self - [self.first]
+    arr = dup
+    arr - [arr.first]
   end
 
   # Divides the array into one or more subarrays based on a delimiting +value+
@@ -28,7 +29,7 @@ class Array(T)
   # => [[1, 2], [4, 5]]
   # ```
   def split(value = nil)
-    arr = self
+    arr = dup
     result = [] of typeof(arr)
     while (idx = arr.index(value))
       response = arr.shift(idx)
@@ -46,7 +47,7 @@ class Array(T)
   # => [[1, 2], [4, 5], [7, 8], [10]]
   # ```
   def split
-    arr = self
+    arr = dup
     result = [] of typeof(arr)
     while (idx = arr.index { |i| yield i })
       result << arr.shift(idx)

@@ -21,6 +21,7 @@ struct Time
 
   #Check if the especified time is corresponding to today
   def today?
-    self.to_s("%Y-%m-%d") == Time.now.to_s("%Y-%m-%d")
+    date = self
+    date.to_s("%Y-%m-%d") == Time.now.to_s("%Y-%m-%d")
   end
 end
