@@ -39,6 +39,7 @@ require "crystal_on_steroids"
 * fifth
 * rest
 * dig
+* split
 
 **Hash**
 
