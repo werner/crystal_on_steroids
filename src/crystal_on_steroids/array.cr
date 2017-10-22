@@ -6,12 +6,12 @@ class Array(T)
   end
 
   define_order :second, 1
-  define_order :third,  2
+  define_order :third, 2
   define_order :fourth, 3
-  define_order :fifth,  4
+  define_order :fifth, 4
 
   # Returns the elements in an array except the first one.
-  # 
+  #
   # ```
   # [1, 2, 3, 4, 5].rest
   # => [2, 3, 4, 5]
@@ -19,6 +19,59 @@ class Array(T)
   def rest
     arr = dup
     arr - [arr.first]
+  end
+
+  # Returns the tail of the array from +position+.
+  #
+  #   %w( a b c d ).from(0)
+  # => ["a", "b", "c", "d"]
+  #
+  #   %w( a b c d ).from(2)
+  # => ["c", "d"]
+  #
+  #   %w( a b c d ).from(10)
+  # => []
+  #
+  #   %w().from(0)
+  # => []
+  #
+  #   %w( a b c d ).from(-2)
+  # => ["c", "d"]
+  #
+  #   %w( a b c ).from(-10)
+  # => []
+  def from(position : Int)
+    if size == 0
+      [] of T
+    elsif position > size || position < -(size)
+      [] of T
+    else
+      self[position, size]
+    end
+  end
+
+  # Returns the beginning of the array up to +position+.
+  #
+  #   %w( a b c d ).to(0)
+  # => ["a"]
+  #
+  #   %w( a b c d ).to(2)
+  # => ["a", "b", "c"]
+  #
+  #   %w( a b c d ).to(10)
+  # => ["a", "b", "c", "d"]
+  #
+  #   %w().to(0)
+  # => []
+  #
+  #   %w( a b c d ).to(-2)
+  # => ["a", "b", "c"]
+  #
+  #   %w( a b c ).to(-10)
+  # => []
+  #
+  def to(position : Int)
+    self[0..position]
   end
 
   # Divides the array into one or more subarrays based on a delimiting +value+
