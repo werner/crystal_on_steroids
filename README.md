@@ -41,6 +41,7 @@ require "crystal_on_steroids"
 * dig
 * split
 * from
+* to
 
 **Hash**
 
