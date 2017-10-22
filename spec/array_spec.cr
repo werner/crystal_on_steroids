@@ -30,6 +30,19 @@ describe Array do
     end
   end
 
+  describe "from" do
+    it "returns elements from position in an array if it exists" do
+      array = %w(a b c d)
+
+      array.from(0).should eq(["a", "b", "c", "d"])
+      array.from(2).should eq(["c", "d"])
+      array.from(10).should eq([] of Array(String))
+      %w().from(0).should eq([] of Array(String))
+      array.from(-2).should eq(["c", "d"])
+      array.from(-10).should eq([] of Array(String))
+    end
+  end
+
   describe "rest" do
     it "returns the rest of elements" do
       array = [1, 2, 3, 4, 5]
