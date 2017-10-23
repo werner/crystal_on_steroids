@@ -46,8 +46,7 @@ class Array(T)
   # => [2, 3, 4, 5]
   # ```
   def rest
-    arr = dup
-    arr - [arr.first]
+    self[1, size - 1]
   end
 
   # Returns the tail of the array from +position+.

@@ -61,6 +61,11 @@ describe Array do
       array = [1, 2, 3, 4, 5]
       array.rest.should eq([2, 3, 4, 5])
     end
+
+    it "returns the rest when all items are the same" do
+      array = [1, 1, 1, 1, 1]
+      array.rest.should eq([1, 1, 1, 1])
+    end
   end
 
   describe "split" do
