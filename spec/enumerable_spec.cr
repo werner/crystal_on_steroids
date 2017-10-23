@@ -36,9 +36,52 @@ describe Enumerable do
       array.pluck(:name, :age).should eq([{"James", 20}, {"Jhon", 30}])
     end
 
-    it "extracts several key values and non existent keys" do
+    it "throws an error if any key does not exists" do
       array = [{id: 1, name: "James", age: 20}, {id: 2, name: "Jhon", age: 30}]
-      array.pluck(:name, :age, :color).should eq([{"James", 20, nil}, {"Jhon", 30, nil}])
+      expect_raises KeyError do
+        array.pluck(:name, :age, :color)
+      end
+    end
+
+    it "throws an error when key does not exists" do
+      array = [{id: 1, name: "James", age: 20}, {id: 2, name: "Jhon", age: 30}]
+      expect_raises KeyError do
+        array.pluck(:color)
+      end
+    end
+
+    it "throws an error when many key does not exists" do
+      array = [{id: 1, name: "James", age: 20}, {id: 2, name: "Jhon", age: 30}]
+      expect_raises KeyError do
+        array.pluck(:color, :height)
+      end
+    end
+  end
+
+  describe "pluck?" do
+    it "extract name values" do
+      array = [{id: 1, name: "James"}, {id: 2, name: "Jhon"}]
+      array.pluck?(:name).should eq(["James", "Jhon"])
+    end
+
+    it "extracts several key values" do
+      array = [{id: 1, name: "James", age: 20}, {id: 2, name: "Jhon", age: 30}]
+      array.pluck?(:name, :age).should eq([{"James", 20}, {"Jhon", 30}])
+    end
+
+    it "returns nil if any key does not exists" do
+      array = [{id: 1, name: "James", age: 20}, {id: 2, name: "Jhon", age: 30}]
+      array.pluck?(:name, :age, :color).should eq([{"James", 20, nil}, {"Jhon", 30, nil}])
+    end
+
+    it "returns nil when key does not exists" do
+      array = [{id: 1, name: "James", age: 20}, {id: 2, name: "Jhon", age: 30}]
+      array.pluck?(:color).should eq([] of Int32)
+    end
+
+    it "returns nil when many key does not exists" do
+      array = [{id: 1, name: "James", age: 20}, {id: 2, name: "Jhon", age: 30}]
+      array.pluck?(:color, :height).should eq([{nil, nil}, {nil, nil}])
     end
   end
 
