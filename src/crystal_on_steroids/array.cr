@@ -1,14 +1,43 @@
 class Array(T)
-  macro define_order(name, number)
-    def {{name.id}}
-      @size > {{number}} ? @buffer[{{number}}] : raise IndexError.new
-    end
+  # Returns the second element in an array.
+  #
+  # ```
+  # [1, 2, 3, 4, 5].second
+  # => [2]
+  # ```
+  def second
+    self[1]
   end
 
-  define_order :second, 1
-  define_order :third, 2
-  define_order :fourth, 3
-  define_order :fifth, 4
+  # Returns the third element in an array.
+  #
+  # ```
+  # [1, 2, 3, 4, 5].second
+  # => [3]
+  # ```
+  def third
+    self[2]
+  end
+
+  # Returns the fourth element in an array.
+  #
+  # ```
+  # [1, 2, 3, 4, 5].second
+  # => [4]
+  # ```
+  def fourth
+    self[3]
+  end
+
+  # Returns the fifth element in an array.
+  #
+  # ```
+  # [1, 2, 3, 4, 5].second
+  # => [5]
+  # ```
+  def fifth
+    self[4]
+  end
 
   # Returns the elements in an array except the first one.
   #
