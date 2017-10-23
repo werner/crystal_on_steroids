@@ -110,12 +110,13 @@ class Array(T)
   # => [[1, 2], [4, 5]]
   # ```
   def split(value = nil)
-    arr = dup
+    arr = self
     result = [] of typeof(arr)
     while (idx = arr.index(value))
-      response = arr.shift(idx)
+      response = arr[0, idx]
+      arr = arr[idx, size]
       result.push(response)
-      arr.shift
+      arr = arr.rest
     end
     result << arr
   end
@@ -128,11 +129,12 @@ class Array(T)
   # => [[1, 2], [4, 5], [7, 8], [10]]
   # ```
   def split
-    arr = dup
+    arr = self
     result = [] of typeof(arr)
     while (idx = arr.index { |i| yield i })
-      result << arr.shift(idx)
-      arr.shift
+      result << arr[0, idx]
+      arr = arr[idx, size]
+      arr = arr.rest
     end
     result << arr
   end
