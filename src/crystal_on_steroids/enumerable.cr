@@ -6,18 +6,18 @@ module Enumerable(T)
   # source: Rails ActiveSupport
   def many?
     cnt = 0
-    any? do |element|
+    each do |element|
       cnt += 1 if yield element
-      cnt > 1
     end
+    cnt > 1
   end
 
   # Returns `true` if the enumerable has more than 1 element. functionally
-  # equivalent to `enum.to_a.size > 1`.
+  # equivalent to `enum.size > 1`.
   #
   # source: Rails ActiveSupport
   def many?
-    many? &.itself
+    size > 1
   end
 
   # Convert an enumerable to an array based on the given key.

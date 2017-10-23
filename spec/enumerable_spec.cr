@@ -18,6 +18,11 @@ describe Enumerable do
       array = [1, 2, 3, 4]
       array.many? { |item| item * 2 > 5 }
     end
+
+    it "returns false because it does not satisfy the block condition" do
+      array = [1, 2, 3, 4]
+      array.many? { |item| item == 65 }
+    end
   end
 
   describe "pluck" do
