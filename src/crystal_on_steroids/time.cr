@@ -1,12 +1,12 @@
 struct Time
   # Moves one day in the past.
   def prev_day
-    self - 1.day
+    self.at_beginning_of_day - 1.day
   end
 
   # Moves one day in the future.
   def next_day
-    self + 1.day
+    self.at_beginning_of_day + 1.day
   end
 
   # Moves one day in the past.
@@ -21,7 +21,7 @@ struct Time
 
   #Check if the especified time is corresponding to today
   def today?
-    date = self
-    date.to_s("%Y-%m-%d") == Time.now.to_s("%Y-%m-%d")
+    now = Time.now
+    now.at_beginning_of_day <= self <= now.at_end_of_day
   end
 end
