@@ -42,6 +42,7 @@ require "crystal_on_steroids"
 * split
 * from
 * to
+* in_groups
 
 **Hash**
 
