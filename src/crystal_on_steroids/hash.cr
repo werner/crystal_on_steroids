@@ -10,7 +10,7 @@ class Hash(K, V)
   #
   # source: ActiveSupport
   def compact
-    self.select { |_, value| !value.nil? }
+    self.reject { |_, value| value.nil? }
   end
 
   # Replaces current hash with non `nil` values.
