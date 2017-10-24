@@ -87,4 +87,33 @@ describe Array do
       (1..10).to_a.split { |i| i % 3 == 0 }.should eq([[1, 2], [4, 5], [7, 8], [10]])
     end
   end
+
+  describe "in_groups" do
+    it "should split as three arrays with nil for filler elements to match length" do
+      array = %w(1 2 3 4 5 6 7 8 9 10)
+      result = [["1", "2", "3", "4"],
+                ["5", "6", "7", nil],
+                ["8", "9", "10", nil]]
+
+      array.in_groups(3).should eq(result)
+    end
+
+    it "should split as three arrays with filler elements to match length" do
+      array = %w(1 2 3 4 5 6 7 8 9 10)
+      result = [["1", "2", "3", "4"],
+                ["5", "6", "7", "&nbsp;"],
+                ["8", "9", "10", "&nbsp;"]]
+
+      array.in_groups(3, "&nbsp;").should eq(result)
+    end
+
+    it "should split as three arrays with no filler elements" do
+      array = %w(1 2 3 4 5 6 7 8 9 10)
+      result = [["1", "2", "3", "4"],
+                ["5", "6", "7"],
+                ["8", "9", "10"]]
+
+      array.in_groups(3, false).should eq(result)
+    end
+  end
 end
