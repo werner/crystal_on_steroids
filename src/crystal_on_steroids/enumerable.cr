@@ -1,4 +1,18 @@
 module Enumerable(T)
+  # An enumerable is blank if it's empty.
+  #
+  # ```
+  # [1,2,3].blank?
+  # => false
+  # [].blank?
+  # => true
+  # ```
+  #
+  # source: Rails ActiveSupport
+  def blank?
+    empty?
+  end
+
   # Returns `true` if many elements fulfilled the block condition,
   # much like any?, so `people.many? { |p| p.age > 26 }` returns `true`
   # if more than one person is over 26.

@@ -1,6 +1,15 @@
 require "./spec_helper"
 
 describe Enumerable do
+  describe "blank?" do
+    it "returns true for empty array and empty hash" do
+      test = [] of Int32
+      test.blank?.should eq(true)
+      test = {} of Int32 => Int32
+      test.blank?.should eq(true)
+    end
+  end
+
   describe "many" do
     it "returns true if there are many elements in array" do
       array = [1, 2, 3]

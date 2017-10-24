@@ -22,7 +22,6 @@ require "crystal_on_steroids"
 
 **Object**
 
-* blank?
 * present?
 * presence
 * to_query
@@ -52,6 +51,7 @@ require "crystal_on_steroids"
 
 **Enumerable**
 
+* blank?
 * many?
 * pluck
 * excludes?
