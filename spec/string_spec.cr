@@ -2,9 +2,18 @@ require "./spec_helper"
 
 describe String do
   describe "remove" do
-    it "removes all ocurrences of the pattern" do
+    it "removes all ocurrences of one pattern" do
       test = "Hello World"
       test.remove(/Hello /).should eq("World")
+      test = "Hello to World"
+      test.remove(/ to /).should eq("HelloWorld")
+      test = "Hello to World"
+      test.remove(/ to/).should eq("Hello World")
+    end
+
+    it "removes all ocurrences of multiple pattern" do
+      test = "Hello World"
+      test.remove(/Hello /, "World").should eq("")
     end
   end
 

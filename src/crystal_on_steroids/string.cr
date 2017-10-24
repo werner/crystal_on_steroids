@@ -3,14 +3,16 @@ class String
   # ```
   # str = "foo bar test"
   # str.remove(" test", /bar/)         # => "foo "
-  # str                                 # => "foo "
+  # str                                # => "foo "
   # ```
   #
   # source: Rails ActiveSupport
   def remove(*patterns)
-    patterns.map do |pattern|
-      gsub pattern, ""
-    end.first
+    dup = self.dup
+    patterns.each do |pattern|
+      dup = dup.gsub(pattern, "")
+    end
+    dup
   end
 
   # Truncates a given `text` after a given `size` if `text` is longer than `size`:
