@@ -142,6 +142,7 @@ class Array(T)
   # Splits or iterates over the array in +number+ of groups, padding any
   # remaining slots with +fill_with+ unless it is +false+.
   #
+  # ```
   #   %w(1 2 3 4 5 6 7 8 9 10).in_groups(3) {|group| p group}
   #   ["1", "2", "3", "4"]
   #   ["5", "6", "7", nil]
@@ -156,6 +157,7 @@ class Array(T)
   #   ["1", "2", "3"]
   #   ["4", "5"]
   #   ["6", "7"]
+  # ```
   #
   def in_groups(number, fill_with = nil)
     division = size / number
