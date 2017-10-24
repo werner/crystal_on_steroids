@@ -79,7 +79,7 @@ class String
   # source: Rails ActiveSupport
   def truncate_words(words_count, options = {} of Symbol => String)
     sep = options[:separator]? || " "
-    sep = Regex.escape(sep.to_s) unless Regex === sep
+    sep = Regex.escape(sep.to_s) unless sep.is_a?(Regex)
     if self =~ /\A((?>.+?#{sep}){#{words_count - 1}}.+?)#{sep}.*/m
       $1 + (options[:omission]? || "...")
     else
