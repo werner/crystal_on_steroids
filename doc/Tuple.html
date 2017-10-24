@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>Tuple(*T) - github.com/werner/crystal_on_steroids</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Array" data-name="array(t)">
+      <a href="Array.html">Array</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Bool" data-name="bool">
+      <a href="Bool.html">Bool</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/CrystalOnSteroids" data-name="crystalonsteroids">
+      <a href="CrystalOnSteroids.html">CrystalOnSteroids</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
+      <a href="Dig.html">Dig</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
+      <a href="Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Hash" data-name="hash(k, v)">
+      <a href="Hash.html">Hash</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
+      <a href="JSON.html">JSON</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
+      <a href="JSON/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/NamedTuple" data-name="namedtuple(**t)">
+      <a href="NamedTuple.html">NamedTuple</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Nil" data-name="nil">
+      <a href="Nil.html">Nil</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Number" data-name="number">
+      <a href="Number.html">Number</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Object" data-name="object">
+      <a href="Object.html">Object</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/String" data-name="string">
+      <a href="String.html">String</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Time" data-name="time">
+      <a href="Time.html">Time</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
+      <a href="Tuple.html">Tuple</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
+      <a href="YAML.html">YAML</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
+      <a href="YAML/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Tuple(*T)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Tuple.html">Tuple(*T)</a></li><li class="superclass">Value</li><li class="superclass"><a href="Object.html">Object</a></li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>A tuple is a fixed-size, immutable, stack-allocated sequence of values
+of possibly different types.</p>
+
+<p>You can think of a <code><a href="Tuple.html">Tuple</a></code> as an immutable <code><a href="Array.html">Array</a></code> whose types for each position
+are known at compile time.</p>
+
+<p>A tuple can be created with the usual <code>new</code> method or with a tuple literal:</p>
+
+<pre><code>tuple <span class="o">=</span> {<span class="n">1</span>, <span class="s">&quot;hello&quot;</span>, <span class="s">'x'</span>} <span class="c"># Tuple&#40;Int32, String, Char&#41;</span>
+tuple[<span class="n">0</span>]                  <span class="c"># &#61;&gt; 1</span>
+tuple[<span class="n">1</span>]                  <span class="c"># &#61;&gt; &quot;hello&quot;</span>
+tuple[<span class="n">2</span>]                  <span class="c"># &#61;&gt; &#39;x&#39;</span></code></pre>
+
+<p>The compiler knows what types are in each position, so when indexing
+a tuple with an integer literal the compiler will return
+the value in that index and with the expected type, like in the above
+snippet. Indexing with an integer literal outside the bounds of the tuple
+will give a compile-time error.</p>
+
+<p>Indexing with an integer value that is only known at runtime will return
+a value whose type is the union of all the types in the tuple, and might raise
+<code>IndexError</code>.</p>
+
+<p>Tuples are the preferred way to return fixed-size multiple return
+values because no memory is needed to be allocated for them:</p>
+
+<pre><code><span class="k">def</span> <span class="m">one_and_hello</span>
+  {<span class="n">1</span>, <span class="s">&quot;hello&quot;</span>}
+<span class="k">end</span>
+
+one, hello <span class="o">=</span> one_and_hello
+one   <span class="c"># &#61;&gt; 1</span>
+hello <span class="c"># &#61;&gt; &quot;hello&quot;</span></code></pre>
+
+<p>Good examples of the above are <code>Number#divmod</code> and <code>Enumerable#minmax</code>.</p>
+
+<p>Tuples can be splat with the <code>*</code> operator and passed to methods:</p>
+
+<pre><code><span class="k">def</span> <span class="m">multiply</span>(string, value)
+  string <span class="o">*</span> value
+<span class="k">end</span>
+
+tuple <span class="o">=</span> {<span class="s">&quot;hey&quot;</span>, <span class="n">2</span>}
+value <span class="o">=</span> multiply(<span class="o">*</span>tuple) <span class="c"># same as multiply tuple&#91;0&#93;, tuple&#91;1&#93;</span>
+value                    <span class="c"># &#61;&gt; &quot;heyhey&quot;</span></code></pre>
+
+<p>Finally, when using a splat argument in a method definition its type
+will be a tuple of the call arguments:</p>
+
+<pre><code><span class="k">def</span> <span class="m">splat_test</span>(<span class="o">*</span>args)
+  args
+<span class="k">end</span>
+
+tuple <span class="o">=</span> splat_test <span class="n">1</span>, <span class="s">&quot;hello&quot;</span>, <span class="s">'x'</span>
+tuple.<span class="k">class</span> <span class="c"># &#61;&gt; Tuple&#40;Int32, String, Char&#41;</span>
+tuple       <span class="c"># &#61;&gt; &#123;1, &quot;hello&quot;, &#39;x&#39;&#125;</span></code></pre>
+
+
+
+
+
+  <h2>Included Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type">Comparable(<a href="Tuple.html">Tuple(*T)</a>)</li>
+  
+    <li class="other-type"><a href="Dig.html">Dig</a></li>
+  
+    <li class="other-type">Indexable(Union(*T))</li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/dig.cr#L64" target="_blank">crystal_on_steroids/dig.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="Dig.html">Dig</a></code></h3>
+  
+  
+    <a href="Dig.html#dig%28index%29-instance-method" class="tooltip">
+      <span>dig(index)<br/>dig(index, *keys)</span>
+    dig</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="Enumerable.html">Enumerable(Union(*T))</a></code></h3>
+  
+  
+    <a href="Enumerable.html#avg-instance-method" class="tooltip">
+      <span>avg</span>
+    avg</a>, 
+    
+  
+    <a href="Enumerable.html#blank%3F-instance-method" class="tooltip">
+      <span>blank?</span>
+    blank?</a>, 
+    
+  
+    <a href="Enumerable.html#excludes%3F%28obj%29-instance-method" class="tooltip">
+      <span>excludes?(obj)</span>
+    excludes?</a>, 
+    
+  
+    <a href="Enumerable.html#many%3F%28%26block%29-instance-method" class="tooltip">
+      <span>many?(&block)<br/>many?</span>
+    many?</a>, 
+    
+  
+    <a href="Enumerable.html#pluck%28%2Akeys%29-instance-method" class="tooltip">
+      <span>pluck(*keys)</span>
+    pluck</a>, 
+    
+  
+    <a href="Enumerable.html#pluck%3F%28%2Akeys%29-instance-method" class="tooltip">
+      <span>pluck?(*keys)</span>
+    pluck?</a>, 
+    
+  
+    <a href="Enumerable.html#without%28%2Aitems%29-instance-method" class="tooltip">
+      <span>without(*items)</span>
+    without</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
+  
+  
+    <a href="Object.html#dig%3F%28index%2C%2Akeys%29-instance-method" class="tooltip">
+      <span>dig?(index, *keys)<br/>dig?</span>
+    dig?</a>, 
+    
+  
+    <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
+      <span>in?(another_object)</span>
+    in?</a>, 
+    
+  
+    <a href="Object.html#presence-instance-method" class="tooltip">
+      <span>presence</span>
+    presence</a>, 
+    
+  
+    <a href="Object.html#presence_in%28another_object%29-instance-method" class="tooltip">
+      <span>presence_in(another_object)</span>
+    presence_in</a>, 
+    
+  
+    <a href="Object.html#present%3F-instance-method" class="tooltip">
+      <span>present?</span>
+    present?</a>, 
+    
+  
+    <a href="Object.html#to_param-instance-method" class="tooltip">
+      <span>to_param</span>
+    to_param</a>, 
+    
+  
+    <a href="Object.html#to_query%28key%29-instance-method" class="tooltip">
+      <span>to_query(key)<br/>to_query</span>
+    to_query</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

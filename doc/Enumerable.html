@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>Enumerable(T) - github.com/werner/crystal_on_steroids</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Array" data-name="array(t)">
+      <a href="Array.html">Array</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Bool" data-name="bool">
+      <a href="Bool.html">Bool</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/CrystalOnSteroids" data-name="crystalonsteroids">
+      <a href="CrystalOnSteroids.html">CrystalOnSteroids</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
+      <a href="Dig.html">Dig</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
+      <a href="Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Hash" data-name="hash(k, v)">
+      <a href="Hash.html">Hash</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
+      <a href="JSON.html">JSON</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
+      <a href="JSON/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/NamedTuple" data-name="namedtuple(**t)">
+      <a href="NamedTuple.html">NamedTuple</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Nil" data-name="nil">
+      <a href="Nil.html">Nil</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Number" data-name="number">
+      <a href="Number.html">Number</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Object" data-name="object">
+      <a href="Object.html">Object</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/String" data-name="string">
+      <a href="String.html">String</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Time" data-name="time">
+      <a href="Time.html">Time</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
+      <a href="Tuple.html">Tuple</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
+      <a href="YAML.html">YAML</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
+      <a href="YAML/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Enumerable(T)
+
+</h1>
+
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>The <code><a href="Enumerable.html">Enumerable</a></code> mixin provides collection classes with several traversal, searching,
+filtering and querying methods.</p>
+
+<p>Including types must provide an <code>each</code> method, which yields successive members
+of the collection.</p>
+
+<p>For example:</p>
+
+<pre><code><span class="k">class</span> <span class="t">Three</span>
+  <span class="k">include</span> <span class="t">Enumerable</span>(<span class="t">Int32</span>)
+
+  <span class="k">def</span> <span class="m">each</span>
+    <span class="k">yield</span> <span class="n">1</span>
+    <span class="k">yield</span> <span class="n">2</span>
+    <span class="k">yield</span> <span class="n">3</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+three <span class="o">=</span> <span class="t">Three</span>.<span class="k">new</span>
+three.to_a                <span class="c"># &#61;&gt; &#91;1, 2, 3&#93;</span>
+three.select <span class="o">&</span>.odd?       <span class="c"># &#61;&gt; &#91;1, 3&#93;</span>
+three.all? { <span class="o">|</span>x<span class="o">|</span> x <span class="o"><</span> <span class="n">10</span> } <span class="c"># &#61;&gt; true</span></code></pre>
+
+<p>Note that most search and filter methods traverse an Enumerable eagerly,
+producing an <code><a href="Array.html">Array</a></code> as the result. For a lazy alternative refer to
+the <code>Iterator</code> and <code>Iterable</code> modules.</p>
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Direct including types</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="Hash.html">Hash(K, V)</a></li>
+  
+  </ul>
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L1" target="_blank">crystal_on_steroids/enumerable.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#avg-instance-method" class="signature"><strong>#avg</strong></a>
+        
+          <div class="summary"><p>Returns the average of a collection of numbers.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#blank%3F-instance-method" class="signature"><strong>#blank?</strong></a>
+        
+          <div class="summary"><p>An enumerable is blank if it's empty.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#excludes%3F%28obj%29-instance-method" class="signature"><strong>#excludes?</strong>(obj)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the collection does not contains <em>obj</em>, <code>false</code> otherwise.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#many%3F%28%26block%29-instance-method" class="signature"><strong>#many?</strong>(&block)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if many elements fulfilled the block condition, much like any?, so <code>people<a href="Enumerable.html#many%3F%28%26block%29-instance-method">.many?</a> { |p| p.age > 26 }</code> returns <code>true</code> if more than one person is over 26.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#many%3F-instance-method" class="signature"><strong>#many?</strong></a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the enumerable has more than 1 element.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pluck%28%2Akeys%29-instance-method" class="signature"><strong>#pluck</strong>(*keys)</a>
+        
+          <div class="summary"><p>Convert an enumerable to an array based on the given key, throws an error if any key does not exists.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pluck%3F%28%2Akeys%29-instance-method" class="signature"><strong>#pluck?</strong>(*keys)</a>
+        
+          <div class="summary"><p>Convert an enumerable to an array based on the given key, returns nil if any key does not exists.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#without%28%2Aitems%29-instance-method" class="signature"><strong>#without</strong>(*items)</a>
+        
+          <div class="summary"><p>Returns a copy of the enumerable without the specified items.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="avg-instance-method">
+      <div class="signature">
+        
+        def <strong>avg</strong>
+
+        <a class="method-permalink" href="#avg-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the average of a collection of numbers.</p>
+
+<pre><code>[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>].avg
+=> <span class="n">3</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L111" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="blank?-instance-method">
+      <div class="signature">
+        
+        def <strong>blank?</strong>
+
+        <a class="method-permalink" href="#blank%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>An enumerable is blank if it's empty.</p>
+
+<pre><code>[<span class="n">1</span>,<span class="n">2</span>,<span class="n">3</span>].blank?
+=> <span class="n">false</span>
+<span class="o">[]</span>.blank?
+=> <span class="n">true</span></code></pre>
+
+<p>source: Rails ActiveSupport</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="excludes?&#40;obj&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>excludes?</strong>(obj)
+
+        <a class="method-permalink" href="#excludes%3F%28obj%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns <code>true</code> if the collection does not contains <em>obj</em>, <code>false</code> otherwise.</p>
+
+<pre><code>[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].excludes?(<span class="n">4</span>) <span class="c"># &#61;&gt; true</span>
+[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>].excludes?(<span class="n">3</span>) <span class="c"># &#61;&gt; false</span></code></pre>
+
+<p>source: Rails ActiveSupport</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L89" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="many?&#40;&amp;block&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>many?</strong>(&block)
+
+        <a class="method-permalink" href="#many%3F%28%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns <code>true</code> if many elements fulfilled the block condition,
+much like any?, so <code>people<a href="Enumerable.html#many%3F%28%26block%29-instance-method">.many?</a> { |p| p.age > 26 }</code> returns <code>true</code>
+if more than one person is over 26.</p>
+
+<p>source: Rails ActiveSupport</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="many?-instance-method">
+      <div class="signature">
+        
+        def <strong>many?</strong>
+
+        <a class="method-permalink" href="#many%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns <code>true</code> if the enumerable has more than 1 element. functionally
+equivalent to <code>enum.size > 1</code>.</p>
+
+<p>source: Rails ActiveSupport</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pluck&#40;*keys&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>pluck</strong>(*keys)
+
+        <a class="method-permalink" href="#pluck%28%2Akeys%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Convert an enumerable to an array based on the given key, throws an error if any key does not exists.</p>
+
+<pre><code>[{ name: <span class="s">&quot;David&quot;</span> }, { name: <span class="s">&quot;Rafael&quot;</span> }, { name: <span class="s">&quot;Aaron&quot;</span> }].pluck(<span class="n">:name</span>)
+=> [<span class="s">&quot;David&quot;</span>, <span class="s">&quot;Rafael&quot;</span>, <span class="s">&quot;Aaron&quot;</span>]
+
+[{ id: <span class="n">1</span>, name: <span class="s">&quot;David&quot;</span> }, { id: <span class="n">2</span>, name: <span class="s">&quot;Rafael&quot;</span> }].pluck(<span class="n">:id</span>, <span class="n">:name</span>)
+=> [{<span class="n">1</span>, <span class="s">&quot;David&quot;</span>}, {<span class="n">2</span>, <span class="s">&quot;Rafael&quot;</span>}]</code></pre>
+
+<p>source: Rails ActiveSupport</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pluck?&#40;*keys&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>pluck?</strong>(*keys)
+
+        <a class="method-permalink" href="#pluck%3F%28%2Akeys%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Convert an enumerable to an array based on the given key, returns nil if any key does not exists.</p>
+
+<pre><code>[{ name: <span class="s">&quot;David&quot;</span> }, { name: <span class="s">&quot;Rafael&quot;</span> }, { name: <span class="s">&quot;Aaron&quot;</span> }].pluck(<span class="n">:name</span>)
+=> [<span class="s">&quot;David&quot;</span>, <span class="s">&quot;Rafael&quot;</span>, <span class="s">&quot;Aaron&quot;</span>]
+
+[{ id: <span class="n">1</span>, name: <span class="s">&quot;David&quot;</span> }, { id: <span class="n">2</span>, name: <span class="s">&quot;Rafael&quot;</span> }].pluck(<span class="n">:id</span>, <span class="n">:name</span>)
+=> [{<span class="n">1</span>, <span class="s">&quot;David&quot;</span>}, {<span class="n">2</span>, <span class="s">&quot;Rafael&quot;</span>}]
+
+[{ id: <span class="n">1</span>, name: <span class="s">&quot;David&quot;</span> }, { id: <span class="n">2</span>, name: <span class="s">&quot;Rafael&quot;</span> }].pluck(<span class="n">:color</span>)
+=> <span class="o">[]</span>
+
+[{ id: <span class="n">1</span>, name: <span class="s">&quot;David&quot;</span> }, { id: <span class="n">2</span>, name: <span class="s">&quot;Rafael&quot;</span> }].pluck(<span class="n">:id</span>, <span class="n">:color</span>)
+=> [{<span class="n">1</span>, <span class="n">nil</span>}, {<span class="n">2</span>, <span class="n">nil</span>}]</code></pre>
+
+<p>source: Rails ActiveSupport</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L73" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="without&#40;*items&#41;-instance-method">
+      <div class="signature">
+        
+        def <strong>without</strong>(*items)
+
+        <a class="method-permalink" href="#without%28%2Aitems%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns a copy of the enumerable without the specified items.</p>
+
+<pre><code>[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>].without <span class="n">3</span>, <span class="n">5</span>
+=> [<span class="n">1</span>, <span class="n">2</span>, <span class="n">4</span>]</code></pre>
+
+<p>source: Rails ActiveSupport</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/enumerable.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

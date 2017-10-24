@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>README - github.com/werner/crystal_on_steroids</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li class="current"><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Array" data-name="array(t)">
+      <a href="Array.html">Array</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Bool" data-name="bool">
+      <a href="Bool.html">Bool</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/CrystalOnSteroids" data-name="crystalonsteroids">
+      <a href="CrystalOnSteroids.html">CrystalOnSteroids</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
+      <a href="Dig.html">Dig</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
+      <a href="Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Hash" data-name="hash(k, v)">
+      <a href="Hash.html">Hash</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
+      <a href="JSON.html">JSON</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
+      <a href="JSON/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/NamedTuple" data-name="namedtuple(**t)">
+      <a href="NamedTuple.html">NamedTuple</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Nil" data-name="nil">
+      <a href="Nil.html">Nil</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Number" data-name="number">
+      <a href="Number.html">Number</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Object" data-name="object">
+      <a href="Object.html">Object</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/String" data-name="string">
+      <a href="String.html">String</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Time" data-name="time">
+      <a href="Time.html">Time</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
+      <a href="Tuple.html">Tuple</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
+      <a href="YAML.html">YAML</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
+      <a href="YAML/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1>Crystal on Steroids <a href="https://travis-ci.org/werner/crystal_on_steroids" target="_blank"><img src="https://travis-ci.org/werner/crystal_on_steroids.png" alt="Build Status"/></a> <a href="http://www.docrystal.org/github.com/werner/crystal_on_steroids" target="_blank"><img src="http://www.docrystal.org/badge.svg?style=round" alt="docrystal.org"/></a></h1>
+
+<p>A group of methods to make Crystal more programmer friendly. Methods taken from Rails ActiveSupport and others.</p>
+
+<h2>Installation</h2>
+
+<p>Add this to your application's <code>shard.yml</code>:</p>
+
+<pre><code class='language-yaml'>dependencies:
+  crystal_on_steroids:
+    github: werner/crystal_on_steroids</code></pre>
+
+<h2>Usage</h2>
+
+<pre><code class='language-crystal'><span class="k">require</span> <span class="s">&quot;crystal_on_steroids&quot;</span></code></pre>
+
+<h4>Methods</h4>
+
+<p><strong>Object</strong></p>
+
+<ul><li>present?</li><li>presence</li><li>to_query</li><li>to_param</li><li>in?</li><li>presence_in</li><li>dig?</li></ul>
+
+<p><strong>Array</strong></p>
+
+<ul><li>second</li><li>third</li><li>fourth</li><li>fifth</li><li>rest</li><li>dig</li><li>split</li><li>from</li><li>to</li><li>in_groups</li></ul>
+
+<p><strong>Hash</strong></p>
+
+<ul><li>compact</li><li>compact!</li><li>dig</li></ul>
+
+<p><strong>Enumerable</strong></p>
+
+<ul><li>blank?</li><li>many?</li><li>pluck</li><li>excludes?</li><li>without</li><li>avg (average)</li></ul>
+
+<p><strong>Time</strong></p>
+
+<ul><li>prev_day</li><li>next_day</li><li>yesterday</li><li>tomorrow</li><li>today?</li></ul>
+
+<p><strong>String</strong></p>
+
+<ul><li>remove</li><li>truncate</li><li>truncate_words</li><li>squish</li></ul>
+
+<p><strong>JSON::Any</strong></p>
+
+<ul><li>dig</li></ul>
+
+<p><strong>YAML::Any</strong></p>
+
+<ul><li>dig</li></ul>
+
+<p>More details in <a href="http://www.docrystal.org/github.com/werner/crystal_on_steroids" target="_blank">docs</a></p>
+
+<h2>Contributing</h2>
+
+<ol><li>Fork it ( https://github.com/werner/crystal_on_steroids/fork )</li><li>Create your feature branch (git checkout -b my-new-feature)</li><li>Commit your changes (git commit -am 'Add some feature')</li><li>Push to the branch (git push origin my-new-feature)</li><li>Create a new Pull Request</li></ol>
+
+<h2>Contributors</h2>
+
+<ul><li><a href="https://github.com/werner" target="_blank">werner</a> Werner Echezuría - creator, maintainer</li></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>Time - github.com/werner/crystal_on_steroids</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Array" data-name="array(t)">
+      <a href="Array.html">Array</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Bool" data-name="bool">
+      <a href="Bool.html">Bool</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/CrystalOnSteroids" data-name="crystalonsteroids">
+      <a href="CrystalOnSteroids.html">CrystalOnSteroids</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
+      <a href="Dig.html">Dig</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
+      <a href="Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Hash" data-name="hash(k, v)">
+      <a href="Hash.html">Hash</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
+      <a href="JSON.html">JSON</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
+      <a href="JSON/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/NamedTuple" data-name="namedtuple(**t)">
+      <a href="NamedTuple.html">NamedTuple</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Nil" data-name="nil">
+      <a href="Nil.html">Nil</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Number" data-name="number">
+      <a href="Number.html">Number</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Object" data-name="object">
+      <a href="Object.html">Object</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/String" data-name="string">
+      <a href="String.html">String</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/werner/crystal_on_steroids/Time" data-name="time">
+      <a href="Time.html">Time</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
+      <a href="Tuple.html">Tuple</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
+      <a href="YAML.html">YAML</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
+      <a href="YAML/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Time
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Time.html">Time</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass"><a href="Object.html">Object</a></li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p><code><a href="Time.html">Time</a></code> represents an instance in time. Here are some examples:</p>
+
+<h3>Basic Usage</h3>
+
+<pre><code>time <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>)
+
+time.year    <span class="c"># &#61;&gt; 2016</span>
+time.month   <span class="c"># &#61;&gt; 2</span>
+time.day     <span class="c"># &#61;&gt; 15</span>
+time.hour    <span class="c"># &#61;&gt; 10</span>
+time.minute  <span class="c"># &#61;&gt; 20</span>
+time.second  <span class="c"># &#61;&gt; 30</span>
+time.monday? <span class="c"># &#61;&gt; true</span>
+
+<span class="c"># Creating a time instance with a date only</span>
+<span class="t">Time</span>.<span class="k">new</span>(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>) <span class="c"># &#61;&gt; 2016-02-15 00:00:00</span>
+
+<span class="c"># Specifying a time</span>
+<span class="t">Time</span>.<span class="k">new</span>(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>) <span class="c"># &#61;&gt; 2016-02-15 10:20:30 UTC</span></code></pre>
+
+<h3>Formatting Time</h3>
+
+<p>The <code>to_s</code> method returns a <code><a href="String.html">String</a></code> value in the assigned format.</p>
+
+<pre><code>time <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">12</span>)
+time.to_s(<span class="s">&quot;&#37;Y-&#37;m-&#37;d&quot;</span>) <span class="c"># &#61;&gt; &quot;2015-10-12&quot;</span></code></pre>
+
+<p>See <code>Time::Format</code> for all the directives.</p>
+
+<h3>Calculation</h3>
+
+<pre><code><span class="t">Time</span>.<span class="k">new</span>(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">10</span>) <span class="o">-</span> <span class="n">5</span>.days <span class="c"># &#61;&gt; 2015-10-05 00:00:00</span>
+
+<span class="c"># Time calculation returns a Time::Span instance</span>
+span <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">10</span>) <span class="o">-</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2015</span>, <span class="n">9</span>, <span class="n">10</span>)
+span.days          <span class="c"># &#61;&gt; 30</span>
+span.total_hours   <span class="c"># &#61;&gt; 720</span>
+span.total_minutes <span class="c"># &#61;&gt; 43200</span>
+
+<span class="c"># Calculation between Time::Span instances</span>
+span_a <span class="o">=</span> <span class="t">Time</span><span class="t">::</span><span class="t">Span</span>.<span class="k">new</span>(<span class="n">3</span>, <span class="n">0</span>, <span class="n">0</span>)
+span_b <span class="o">=</span> <span class="t">Time</span><span class="t">::</span><span class="t">Span</span>.<span class="k">new</span>(<span class="n">2</span>, <span class="n">0</span>, <span class="n">0</span>)
+span <span class="o">=</span> span_a <span class="o">-</span> span_b
+span       <span class="c"># &#61;&gt; 01:00:00</span>
+span.<span class="k">class</span> <span class="c"># &#61;&gt; Time::Span</span>
+span.hours <span class="c"># &#61;&gt; 1</span></code></pre>
+
+
+
+
+
+  <h2>Included Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type">Comparable(self)</li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/time.cr#L1" target="_blank">crystal_on_steroids/time.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#next_day-instance-method" class="signature"><strong>#next_day</strong></a>
+        
+          <div class="summary"><p>Moves one day in the future.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#prev_day-instance-method" class="signature"><strong>#prev_day</strong></a>
+        
+          <div class="summary"><p>Moves one day in the past.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#today%3F-instance-method" class="signature"><strong>#today?</strong></a>
+        
+          <div class="summary"><p>Check if the especified time is corresponding to today</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tomorrow-instance-method" class="signature"><strong>#tomorrow</strong></a>
+        
+          <div class="summary"><p>Moves one day in the future.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#yesterday-instance-method" class="signature"><strong>#yesterday</strong></a>
+        
+          <div class="summary"><p>Moves one day in the past.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
+  
+  
+    <a href="Object.html#dig%3F%28index%2C%2Akeys%29-instance-method" class="tooltip">
+      <span>dig?(index, *keys)<br/>dig?</span>
+    dig?</a>, 
+    
+  
+    <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
+      <span>in?(another_object)</span>
+    in?</a>, 
+    
+  
+    <a href="Object.html#presence-instance-method" class="tooltip">
+      <span>presence</span>
+    presence</a>, 
+    
+  
+    <a href="Object.html#presence_in%28another_object%29-instance-method" class="tooltip">
+      <span>presence_in(another_object)</span>
+    presence_in</a>, 
+    
+  
+    <a href="Object.html#present%3F-instance-method" class="tooltip">
+      <span>present?</span>
+    present?</a>, 
+    
+  
+    <a href="Object.html#to_param-instance-method" class="tooltip">
+      <span>to_param</span>
+    to_param</a>, 
+    
+  
+    <a href="Object.html#to_query%28key%29-instance-method" class="tooltip">
+      <span>to_query(key)<br/>to_query</span>
+    to_query</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="next_day-instance-method">
+      <div class="signature">
+        
+        def <strong>next_day</strong>
+
+        <a class="method-permalink" href="#next_day-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Moves one day in the future.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/time.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="prev_day-instance-method">
+      <div class="signature">
+        
+        def <strong>prev_day</strong>
+
+        <a class="method-permalink" href="#prev_day-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Moves one day in the past.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/time.cr#L3" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="today?-instance-method">
+      <div class="signature">
+        
+        def <strong>today?</strong>
+
+        <a class="method-permalink" href="#today%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Check if the especified time is corresponding to today</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/time.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tomorrow-instance-method">
+      <div class="signature">
+        
+        def <strong>tomorrow</strong>
+
+        <a class="method-permalink" href="#tomorrow-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Moves one day in the future.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/time.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="yesterday-instance-method">
+      <div class="signature">
+        
+        def <strong>yesterday</strong>
+
+        <a class="method-permalink" href="#yesterday-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Moves one day in the past.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/d61e769b42b682f904addb19c0f47fa345fce21f/src/crystal_on_steroids/time.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
