@@ -116,4 +116,30 @@ describe Array do
       array.in_groups(3, false).should eq(result)
     end
   end
+
+  describe "slice" do
+    it "should return element at index when only index position is passed" do
+      array = %w(1 2 3 4 5 6 7 8 9 10)
+      array_2 = [0, :one, "two"]
+
+      array.slice(5).should eq(array[5])
+      array_2.slice(1).should eq(array_2[1])
+    end
+
+    it "should return an array starting from index with elmelements " do
+      array = %w(1 2 3 4 5 6 7 8 9 10)
+      array_2 = [0, :one, "two"]
+
+      array.slice(5, 5).should eq(%w(6 7 8 9 10))
+      array_2.slice(1, 2).should eq([:one, "two"])
+    end
+
+    it "should return an array based on the range passed" do
+      array = %w(1 2 3 4 5 6 7 8 9 10)
+      array_2 = [0, :one, "two"]
+
+      array.slice(5..10).should eq(%w(6 7 8 9 10))
+      array_2.slice(1..2).should eq([:one, "two"])
+    end
+  end
 end
