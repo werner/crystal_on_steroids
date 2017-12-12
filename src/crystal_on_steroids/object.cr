@@ -46,4 +46,9 @@ class Object
   def presence_in(another_object)
     self.in?(another_object) ? self : nil
   end
+
+  # source: https://github.com/mperham/sidekiq/blob/e447dae961ebc894f12848d9f33446a07ffc67dc/lib/sidekiq.rb#L52
+  def self.❨╯°□°❩╯︵┻━┻
+    puts "Calm down, yo."
+  end
 end
