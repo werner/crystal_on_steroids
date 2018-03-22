@@ -41,7 +41,7 @@ describe YAML::Any do
              END
 
     it "search for a value in a yaml object" do
-      data.dig("country", "city", "age").should eq(["49"])
+      data.dig("country", "city", "age").should eq([49])
     end
 
     it "returns nil when there is no value" do
