@@ -6,6 +6,12 @@ describe Object do
       test = "Hello World!"
       test.to_query("greetings").should eq("greetings=Hello%20World%21")
     end
+
+    it "returns %E2%AC%A4 from ⬤ " do
+      test = "⬤"
+      test.to_query("data").should eq("data=%E2%AC%A4")
+
+    end
   end
 end
 
