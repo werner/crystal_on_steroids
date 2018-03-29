@@ -10,7 +10,6 @@ describe Object do
     it "returns %E2%AC%A4 from ⬤ " do
       test = "⬤"
       test.to_query("data").should eq("data=%E2%AC%A4")
-
     end
   end
 end
@@ -31,16 +30,26 @@ describe Array do
   end
 end
 
-describe Hash do
+describe NamedTuple do
   describe "to_query" do
-    it "returns an url encode string for a hash without namespace" do
+    it "returns an url encode string for a named tuple without namespace" do
       hash = {name: "David", nationality: "Danish"}
-      hash.to_query.should eq("%7Bname%3A%20%22David%22%2C%20nationality%3A%20%22Danish%22%7D")
+      hash.to_query.should eq("name=David&nationality=Danish")
     end
 
-    it "returns an url encode string for a hash with namespace" do
+    it "returns an url encode string for a named tuple with namespace" do
       hash = {name: "David", nationality: "Danish"}
-      hash.to_query("user").should eq("user=%7Bname%3A%20%22David%22%2C%20nationality%3A%20%22Danish%22%7D")
+      hash.to_query("user").should eq("user%5Bname%5D=David&user%5Bnationality%5D=Danish")
+    end
+
+  end
+end
+
+describe NamedTuple do
+  describe "to_query" do
+    it "returns an url encode string for a hash without namespace" do
+      hash = {"my_hash" => {"name" => "David", "nationality" => "Danish"}}
+      hash.to_query.should eq("my_hash%5Bname%5D=David&my_hash%5Bnationality%5D=Danish")
     end
   end
 end

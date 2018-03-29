@@ -14,9 +14,9 @@ class Object
   end
 
   # Converts an object into a string suitable for use as a URL query string,
-  # using the given `key` as the param name.
-  def to_query(key)
-    "#{URI.escape(key.to_param)}=#{URI.escape(to_param.to_s)}"
+  # using the given `namespace` as the param name.
+  def to_query(namespace)
+    "#{URI.escape(namespace.to_param)}=#{URI.escape(to_param.to_s)}"
   end
 end
 
@@ -49,12 +49,13 @@ class Array(T)
   # ["michael", "jhon"].to_query("user")
   # => "user%5B%5D=michael&user%5B%5D=jhon"
   # ```
-  def to_query(key)
-    prefix = "#{key}[]"
-    HTTP::Params.build do |form|
-      each do |value|
-        form.add prefix, value
-      end
+  def to_query(namespace)
+    prefix = "#{namespace}[]"
+
+    if empty?
+      nil.to_query(prefix)
+    else
+      map { |value| value.to_query(prefix) }.join "&"
     end
   end
 end
@@ -76,17 +77,19 @@ class Hash(K, V)
   # ```
   #
   def to_query(namespace = nil)
-    HTTP::Params.build do |form|
-      compact.each do |key, value|
-        unless (value.is_a?(Hash) || value.is_a?(Array)) && value.empty?
-          form.add (namespace ? "#{namespace}[#{key.to_s}]" : key.to_s), value
-        end
-      end
-    end
+    map do |key, value|
+      value.to_query(namespace ? "#{namespace}[#{key}]" : key)
+    end.compact.sort!.flatten.join "&"
   end
 
   # Alias for to_query
   def to_param
     to_query
+  end
+end
+
+struct NamedTuple
+  def to_query(namespace = nil)
+    to_h.to_query(namespace)
   end
 end
