@@ -74,6 +74,9 @@ require "crystal_on_steroids"
 * truncate_words
 * squish
 
+**Int**
+* multiple_of?
+
 **JSON::Any**
 
 * dig
