@@ -1,8 +1,6 @@
 class Object
   # An object is present if it's not blank.
   #
-  # @return [true, false]
-  #
   # source: Rails ActiveSupport
   def present?
     !blank?
@@ -15,8 +13,6 @@ class Object
   # object.present? ? object : nil
   # ```
   #
-  # @return [Object]
-  # 
   # source: Rails ActiveSupport
   def presence
     self if present?
