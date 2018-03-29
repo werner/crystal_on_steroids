@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>Bool - github.com/werner/crystal_on_steroids</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Array" data-name="array(t)">
+      <a href="Array.html">Array</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/werner/crystal_on_steroids/Bool" data-name="bool">
+      <a href="Bool.html">Bool</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/CrystalOnSteroids" data-name="crystalonsteroids">
+      <a href="CrystalOnSteroids.html">CrystalOnSteroids</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
+      <a href="Dig.html">Dig</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
+      <a href="Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Hash" data-name="hash(k, v)">
+      <a href="Hash.html">Hash</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Int" data-name="int">
+      <a href="Int.html">Int</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
+      <a href="JSON.html">JSON</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
+      <a href="JSON/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/NamedTuple" data-name="namedtuple(**t)">
+      <a href="NamedTuple.html">NamedTuple</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Nil" data-name="nil">
+      <a href="Nil.html">Nil</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Number" data-name="number">
+      <a href="Number.html">Number</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Object" data-name="object">
+      <a href="Object.html">Object</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/String" data-name="string">
+      <a href="String.html">String</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Time" data-name="time">
+      <a href="Time.html">Time</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
+      <a href="Tuple.html">Tuple</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
+      <a href="YAML.html">YAML</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
+      <a href="YAML/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">struct</span> Bool
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Bool.html">Bool</a></li><li class="superclass">Value</li><li class="superclass"><a href="Object.html">Object</a></li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>Bool has only two possible values: <code>true</code> and <code>false</code>. They are constructed using these literals:</p>
+
+<pre><code><span class="n">true</span>  <span class="c"># A Bool that is true</span>
+<span class="n">false</span> <span class="c"># A Bool that is false</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/bool.cr#L1" target="_blank">crystal_on_steroids/bool.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/to_query.cr#L30" target="_blank">crystal_on_steroids/to_query.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#blank%3F-instance-method" class="signature"><strong>#blank?</strong></a>
+        
+          <div class="summary"><p>A bool object will be blank if it's false.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_param-instance-method" class="signature"><strong>#to_param</strong></a>
+        
+          <div class="summary"><p>Return <code>self</code></p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
+  
+  
+    <a href="Object.html#dig%3F%28index%2C%2Akeys%29-instance-method" class="tooltip">
+      <span>dig?(index, *keys)<br/>dig?</span>
+    dig?</a>, 
+    
+  
+    <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
+      <span>in?(another_object)</span>
+    in?</a>, 
+    
+  
+    <a href="Object.html#presence-instance-method" class="tooltip">
+      <span>presence</span>
+    presence</a>, 
+    
+  
+    <a href="Object.html#presence_in%28another_object%29-instance-method" class="tooltip">
+      <span>presence_in(another_object)</span>
+    presence_in</a>, 
+    
+  
+    <a href="Object.html#present%3F-instance-method" class="tooltip">
+      <span>present?</span>
+    present?</a>, 
+    
+  
+    <a href="Object.html#to_param-instance-method" class="tooltip">
+      <span>to_param</span>
+    to_param</a>, 
+    
+  
+    <a href="Object.html#to_query%28namespace%29-instance-method" class="tooltip">
+      <span>to_query(namespace)<br/>to_query</span>
+    to_query</a>
+    
+  
+
+
+    
+
+
+    
+
+  <h3>Class methods inherited from class <code><a href="Object.html">Object</a></code></h3>
+  
+  
+    <a href="Object.html#%E2%9D%A8%E2%95%AF%C2%B0%E2%96%A1%C2%B0%E2%9D%A9%E2%95%AF%EF%B8%B5%E2%94%BB%E2%94%81%E2%94%BB-class-method" class="tooltip">
+      <span>❨╯°□°❩╯︵┻━┻</span>
+    ❨╯°□°❩╯︵┻━┻</a>
+    
+  
+
+
+  
+</div>
+
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="blank?-instance-method">
+      <div class="signature">
+        
+        def <strong>blank?</strong>
+
+        <a class="method-permalink" href="#blank%3F-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>A bool object will be blank if it's false.</p>
+
+<pre><code><span class="n">true</span>.blank?
+=> <span class="n">false</span>
+
+<span class="n">false</span>.blank?
+=> <span class="n">true</span></code></pre>
+
+<p>source: Rails ActiveSupport</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/bool.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_param-instance-method">
+      <div class="signature">
+        
+        def <strong>to_param</strong>
+
+        <a class="method-permalink" href="#to_param-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Return <code>self</code></p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/to_query.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

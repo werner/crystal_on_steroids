@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>Int - github.com/werner/crystal_on_steroids</title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Array" data-name="array(t)">
+      <a href="Array.html">Array</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Bool" data-name="bool">
+      <a href="Bool.html">Bool</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/CrystalOnSteroids" data-name="crystalonsteroids">
+      <a href="CrystalOnSteroids.html">CrystalOnSteroids</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
+      <a href="Dig.html">Dig</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
+      <a href="Enumerable.html">Enumerable</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Hash" data-name="hash(k, v)">
+      <a href="Hash.html">Hash</a>
+      
+    </li>
+  
+  <li class=" current" data-id="github.com/werner/crystal_on_steroids/Int" data-name="int">
+      <a href="Int.html">Int</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
+      <a href="JSON.html">JSON</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
+      <a href="JSON/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/NamedTuple" data-name="namedtuple(**t)">
+      <a href="NamedTuple.html">NamedTuple</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Nil" data-name="nil">
+      <a href="Nil.html">Nil</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Number" data-name="number">
+      <a href="Number.html">Number</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Object" data-name="object">
+      <a href="Object.html">Object</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/String" data-name="string">
+      <a href="String.html">String</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Time" data-name="time">
+      <a href="Time.html">Time</a>
+      
+    </li>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
+      <a href="Tuple.html">Tuple</a>
+      
+    </li>
+  
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
+      <a href="YAML.html">YAML</a>
+      
+        <ul>
+  
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
+      <a href="YAML/Any.html">Any</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">abstract struct</span> Int
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Int.html">Int</a></li><li class="superclass"><a href="Number.html">Number</a></li><li class="superclass">Value</li><li class="superclass"><a href="Object.html">Object</a></li></ul>
+
+
+
+
+  <h2>Overview</h2>
+
+  <p>Int is the base type of all integer types.</p>
+
+<p>There are four signed integer types: <code>Int8</code>, <code>Int16</code>, <code>Int32</code> and <code>Int64</code>,
+being able to represent numbers of 8, 16, 32 and 64 bits respectively.
+There are four unsigned integer types: <code>UInt8</code>, <code>UInt16</code>, <code>UInt32</code> and <code>UInt64</code>.</p>
+
+<p>An integer literal is an optional <code>+</code> or <code>-</code> sign, followed by
+a sequence of digits and underscores, optionally followed by a suffix.
+If no suffix is present, the literal's type is the lowest between <code>Int32</code>, <code>Int64</code> and <code>UInt64</code>
+in which the number fits:</p>
+
+<pre><code><span class="n">1</span> <span class="c"># Int32</span>
+
+<span class="n">1_i8</span>  <span class="c"># Int8</span>
+<span class="n">1_i16</span> <span class="c"># Int16</span>
+<span class="n">1_i32</span> <span class="c"># Int32</span>
+<span class="n">1_i64</span> <span class="c"># Int64</span>
+
+<span class="n">1_u8</span>  <span class="c"># UInt8</span>
+<span class="n">1_u16</span> <span class="c"># UInt16</span>
+<span class="n">1_u32</span> <span class="c"># UInt32</span>
+<span class="n">1_u64</span> <span class="c"># UInt64</span>
+
+<span class="n">+10</span> <span class="c"># Int32</span>
+<span class="n">-20</span> <span class="c"># Int32</span>
+
+<span class="n">2147483648</span>          <span class="c"># Int64</span>
+<span class="n">9223372036854775808</span> <span class="c"># UInt64</span></code></pre>
+
+<p>The underscore <code>_</code> before the suffix is optional.</p>
+
+<p>Underscores can be used to make some numbers more readable:</p>
+
+<pre><code><span class="n">1_000_000</span> <span class="c"># better than 1000000</span></code></pre>
+
+<p>Binary numbers start with <code>0b</code>:</p>
+
+<pre><code><span class="n">0b1101</span> <span class="c"># == 13</span></code></pre>
+
+<p>Octal numbers start with <code>0o</code>:</p>
+
+<pre><code><span class="n">0o123</span> <span class="c"># == 83</span></code></pre>
+
+<p>Hexadecimal numbers start with <code>0x</code>:</p>
+
+<pre><code><span class="n">0xFE012D</span> <span class="c"># == 16646445</span>
+<span class="n">0xfe012d</span> <span class="c"># == 16646445</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+    
+      <a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/inflections.cr#L1" target="_blank">crystal_on_steroids/inflections.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/int.cr#L1" target="_blank">crystal_on_steroids/int.cr</a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#multiple_of%3F%28number%29-instance-method" class="signature"><strong>#multiple_of?</strong>(number)</a>
+        
+          <div class="summary"><p>Check whether the integer is evenly divisible by the argument.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ordinal-instance-method" class="signature"><strong>#ordinal</strong></a>
+        
+          <div class="summary"><p>Returns the suffix that should be added to a number to denote the position in an ordered sequence such as 1st, 2nd, 3rd, 4th.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ordinalize-instance-method" class="signature"><strong>#ordinalize</strong></a>
+        
+          <div class="summary"><p>Turns a number into an ordinal string used to denote the position in an ordered sequence such as 1st, 2nd, 3rd, 4th.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from struct <code><a href="Number.html">Number</a></code></h3>
+  
+  
+    <a href="Number.html#blank%3F-instance-method" class="tooltip">
+      <span>blank?</span>
+    blank?</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
+  
+  
+    <a href="Object.html#dig%3F%28index%2C%2Akeys%29-instance-method" class="tooltip">
+      <span>dig?(index, *keys)<br/>dig?</span>
+    dig?</a>, 
+    
+  
+    <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
+      <span>in?(another_object)</span>
+    in?</a>, 
+    
+  
+    <a href="Object.html#presence-instance-method" class="tooltip">
+      <span>presence</span>
+    presence</a>, 
+    
+  
+    <a href="Object.html#presence_in%28another_object%29-instance-method" class="tooltip">
+      <span>presence_in(another_object)</span>
+    presence_in</a>, 
+    
+  
+    <a href="Object.html#present%3F-instance-method" class="tooltip">
+      <span>present?</span>
+    present?</a>, 
+    
+  
+    <a href="Object.html#to_param-instance-method" class="tooltip">
+      <span>to_param</span>
+    to_param</a>, 
+    
+  
+    <a href="Object.html#to_query%28namespace%29-instance-method" class="tooltip">
+      <span>to_query(namespace)<br/>to_query</span>
+    to_query</a>
+    
+  
+
+
+    
+
+
+    
+
+  <h3>Class methods inherited from class <code><a href="Object.html">Object</a></code></h3>
+  
+  
+    <a href="Object.html#%E2%9D%A8%E2%95%AF%C2%B0%E2%96%A1%C2%B0%E2%9D%A9%E2%95%AF%EF%B8%B5%E2%94%BB%E2%94%81%E2%94%BB-class-method" class="tooltip">
+      <span>❨╯°□°❩╯︵┻━┻</span>
+    ❨╯°□°❩╯︵┻━┻</a>
+    
+  
+
+
+  
+</div>
+
+
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="multiple_of?(number)-instance-method">
+      <div class="signature">
+        
+        def <strong>multiple_of?</strong>(number)
+
+        <a class="method-permalink" href="#multiple_of%3F%28number%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Check whether the integer is evenly divisible by the argument.</p>
+
+<pre><code>  <span class="n">0</span>.multiple_of?(<span class="n">0</span>)  <span class="c"># =&gt; true</span>
+  <span class="n">6</span>.multiple_of?(<span class="n">5</span>)  <span class="c"># =&gt; false</span>
+  <span class="n">10</span>.multiple_of?(<span class="n">2</span>) <span class="c"># =&gt; true</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/int.cr#L9" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ordinal-instance-method">
+      <div class="signature">
+        
+        def <strong>ordinal</strong>
+
+        <a class="method-permalink" href="#ordinal-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the suffix that should be added to a number to denote the position
+in an ordered sequence such as 1st, 2nd, 3rd, 4th.</p>
+
+<pre><code>  <span class="n">1</span>.ordinal     <span class="c"># =&gt; &quot;st&quot;</span>
+  <span class="n">2</span>.ordinal     <span class="c"># =&gt; &quot;nd&quot;</span>
+  <span class="n">1002</span>.ordinal  <span class="c"># =&gt; &quot;nd&quot;</span>
+  <span class="n">1003</span>.ordinal  <span class="c"># =&gt; &quot;rd&quot;</span>
+  <span class="n">-11</span>.ordinal   <span class="c"># =&gt; &quot;th&quot;</span>
+  <span class="n">-1021</span>.ordinal <span class="c"># =&gt; &quot;st&quot;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/inflections.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ordinalize-instance-method">
+      <div class="signature">
+        
+        def <strong>ordinalize</strong>
+
+        <a class="method-permalink" href="#ordinalize-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Turns a number into an ordinal string used to denote the position in an
+ordered sequence such as 1st, 2nd, 3rd, 4th.</p>
+
+<pre><code>  <span class="n">1</span>.ordinalize     <span class="c"># =&gt; &quot;1st&quot;</span>
+  <span class="n">2</span>.ordinalize     <span class="c"># =&gt; &quot;2nd&quot;</span>
+  <span class="n">1002</span>.ordinalize  <span class="c"># =&gt; &quot;1002nd&quot;</span>
+  <span class="n">1003</span>.ordinalize  <span class="c"># =&gt; &quot;1003rd&quot;</span>
+  <span class="n">-11</span>.ordinalize   <span class="c"># =&gt; &quot;-11th&quot;</span>
+  <span class="n">-1021</span>.ordinalize <span class="c"># =&gt; &quot;-1021st&quot;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/f17e08f43ac2dd9e03644f28c8641f858fb494d3/src/crystal_on_steroids/inflections.cr#L39" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
