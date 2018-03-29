@@ -1,4 +1,4 @@
-# Crystal on Steroids [![Build Status](https://travis-ci.org/werner/crystal_on_steroids.png)](https://travis-ci.org/werner/crystal_on_steroids)
+# Crystal on Steroids [![Build Status](https://travis-ci.org/werner/crystal_on_steroids.png)](https://travis-ci.org/werner/crystal_on_steroids) [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://werner.github.io/crystal_on_steroids/)
 
 A group of methods to make Crystal more programmer friendly. Methods taken from Rails ActiveSupport and others.
 
@@ -87,7 +87,7 @@ require "crystal_on_steroids"
 
 * dig
 
-More details in [docs](http://www.docrystal.org/github.com/werner/crystal_on_steroids)
+More details in [docs](https://werner.github.io/crystal_on_steroids/)
 
 ## Contributing
 
