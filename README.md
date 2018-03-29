@@ -76,6 +76,8 @@ require "crystal_on_steroids"
 
 **Int**
 * multiple_of?
+* ordinal
+* ordinalize
 
 **JSON::Any**
 
