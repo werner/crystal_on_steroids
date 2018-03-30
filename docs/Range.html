@@ -5,7 +5,7 @@
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/doc.js"></script>
-  <title>Tuple(*T) - github.com/werner/crystal_on_steroids</title>
+  <title>Range(B, E) - github.com/werner/crystal_on_steroids</title>
 </head>
 <body>
 
@@ -90,7 +90,7 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Range" data-name="range(b, e)">
+  <li class=" current" data-id="github.com/werner/crystal_on_steroids/Range" data-name="range(b, e)">
       <a href="Range.html">Range</a>
       
     </li>
@@ -110,7 +110,7 @@
       
     </li>
   
-  <li class=" current" data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
       <a href="Tuple.html">Tuple</a>
       
     </li>
@@ -137,74 +137,65 @@
 <div id="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> Tuple(*T)
+  <span class="kind">struct</span> Range(B, E)
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="Tuple.html">Tuple(*T)</a></li><li class="superclass">Value</li><li class="superclass"><a href="Object.html">Object</a></li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Range.html">Range(B, E)</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass"><a href="Object.html">Object</a></li></ul>
 
 
 
 
   <h2>Overview</h2>
 
-  <p>A tuple is a fixed-size, immutable, stack-allocated sequence of values
-of possibly different types.</p>
+  <p>A <code><a href="Range.html">Range</a></code> represents an interval: a set of values with a beginning and an end.</p>
 
-<p>You can think of a <code><a href="Tuple.html">Tuple</a></code> as an immutable <code><a href="Array.html">Array</a></code> whose types for each position
-are known at compile time.</p>
+<p>Ranges may be constructed using the usual <code>new</code> method or with literals:</p>
 
-<p>A tuple can be created with the usual <code>new</code> method or with a tuple literal:</p>
+<pre><code>x..y  <span class="c"># an inclusive range, in mathematics: [x, y]</span>
+x...y <span class="c"># an exclusive range, in mathematics: [x, y)</span></code></pre>
 
-<pre><code>tuple <span class="o">=</span> {<span class="n">1</span>, <span class="s">&quot;hello&quot;</span>, <span class="s">'x'</span>} <span class="c"># Tuple(Int32, String, Char)</span>
-tuple[<span class="n">0</span>]                  <span class="c"># =&gt; 1</span>
-tuple[<span class="n">1</span>]                  <span class="c"># =&gt; &quot;hello&quot;</span>
-tuple[<span class="n">2</span>]                  <span class="c"># =&gt; &#39;x&#39;</span></code></pre>
+<p>An easy way to remember which one is inclusive and which one is exclusive it
+to think of the extra dot as if it pushes <em>y</em> further away, thus leaving it outside of the range.</p>
 
-<p>The compiler knows what types are in each position, so when indexing
-a tuple with an integer literal the compiler will return
-the value in that index and with the expected type, like in the above
-snippet. Indexing with an integer literal outside the bounds of the tuple
-will give a compile-time error.</p>
+<p>Ranges typically involve integers, but can be created using arbitrary objects
+as long as they define <code>succ</code> (or <code>pred</code> for <code>reverse_each</code>), to get the
+next element in the range, and <code><</code> and <code>==</code>, to know when the range reached the end:</p>
 
-<p>Indexing with an integer value that is only known at runtime will return
-a value whose type is the union of all the types in the tuple, and might raise
-<code>IndexError</code>.</p>
+<pre><code><span class="c"># Represents a string of &#39;x&#39;s.</span>
+<span class="k">struct</span> <span class="t">Xs</span>
+  <span class="k">include</span> <span class="t">Comparable</span>(<span class="t">Xs</span>)
 
-<p>Tuples are the preferred way to return fixed-size multiple return
-values because no memory is needed to be allocated for them:</p>
+  getter size
 
-<pre><code><span class="k">def</span> <span class="m">one_and_hello</span>
-  {<span class="n">1</span>, <span class="s">&quot;hello&quot;</span>}
-<span class="k">end</span>
+  <span class="k">def</span> <span class="m">initialize</span>(@size : <span class="t">Int32</span>)
+  <span class="k">end</span>
 
-one, hello <span class="o">=</span> one_and_hello
-one   <span class="c"># =&gt; 1</span>
-hello <span class="c"># =&gt; &quot;hello&quot;</span></code></pre>
+  <span class="k">def</span> <span class="m">succ</span>
+    <span class="t">Xs</span>.<span class="k">new</span>(@size <span class="o">+</span> <span class="n">1</span>)
+  <span class="k">end</span>
 
-<p>Good examples of the above are <code>Number#divmod</code> and <code>Enumerable#minmax</code>.</p>
+  <span class="k">def</span> <span class="o"><=></span>(other)
+    @size <span class="o"><=></span> other.size
+  <span class="k">end</span>
 
-<p>Tuples can be splat with the <code>*</code> operator and passed to methods:</p>
+  <span class="k">def</span> <span class="m">inspect</span>(io)
+    @size.times { io <span class="o"><<</span> <span class="s">'x'</span> }
+  <span class="k">end</span>
 
-<pre><code><span class="k">def</span> <span class="m">multiply</span>(string, value)
-  string <span class="o">*</span> value
-<span class="k">end</span>
+  <span class="k">def</span> <span class="m">to_s</span>(io)
+    io <span class="o"><<</span> @size <span class="o"><<</span> <span class="s">' '</span>
+    inspect(io)
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
 
-tuple <span class="o">=</span> {<span class="s">&quot;hey&quot;</span>, <span class="n">2</span>}
-value <span class="o">=</span> multiply(<span class="o">*</span>tuple) <span class="c"># same as multiply tuple[0], tuple[1]</span>
-value                    <span class="c"># =&gt; &quot;heyhey&quot;</span></code></pre>
+<p>An example of using <code>Xs</code> to construct a range:</p>
 
-<p>Finally, when using a splat argument in a method definition its type
-will be a tuple of the call arguments:</p>
-
-<pre><code><span class="k">def</span> <span class="m">splat_test</span>(<span class="o">*</span>args)
-  args
-<span class="k">end</span>
-
-tuple <span class="o">=</span> splat_test <span class="n">1</span>, <span class="s">&quot;hello&quot;</span>, <span class="s">'x'</span>
-tuple.<span class="k">class</span> <span class="c"># =&gt; Tuple(Int32, String, Char)</span>
-tuple       <span class="c"># =&gt; {1, &quot;hello&quot;, &#39;x&#39;}</span></code></pre>
+<pre><code>r <span class="o">=</span> <span class="t">Xs</span>.<span class="k">new</span>(<span class="n">3</span>)..<span class="t">Xs</span>.<span class="k">new</span>(<span class="n">6</span>)
+r.to_s                 <span class="c"># =&gt; &quot;xxx..xxxxxx&quot;</span>
+r.to_a                 <span class="c"># =&gt; [Xs.new(3), Xs.new(4), Xs.new(5), Xs.new(6)]</span>
+r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n">5</span>)) <span class="c"># =&gt; true</span></code></pre>
 
 
 
@@ -213,11 +204,9 @@ tuple       <span class="c"># =&gt; {1, &quot;hello&quot;, &#39;x&#39;}</span></
   <h2>Included Modules</h2>
   <ul class="other-types-list">
   
-    <li class="other-type">Comparable(<a href="Tuple.html">Tuple(*T)</a>)</li>
+    <li class="other-type"><a href="Enumerable.html">Enumerable(B)</a></li>
   
-    <li class="other-type"><a href="Dig.html">Dig</a></li>
-  
-    <li class="other-type">Indexable(Union(*T))</li>
+    <li class="other-type">Iterable(B)</li>
   
   </ul>
 
@@ -233,7 +222,7 @@ tuple       <span class="c"># =&gt; {1, &quot;hello&quot;, &#39;x&#39;}</span></
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/562b51b81927a07d76987ad24a74f982fd07ebab/src/crystal_on_steroids/dig.cr#L64" target="_blank">crystal_on_steroids/dig.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/562b51b81927a07d76987ad24a74f982fd07ebab/src/crystal_on_steroids/range.cr#L1" target="_blank">crystal_on_steroids/range.cr</a>
     
     <br/>
   
@@ -246,6 +235,18 @@ tuple       <span class="c"># =&gt; {1, &quot;hello&quot;, &#39;x&#39;}</span></
 
 
 
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#overlaps%3F%28other%3ARange%29%3ABool-instance-method" class="signature"><strong>#overlaps?</strong>(other : Range) : Bool</a>
+        
+          <div class="summary"><p>Compare two ranges and see if they overlap each other <code></code>`  (1..5).overlaps?(4..6) # => true  (1..5).overlaps?(7..9) # => false <code></code>`</p></div>
+        
+      </li>
+    
+  </ul>
+
 
 
 
@@ -254,15 +255,6 @@ tuple       <span class="c"># =&gt; {1, &quot;hello&quot;, &#39;x&#39;}</span></
   
     
 
-  <h3>Instance methods inherited from module <code><a href="Dig.html">Dig</a></code></h3>
-  
-  
-    <a href="Dig.html#dig%28index%29-instance-method" class="tooltip">
-      <span>dig(index)<br/>dig(index, *keys)</span>
-    dig</a>
-    
-  
-
 
     
 
@@ -273,27 +265,7 @@ tuple       <span class="c"># =&gt; {1, &quot;hello&quot;, &#39;x&#39;}</span></
   
     
 
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-  <h3>Instance methods inherited from module <code><a href="Enumerable.html">Enumerable(Union(*T))</a></code></h3>
+  <h3>Instance methods inherited from module <code><a href="Enumerable.html">Enumerable(B)</a></code></h3>
   
   
     <a href="Enumerable.html#avg-instance-method" class="tooltip">
@@ -424,6 +396,30 @@ tuple       <span class="c"># =&gt; {1, &quot;hello&quot;, &#39;x&#39;}</span></
 
 
 
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="overlaps?(other:Range):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>overlaps?</strong>(other : <a href="Range.html">Range</a>) : <a href="Bool.html">Bool</a>
+
+        <a class="method-permalink" href="#overlaps%3F%28other%3ARange%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Compare two ranges and see if they overlap each other</p>
+
+<pre><code> (<span class="n">1</span>..<span class="n">5</span>).overlaps?(<span class="n">4</span>..<span class="n">6</span>) <span class="c"># =&gt; true</span>
+ (<span class="n">1</span>..<span class="n">5</span>).overlaps?(<span class="n">7</span>..<span class="n">9</span>) <span class="c"># =&gt; false</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/562b51b81927a07d76987ad24a74f982fd07ebab/src/crystal_on_steroids/range.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 

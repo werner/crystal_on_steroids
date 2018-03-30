@@ -82,6 +82,9 @@ require "crystal_on_steroids"
 **Regex**
 * match?
 
+**Range**
+* overlaps?
+
 **JSON::Any**
 
 * dig
