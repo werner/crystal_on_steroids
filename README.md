@@ -79,6 +79,9 @@ require "crystal_on_steroids"
 * ordinal
 * ordinalize
 
+**Regex**
+* match?
+
 **JSON::Any**
 
 * dig
