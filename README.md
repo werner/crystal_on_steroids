@@ -20,6 +20,10 @@ require "crystal_on_steroids"
 
 #### Methods
 
+**AliasMethod**
+
+* alias_method
+
 **Object**
 
 * present?
@@ -75,14 +79,17 @@ require "crystal_on_steroids"
 * squish
 
 **Int**
+
 * multiple_of?
 * ordinal
 * ordinalize
 
 **Regex**
+
 * match?
 
 **Range**
+
 * overlaps?
 
 **JSON::Any**
