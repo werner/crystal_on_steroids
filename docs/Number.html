@@ -20,6 +20,11 @@
 
   <ul>
   
+  <li class=" " data-id="github.com/werner/crystal_on_steroids/AliasMethod" data-name="aliasmethod">
+      <a href="AliasMethod.html">AliasMethod</a>
+      
+    </li>
+  
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Array" data-name="array(t)">
       <a href="Array.html">Array</a>
       
@@ -158,6 +163,10 @@
   <h2>Included Modules</h2>
   <ul class="other-types-list">
   
+    <li class="other-type"><a href="AliasMethod.html">AliasMethod</a></li>
+  
+    <li class="other-type">Comparable(BigFloat)</li>
+  
     <li class="other-type">Comparable(<a href="Number.html">Number</a>)</li>
   
   </ul>
@@ -181,12 +190,54 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/562b51b81927a07d76987ad24a74f982fd07ebab/src/crystal_on_steroids/number.cr#L1" target="_blank">crystal_on_steroids/number.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L3" target="_blank">crystal_on_steroids/bytes.cr</a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/number.cr#L1" target="_blank">crystal_on_steroids/number.cr</a>
     
     <br/>
   
 
 
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="EXABYTE">
+        <strong>EXABYTE</strong> = <code><span class="t">PETABYTE</span> <span class="o">*</span> <span class="n">1024</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="GIGABYTE">
+        <strong>GIGABYTE</strong> = <code><span class="t">MEGABYTE</span> <span class="o">*</span> <span class="n">1024</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="KILOBYTE">
+        <strong>KILOBYTE</strong> = <code><span class="n">1024</span>.to_big_i</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MEGABYTE">
+        <strong>MEGABYTE</strong> = <code><span class="t">KILOBYTE</span> <span class="o">*</span> <span class="n">1024</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PETABYTE">
+        <strong>PETABYTE</strong> = <code><span class="t">TERABYTE</span> <span class="o">*</span> <span class="n">1024</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="TERABYTE">
+        <strong>TERABYTE</strong> = <code><span class="t">GIGABYTE</span> <span class="o">*</span> <span class="n">1024</span></code>
+      </dt>
+      
+    
+  </dl>
 
 
 
@@ -204,6 +255,90 @@
         
       </li>
     
+      <li class="entry-summary">
+        <a href="#byte%28%2Aargs%29-instance-method" class="signature"><strong>#byte</strong>(*args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#bytes-instance-method" class="signature"><strong>#bytes</strong></a>
+        
+          <div class="summary"><p>Enables the use of byte calculations and declarations, like 45.bytes + 2.6.megabytes</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exabyte%28%2Aargs%29-instance-method" class="signature"><strong>#exabyte</strong>(*args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exabytes-instance-method" class="signature"><strong>#exabytes</strong></a>
+        
+          <div class="summary"><p>Returns the number of bytes equivalent to the exabytes provided.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gigabyte%28%2Aargs%29-instance-method" class="signature"><strong>#gigabyte</strong>(*args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gigabytes-instance-method" class="signature"><strong>#gigabytes</strong></a>
+        
+          <div class="summary"><p>Returns the number of bytes equivalent to the gigabytes provided.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#kilobyte%28%2Aargs%29-instance-method" class="signature"><strong>#kilobyte</strong>(*args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#kilobytes-instance-method" class="signature"><strong>#kilobytes</strong></a>
+        
+          <div class="summary"><p>Returns the number of bytes equivalent to the kilobytes provided.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#megabyte%28%2Aargs%29-instance-method" class="signature"><strong>#megabyte</strong>(*args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#megabytes-instance-method" class="signature"><strong>#megabytes</strong></a>
+        
+          <div class="summary"><p>Returns the number of bytes equivalent to the megabytes provided.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#petabyte%28%2Aargs%29-instance-method" class="signature"><strong>#petabyte</strong>(*args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#petabytes-instance-method" class="signature"><strong>#petabytes</strong></a>
+        
+          <div class="summary"><p>Returns the number of bytes equivalent to the petabytes provided.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#terabyte%28%2Aargs%29-instance-method" class="signature"><strong>#terabyte</strong>(*args)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#terabytes-instance-method" class="signature"><strong>#terabytes</strong></a>
+        
+          <div class="summary"><p>Returns the number of bytes equivalent to the terabytes provided.</p></div>
+        
+      </li>
+    
   </ul>
 
 
@@ -211,6 +346,26 @@
 
 
 <div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
   
     
 
@@ -320,7 +475,259 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/562b51b81927a07d76987ad24a74f982fd07ebab/src/crystal_on_steroids/number.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/number.cr#L13" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="byte(*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>byte</strong>(*args)
+
+        <a class="method-permalink" href="#byte%28%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L21" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="bytes-instance-method">
+      <div class="signature">
+        
+        def <strong>bytes</strong>
+
+        <a class="method-permalink" href="#bytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Enables the use of byte calculations and declarations, like 45.bytes + 2.6.megabytes</p>
+
+<pre><code>  <span class="n">2</span>.bytes <span class="c"># =&gt; 2</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exabyte(*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>exabyte</strong>(*args)
+
+        <a class="method-permalink" href="#exabyte%28%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L81" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exabytes-instance-method">
+      <div class="signature">
+        
+        def <strong>exabytes</strong>
+
+        <a class="method-permalink" href="#exabytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the number of bytes equivalent to the exabytes provided.</p>
+
+<pre><code>  <span class="n">2</span>.exabytes <span class="c"># =&gt; 2_305_843_009_213_693_952</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L78" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gigabyte(*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>gigabyte</strong>(*args)
+
+        <a class="method-permalink" href="#gigabyte%28%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gigabytes-instance-method">
+      <div class="signature">
+        
+        def <strong>gigabytes</strong>
+
+        <a class="method-permalink" href="#gigabytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the number of bytes equivalent to the gigabytes provided.</p>
+
+<pre><code>  <span class="n">2</span>.gigabytes <span class="c"># =&gt; 2_147_483_648</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="kilobyte(*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>kilobyte</strong>(*args)
+
+        <a class="method-permalink" href="#kilobyte%28%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="kilobytes-instance-method">
+      <div class="signature">
+        
+        def <strong>kilobytes</strong>
+
+        <a class="method-permalink" href="#kilobytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the number of bytes equivalent to the kilobytes provided.</p>
+
+<pre><code>  <span class="n">2</span>.kilobytes <span class="c"># =&gt; 2048</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L28" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="megabyte(*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>megabyte</strong>(*args)
+
+        <a class="method-permalink" href="#megabyte%28%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L41" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="megabytes-instance-method">
+      <div class="signature">
+        
+        def <strong>megabytes</strong>
+
+        <a class="method-permalink" href="#megabytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the number of bytes equivalent to the megabytes provided.</p>
+
+<pre><code>  <span class="n">2</span>.megabytes <span class="c"># =&gt; 2_097_152</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L38" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="petabyte(*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>petabyte</strong>(*args)
+
+        <a class="method-permalink" href="#petabyte%28%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L71" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="petabytes-instance-method">
+      <div class="signature">
+        
+        def <strong>petabytes</strong>
+
+        <a class="method-permalink" href="#petabytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the number of bytes equivalent to the petabytes provided.</p>
+
+<pre><code>  <span class="n">2</span>.petabytes <span class="c"># =&gt; 2_251_799_813_685_248</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L68" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="terabyte(*args)-instance-method">
+      <div class="signature">
+        
+        def <strong>terabyte</strong>(*args)
+
+        <a class="method-permalink" href="#terabyte%28%2Aargs%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L61" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="terabytes-instance-method">
+      <div class="signature">
+        
+        def <strong>terabytes</strong>
+
+        <a class="method-permalink" href="#terabytes-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Returns the number of bytes equivalent to the terabytes provided.</p>
+
+<pre><code>  <span class="n">2</span>.terabytes <span class="c"># =&gt; 2_199_023_255_552</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/bytes.cr#L58" target="_blank">View source</a>]
         
       </div>
     </div>

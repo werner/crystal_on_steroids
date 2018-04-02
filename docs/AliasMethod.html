@@ -5,7 +5,7 @@
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/doc.js"></script>
-  <title>YAML - github.com/werner/crystal_on_steroids</title>
+  <title>AliasMethod - github.com/werner/crystal_on_steroids</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 
   <ul>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/AliasMethod" data-name="aliasmethod">
+  <li class=" current" data-id="github.com/werner/crystal_on_steroids/AliasMethod" data-name="aliasmethod">
       <a href="AliasMethod.html">AliasMethod</a>
       
     </li>
@@ -120,7 +120,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
+  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
       <a href="YAML.html">YAML</a>
       
         <ul>
@@ -142,7 +142,7 @@
 <div id="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> YAML
+  <span class="kind">module</span> AliasMethod
 
 </h1>
 
@@ -160,13 +160,20 @@
 
 
 
+  <h2>Direct including types</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="Number.html">Number</a></li>
+  
+  </ul>
+
 
 
 
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/dig.cr#L60" target="_blank">crystal_on_steroids/dig.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/alias_method.cr#L1" target="_blank">crystal_on_steroids/alias_method.cr</a>
     
     <br/>
   
@@ -181,6 +188,18 @@
 
 
 
+  <h2>Macro Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#alias_method%28new_method%2Cold_method%29-macro" class="signature"><strong>alias_method</strong>(new_method, old_method)</a>
+        
+          <div class="summary"><p>Defines new_method as an alias of old_method.</p></div>
+        
+      </li>
+    
+  </ul>
+
 
 
 <div class="methods-inherited">
@@ -193,6 +212,46 @@
 
 
 
+
+  <h2>Macro Detail</h2>
+  
+    <div class="entry-detail" id="alias_method(new_method,old_method)-macro">
+      <div class="signature">
+        
+        macro <strong>alias_method</strong>(new_method, old_method)
+
+        <a class="method-permalink" href="#alias_method%28new_method%2Cold_method%29-macro">#</a>
+      </div>
+      
+        <div class="doc"><p>Defines new_method as an alias of old_method.	
+	
+This creates a new method new_method that invokes old_method.	
+	
+Note that due to current language limitations this is only useful	
+when neither named arguments nor blocks are involved.	
+	</p>
+
+<pre><code><span class="k">class</span> <span class="t">Person</span>	
+  getter name	
+	
+  <span class="k">def</span> <span class="m">initialize</span>(@name)	
+  <span class="k">end</span>	
+	
+  alias_method full_name, name	
+<span class="k">end</span>	
+	
+person <span class="o">=</span> <span class="t">Person</span>.<span class="k">new</span> <span class="s">&quot;John&quot;</span>	
+person.name <span class="c">#=&gt; &quot;John&quot;	</span>
+person.full_name <span class="c">#=&gt; &quot;John&quot;	</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/alias_method.cr#L23" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 </div>
