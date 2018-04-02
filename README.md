@@ -48,6 +48,7 @@ require "crystal_on_steroids"
 * to
 * in_groups
 * slice
+* exactly?
 
 **Hash**
 
