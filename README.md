@@ -84,6 +84,16 @@ require "crystal_on_steroids"
 * ordinal
 * ordinalize
 
+**Number**
+
+* bytes
+* kilobytes
+* megabytes
+* gigabytes
+* terabytes
+* petabytes
+* exabytes
+
 **Regex**
 
 * match?
