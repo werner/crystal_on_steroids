@@ -219,17 +219,17 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L1" target="_blank">crystal_on_steroids/array.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L1" target="_blank">crystal_on_steroids/array.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/dig.cr#L48" target="_blank">crystal_on_steroids/dig.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/dig.cr#L48" target="_blank">crystal_on_steroids/dig.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/to_query.cr#L37" target="_blank">crystal_on_steroids/to_query.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/to_query.cr#L37" target="_blank">crystal_on_steroids/to_query.cr</a>
     
     <br/>
   
@@ -262,14 +262,14 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       <li class="entry-summary">
         <a href="#from%28position%3AInt%29-instance-method" class="signature"><strong>#from</strong>(position : Int)</a>
         
-          <div class="summary"><p>Returns the tail of the array from +position+.</p></div>
+          <div class="summary"><p>Returns the tail of the array from <code>position</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#in_groups%28number%2Cfill_with%3Dnil%29-instance-method" class="signature"><strong>#in_groups</strong>(number, fill_with = <span class="n">nil</span>)</a>
         
-          <div class="summary"><p>Splits or iterates over the array in +number+ of groups, padding any remaining slots with +fill_with+ unless it is +false+.</p></div>
+          <div class="summary"><p>Splits or iterates over the array in <code>number</code> of groups, padding any remaining slots with +fill_with+ unless it is <code>false</code>.</p></div>
         
       </li>
     
@@ -316,7 +316,7 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       <li class="entry-summary">
         <a href="#split%28value%3Dnil%29-instance-method" class="signature"><strong>#split</strong>(value = <span class="n">nil</span>)</a>
         
-          <div class="summary"><p>Divides the array into one or more subarrays based on a delimiting +value+ or the result of an optional block.</p></div>
+          <div class="summary"><p>Divides the array into one or more subarrays based on a delimiting <code>value</code> or the result of an optional block.</p></div>
         
       </li>
     
@@ -337,7 +337,7 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       <li class="entry-summary">
         <a href="#to%28position%3AInt%29-instance-method" class="signature"><strong>#to</strong>(position : Int)</a>
         
-          <div class="summary"><p>Returns the beginning of the array up to +position+.</p></div>
+          <div class="summary"><p>Returns the beginning of the array up to <code>position</code>.</p></div>
         
       </li>
     
@@ -554,7 +554,7 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -575,7 +575,7 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L28" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -588,30 +588,30 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
         <a class="method-permalink" href="#from%28position%3AInt%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns the tail of the array from +position+.</p>
+        <div class="doc"><p>Returns the tail of the array from <code>position</code>.</p>
 
-<p>%w( a b c d ).from(0)
-=> ["a", "b", "c", "d"]</p>
+<pre><code>  <span class="s">%w(a b c d)</span>.from(<span class="n">0</span>)
+=> [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>, <span class="s">&quot;d&quot;</span>]
 
-<p>%w( a b c d ).from(2)
-=> ["c", "d"]</p>
+  <span class="s">%w(a b c d)</span>.from(<span class="n">2</span>)
+=> [<span class="s">&quot;c&quot;</span>, <span class="s">&quot;d&quot;</span>]
 
-<p>%w( a b c d ).from(10)
-=> []</p>
+  <span class="s">%w(a b c d)</span>.from(<span class="n">10</span>)
+=> <span class="o">[]</span>
 
-<p>%w().from(0)
-=> []</p>
+  <span class="s">%w()</span>.from(<span class="n">0</span>)
+=> <span class="o">[]</span>
 
-<p>%w( a b c d ).from(-2)
-=> ["c", "d"]</p>
+  <span class="s">%w(a b c d)</span>.from(<span class="n">-2</span>)
+=> [<span class="s">&quot;c&quot;</span>, <span class="s">&quot;d&quot;</span>]
 
-<p>%w( a b c ).from(-10)
-=> []</p></div>
+  <span class="s">%w(a b c)</span>.from(<span class="n">-10</span>)
+=> <span class="o">[]</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L71" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -624,8 +624,8 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
         <a class="method-permalink" href="#in_groups%28number%2Cfill_with%3Dnil%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Splits or iterates over the array in +number+ of groups, padding any
-remaining slots with +fill_with+ unless it is +false+.</p>
+        <div class="doc"><p>Splits or iterates over the array in <code>number</code> of groups, padding any
+remaining slots with +fill_with+ unless it is <code>false</code>.</p>
 
 <pre><code>  <span class="s">%w(1 2 3 4 5 6 7 8 9 10)</span>.in_groups(<span class="n">3</span>) {<span class="o">|</span>group<span class="o">|</span> p group}
   [<span class="s">&quot;1&quot;</span>, <span class="s">&quot;2&quot;</span>, <span class="s">&quot;3&quot;</span>, <span class="s">&quot;4&quot;</span>]
@@ -637,7 +637,7 @@ remaining slots with +fill_with+ unless it is +false+.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L162" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L166" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -653,7 +653,7 @@ remaining slots with +fill_with+ unless it is +false+.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L181" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L185" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -674,7 +674,7 @@ remaining slots with +fill_with+ unless it is +false+.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L48" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L48" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -695,7 +695,7 @@ remaining slots with +fill_with+ unless it is +false+.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -716,7 +716,7 @@ thats passed.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L198" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L202" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -736,7 +736,7 @@ thats passed.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L190" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L194" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -756,7 +756,7 @@ thats passed.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L205" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L209" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -769,7 +769,7 @@ thats passed.</p></div>
         <a class="method-permalink" href="#split%28value%3Dnil%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Divides the array into one or more subarrays based on a delimiting +value+
+        <div class="doc"><p>Divides the array into one or more subarrays based on a delimiting <code>value</code>
 or the result of an optional block.</p>
 
 <pre><code>[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>].split(<span class="n">3</span>)
@@ -778,7 +778,7 @@ or the result of an optional block.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L112" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L116" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -800,7 +800,7 @@ the result of an optional block.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L131" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L135" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -821,7 +821,7 @@ the result of an optional block.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -834,30 +834,30 @@ the result of an optional block.</p>
         <a class="method-permalink" href="#to%28position%3AInt%29-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns the beginning of the array up to +position+.</p>
+        <div class="doc"><p>Returns the beginning of the array up to <code>position</code>.</p>
 
-<p>%w( a b c d ).to(0)
-=> ["a"]</p>
+<pre><code>  <span class="s">%w(a b c d)</span>.to(<span class="n">0</span>)
+=> [<span class="s">&quot;a&quot;</span>]
 
-<p>%w( a b c d ).to(2)
-=> ["a", "b", "c"]</p>
+  <span class="s">%w(a b c d)</span>.to(<span class="n">2</span>)
+=> [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>]
 
-<p>%w( a b c d ).to(10)
-=> ["a", "b", "c", "d"]</p>
+  <span class="s">%w(a b c d)</span>.to(<span class="n">10</span>)
+=> [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>, <span class="s">&quot;d&quot;</span>]
 
-<p>%w().to(0)
-=> []</p>
+  <span class="s">%w()</span>.to(<span class="n">0</span>)
+=> <span class="o">[]</span>
 
-<p>%w( a b c d ).to(-2)
-=> ["a", "b", "c"]</p>
+  <span class="s">%w(a b c d)</span>.to(<span class="n">-2</span>)
+=> [<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>]
 
-<p>%w( a b c ).to(-10)
-=> []</p></div>
+  <span class="s">%w(a b c)</span>.to(<span class="n">-10</span>)
+=> <span class="o">[]</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/array.cr#L101" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L105" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -878,7 +878,7 @@ slashes.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/to_query.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/to_query.cr#L42" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -899,7 +899,7 @@ slashes.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/76139c01d5575b0a2eaf3beef6a5807260f7f72d/src/crystal_on_steroids/to_query.cr#L52" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/to_query.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>

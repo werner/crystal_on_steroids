@@ -49,8 +49,9 @@ class Array(T)
     self[1, size - 1]
   end
 
-  # Returns the tail of the array from +position+.
+  # Returns the tail of the array from `position`.
   #
+  # ```
   #   %w( a b c d ).from(0)
   # => ["a", "b", "c", "d"]
   #
@@ -68,6 +69,7 @@ class Array(T)
   #
   #   %w( a b c ).from(-10)
   # => []
+  # ```
   def from(position : Int)
     if size == 0
       [] of T
@@ -78,8 +80,9 @@ class Array(T)
     end
   end
 
-  # Returns the beginning of the array up to +position+.
+  # Returns the beginning of the array up to `position`.
   #
+  # ```
   #   %w( a b c d ).to(0)
   # => ["a"]
   #
@@ -97,12 +100,13 @@ class Array(T)
   #
   #   %w( a b c ).to(-10)
   # => []
+  # ```
   #
   def to(position : Int)
     self[0..position]
   end
 
-  # Divides the array into one or more subarrays based on a delimiting +value+
+  # Divides the array into one or more subarrays based on a delimiting `value`
   # or the result of an optional block.
   #
   # ```
@@ -139,8 +143,8 @@ class Array(T)
     result << arr
   end
 
-  # Splits or iterates over the array in +number+ of groups, padding any
-  # remaining slots with +fill_with+ unless it is +false+.
+  # Splits or iterates over the array in `number` of groups, padding any
+  # remaining slots with +fill_with+ unless it is `false`.
   #
   # ```
   #   %w(1 2 3 4 5 6 7 8 9 10).in_groups(3) {|group| p group}
