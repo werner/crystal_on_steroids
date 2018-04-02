@@ -10,6 +10,16 @@ describe Enumerable do
     end
   end
 
+  describe "exactly?" do
+    it "returns true for even elements in array [1, 2, 3, 4]" do
+      [1, 2, 3, 4].exactly?(2, &.even?).should eq(true)
+    end
+
+    it "returns false for no elements in block" do
+      [1, 2, 3, 4].exactly?(1) { |n| n > 5 }.should eq(false)
+    end
+  end
+
   describe "many" do
     it "returns true if there are many elements in array" do
       array = [1, 2, 3]
