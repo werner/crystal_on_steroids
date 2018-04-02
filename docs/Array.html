@@ -219,17 +219,17 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L1" target="_blank">crystal_on_steroids/array.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L1" target="_blank">crystal_on_steroids/array.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/dig.cr#L48" target="_blank">crystal_on_steroids/dig.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/dig.cr#L48" target="_blank">crystal_on_steroids/dig.cr</a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/to_query.cr#L37" target="_blank">crystal_on_steroids/to_query.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/to_query.cr#L37" target="_blank">crystal_on_steroids/to_query.cr</a>
     
     <br/>
   
@@ -267,6 +267,11 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       </li>
     
       <li class="entry-summary">
+        <a href="#in_groups%28number%2Cfill_with%3Dnil%2C%26block%29-instance-method" class="signature"><strong>#in_groups</strong>(number, fill_with = <span class="n">nil</span>, &block)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#in_groups%28number%2Cfill_with%3Dnil%29-instance-method" class="signature"><strong>#in_groups</strong>(number, fill_with = <span class="n">nil</span>)</a>
         
           <div class="summary"><p>Splits or iterates over the array in <code>number</code> of groups, padding any remaining slots with +fill_with+ unless it is <code>false</code>.</p></div>
@@ -274,7 +279,9 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#in_groups%28number%2Cfill_with%3Dnil%2C%26block%29-instance-method" class="signature"><strong>#in_groups</strong>(number, fill_with = <span class="n">nil</span>, &block)</a>
+        <a href="#not_last-instance-method" class="signature"><strong>#not_last</strong></a>
+        
+          <div class="summary"><p>Returns the elements in an array except the last one.</p></div>
         
       </li>
     
@@ -293,9 +300,9 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#slice%28index%3AInt%2Clength%3AInt%29%3AArray%28T%29-instance-method" class="signature"><strong>#slice</strong>(index : Int, length : Int) : Array(T)</a>
+        <a href="#slice%28range%3ARange%28Int%2CInt%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#slice</strong>(range : Range(Int, Int)) : Array(T)</a>
         
-          <div class="summary"><p>Array#slice(index : Int, length : Int)</p></div>
+          <div class="summary"><p>Array#slice(range : Range(Int, Int))</p></div>
         
       </li>
     
@@ -307,16 +314,9 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#slice%28range%3ARange%28Int%2CInt%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#slice</strong>(range : Range(Int, Int)) : Array(T)</a>
+        <a href="#slice%28index%3AInt%2Clength%3AInt%29%3AArray%28T%29-instance-method" class="signature"><strong>#slice</strong>(index : Int, length : Int) : Array(T)</a>
         
-          <div class="summary"><p>Array#slice(range : Range(Int, Int))</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#split%28value%3Dnil%29-instance-method" class="signature"><strong>#split</strong>(value = <span class="n">nil</span>)</a>
-        
-          <div class="summary"><p>Divides the array into one or more subarrays based on a delimiting <code>value</code> or the result of an optional block.</p></div>
+          <div class="summary"><p>Array#slice(index : Int, length : Int)</p></div>
         
       </li>
     
@@ -324,6 +324,13 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
         <a href="#split%28%26block%29-instance-method" class="signature"><strong>#split</strong>(&block)</a>
         
           <div class="summary"><p>Divides the array into one or more subarrays based on a the result of an optional block.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#split%28value%3Dnil%29-instance-method" class="signature"><strong>#split</strong>(value = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p>Divides the array into one or more subarrays based on a delimiting <code>value</code> or the result of an optional block.</p></div>
         
       </li>
     
@@ -415,6 +422,11 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
     <a href="Enumerable.html#blank%3F-instance-method" class="tooltip">
       <span>blank?</span>
     blank?</a>, 
+    
+  
+    <a href="Enumerable.html#exactly%3F%28count%3AInt32%2C%26block%29-instance-method" class="tooltip">
+      <span>exactly?(count : Int32, &block)</span>
+    exactly?</a>, 
     
   
     <a href="Enumerable.html#excludes%3F%28obj%29-instance-method" class="tooltip">
@@ -554,7 +566,7 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -575,7 +587,7 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L28" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L28" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -611,7 +623,23 @@ set <span class="o"><<</span> <span class="n">3</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L84" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="in_groups(number,fill_with=nil,&amp;block)-instance-method">
+      <div class="signature">
+        
+        def <strong>in_groups</strong>(number, fill_with = <span class="n">nil</span>, &block)
+
+        <a class="method-permalink" href="#in_groups%28number%2Cfill_with%3Dnil%2C%26block%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L196" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -637,23 +665,28 @@ remaining slots with +fill_with+ unless it is <code>false</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L166" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L177" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="in_groups(number,fill_with=nil,&amp;block)-instance-method">
+    <div class="entry-detail" id="not_last-instance-method">
       <div class="signature">
         
-        def <strong>in_groups</strong>(number, fill_with = <span class="n">nil</span>, &block)
+        def <strong>not_last</strong>
 
-        <a class="method-permalink" href="#in_groups%28number%2Cfill_with%3Dnil%2C%26block%29-instance-method">#</a>
+        <a class="method-permalink" href="#not_last-instance-method">#</a>
       </div>
+      
+        <div class="doc"><p>Returns the elements in an array except the last one.</p>
+
+<pre><code>[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>].not_last
+=> [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>]</code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L185" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L58" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -674,7 +707,7 @@ remaining slots with +fill_with+ unless it is <code>false</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L48" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L48" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -695,7 +728,47 @@ remaining slots with +fill_with+ unless it is <code>false</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L8" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="slice(range:Range(Int,Int)):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>slice</strong>(range : <a href="Range.html">Range</a>(<a href="Int.html">Int</a>, <a href="Int.html">Int</a>)) : <a href="Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#slice%28range%3ARange%28Int%2CInt%29%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Array#slice(range : Range(Int, Int))</p>
+
+<p>Returns a sub array based on the range passed in.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L220" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="slice(index:Int):T-instance-method">
+      <div class="signature">
+        
+        def <strong>slice</strong>(index : <a href="Int.html">Int</a>) : T
+
+        <a class="method-permalink" href="#slice%28index%3AInt%29%3AT-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Array#slice(index : Int)</p>
+
+<p>Returns the element of the array at the passed in Index.</p></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L205" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -716,69 +789,7 @@ thats passed.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L202" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="slice(index:Int):T-instance-method">
-      <div class="signature">
-        
-        def <strong>slice</strong>(index : <a href="Int.html">Int</a>) : T
-
-        <a class="method-permalink" href="#slice%28index%3AInt%29%3AT-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Array#slice(index : Int)</p>
-
-<p>Returns the element of the array at the passed in Index.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L194" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="slice(range:Range(Int,Int)):Array(T)-instance-method">
-      <div class="signature">
-        
-        def <strong>slice</strong>(range : <a href="Range.html">Range</a>(<a href="Int.html">Int</a>, <a href="Int.html">Int</a>)) : <a href="Array.html">Array</a>(T)
-
-        <a class="method-permalink" href="#slice%28range%3ARange%28Int%2CInt%29%29%3AArray%28T%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Array#slice(range : Range(Int, Int))</p>
-
-<p>Returns a sub array based on the range passed in.</p></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L209" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="split(value=nil)-instance-method">
-      <div class="signature">
-        
-        def <strong>split</strong>(value = <span class="n">nil</span>)
-
-        <a class="method-permalink" href="#split%28value%3Dnil%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Divides the array into one or more subarrays based on a delimiting <code>value</code>
-or the result of an optional block.</p>
-
-<pre><code>[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>].split(<span class="n">3</span>)
-=> [[<span class="n">1</span>, <span class="n">2</span>], [<span class="n">4</span>, <span class="n">5</span>]]</code></pre></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L116" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L213" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -800,7 +811,29 @@ the result of an optional block.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L135" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L146" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="split(value=nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>split</strong>(value = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#split%28value%3Dnil%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Divides the array into one or more subarrays based on a delimiting <code>value</code>
+or the result of an optional block.</p>
+
+<pre><code>[<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>].split(<span class="n">3</span>)
+=> [[<span class="n">1</span>, <span class="n">2</span>], [<span class="n">4</span>, <span class="n">5</span>]]</code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L127" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -821,7 +854,7 @@ the result of an optional block.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -857,7 +890,7 @@ the result of an optional block.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/array.cr#L105" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/array.cr#L116" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -878,7 +911,7 @@ slashes.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/to_query.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/to_query.cr#L42" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -899,7 +932,7 @@ slashes.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/to_query.cr#L52" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/to_query.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>

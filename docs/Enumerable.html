@@ -204,7 +204,7 @@ the <code>Iterator</code> and <code>Iterable</code> modules.</p>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L1" target="_blank">crystal_on_steroids/enumerable.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L1" target="_blank">crystal_on_steroids/enumerable.cr</a>
     
     <br/>
   
@@ -231,6 +231,13 @@ the <code>Iterator</code> and <code>Iterable</code> modules.</p>
         <a href="#blank%3F-instance-method" class="signature"><strong>#blank?</strong></a>
         
           <div class="summary"><p>An enumerable is blank if it's empty.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exactly%3F%28count%3AInt32%2C%26block%29-instance-method" class="signature"><strong>#exactly?</strong>(count : Int32, &block)</a>
+        
+          <div class="summary"><p>Checks if exactly n elements meet a certain predicate with a block.</p></div>
         
       </li>
     
@@ -309,7 +316,7 @@ the <code>Iterator</code> and <code>Iterable</code> modules.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L111" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L128" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -334,7 +341,29 @@ the <code>Iterator</code> and <code>Iterable</code> modules.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exactly?(count:Int32,&amp;block)-instance-method">
+      <div class="signature">
+        
+        def <strong>exactly?</strong>(count : Int32, &block)
+
+        <a class="method-permalink" href="#exactly%3F%28count%3AInt32%2C%26block%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Checks if exactly n elements meet a certain predicate with a block.</p>
+
+<pre><code>  [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>].exactly?(<span class="n">1</span>) { <span class="o">|</span>n<span class="o">|</span> n <span class="o">></span> <span class="n">3</span> } <span class="c">#=&gt; true</span>
+  [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>].exactly?(<span class="n">2</span>, <span class="o">&</span>.even?) <span class="c">#=&gt; true</span>
+  [<span class="n">1</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>].exactly?(<span class="n">2</span>, <span class="o">&</span>.even?) <span class="c">#=&gt; false</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -357,7 +386,7 @@ the <code>Iterator</code> and <code>Iterable</code> modules.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L89" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L106" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -379,7 +408,7 @@ if more than one person is over 26.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -400,7 +429,7 @@ equivalent to <code>enum.size > 1</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L33" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L50" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -426,7 +455,7 @@ equivalent to <code>enum.size > 1</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L48" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -458,7 +487,7 @@ equivalent to <code>enum.size > 1</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L90" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -481,7 +510,7 @@ equivalent to <code>enum.size > 1</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/1d10b2e724b234e48d8eea440acf2f4b10ee4af9/src/crystal_on_steroids/enumerable.cr#L101" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/3f703d548b8d940c4aef0786236ba1bf224b6f53/src/crystal_on_steroids/enumerable.cr#L118" target="_blank">View source</a>]
         
       </div>
     </div>
