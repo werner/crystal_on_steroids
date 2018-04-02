@@ -46,8 +46,19 @@ class Array(T)
   # => [2, 3, 4, 5]
   # ```
   def rest
-    self[1, size - 1]
+    self[1..-1]
   end
+
+  # Returns the elements in an array except the last one.
+  #
+  # ```
+  # [1, 2, 3, 4, 5].not_last
+  # => [1, 2, 3, 4]
+  # ```
+  def not_last
+    self[0..-2]
+  end
+
 
   # Returns the tail of the array from `position`.
   #

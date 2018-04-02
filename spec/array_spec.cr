@@ -68,6 +68,18 @@ describe Array do
     end
   end
 
+  describe "not_last" do
+    it "returns all elements except the last one" do
+      array = [1, 2, 3, 4, 5]
+      array.not_last.should eq([1, 2, 3, 4])
+    end
+
+    it "returns all elements except the last one when all items are the same" do
+      array = [1, 1, 1, 1, 1]
+      array.not_last.should eq([1, 1, 1, 1])
+    end
+  end
+
   describe "split" do
     context "based on passed in value" do
       it "returns two array when occurring once in an array" do

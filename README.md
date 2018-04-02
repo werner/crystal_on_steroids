@@ -41,6 +41,7 @@ require "crystal_on_steroids"
 * fourth
 * fifth
 * rest
+* not_last
 * dig
 * split
 * from
