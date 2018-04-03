@@ -1,6 +1,9 @@
-# Crystal on Steroids [![Build Status](https://travis-ci.org/werner/crystal_on_steroids.png)](https://travis-ci.org/werner/crystal_on_steroids) [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://werner.github.io/crystal_on_steroids/)
+# Crystal on Steroids [![Build Status](https://travis-ci.org/werner/crystal_on_steroids.png)](https://travis-ci.org/werner/crystal_on_steroids)
 
-A group of methods to make Crystal more programmer friendly. Methods taken from Rails ActiveSupport and others.
+
+A group of methods to make Crystal more programmer friendly. Methods taken from Rails ActiveSupport, Powerpack and others.
+
+[Api Docs](https://werner.github.io/crystal_on_steroids/)
 
 ## Installation
 
