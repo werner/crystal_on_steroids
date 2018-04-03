@@ -20,6 +20,12 @@ describe Enumerable do
     end
   end
 
+  describe "frequencies" do
+    it "counts the number of ocurrencies in Array" do
+      [1, :symbol, "string", 3, :symbol, 1].frequencies.should eq({ 1 => 2, :symbol => 2, "string" => 1, 3 => 1 })
+    end
+  end
+
   describe "many" do
     it "returns true if there are many elements in array" do
       array = [1, 2, 3]

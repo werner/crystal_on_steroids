@@ -48,7 +48,6 @@ require "crystal_on_steroids"
 * to
 * in_groups
 * slice
-* exactly?
 
 **Hash**
 
@@ -64,6 +63,8 @@ require "crystal_on_steroids"
 * excludes?
 * without
 * avg (average)
+* exactly?
+* frecuencies
 
 **Time**
 
