@@ -1,20 +1,4 @@
 class String
-  # Alters the string by removing all occurrences of the patterns.
-  # ```
-  # str = "foo bar test"
-  # str.remove(" test", /bar/)         # => "foo "
-  # str                                # => "foo "
-  # ```
-  #
-  # source: Rails ActiveSupport
-  def remove(*patterns)
-    dup = self.dup
-    patterns.each do |pattern|
-      dup = dup.gsub(pattern, "")
-    end
-    dup
-  end
-
   # Truncates a given `text` after a given `size` if `text` is longer than `size`:
   #
   # ```
@@ -85,17 +69,5 @@ class String
     else
       dup
     end
-  end
-
-  # Remove first and last whitespace and reduce to one 
-  # all the others in the same sentence
-  #
-  # ```
-  # " foo   bar    \n   \t   boo".squish # => "foo bar boo"
-  # ```
-  #
-  # source: Rails ActiveSupport
-  def squish
-    gsub(/[[:space:]]+/, " ").strip
   end
 end
