@@ -25,5 +25,4 @@ class Hash(K, V)
   def compact!
     self.reject! { |_, value| value.nil? }
   end
-
 end
