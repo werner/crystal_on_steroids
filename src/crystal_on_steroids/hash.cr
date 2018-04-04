@@ -9,6 +9,7 @@ class Hash(K, V)
   # ```
   #
   # source: ActiveSupport
+  #
   # This method is already included in Crystal, but there is a bug, so I'm keeping my own implementation of Hash#compact.
   def compact
     self.reject { |_, value| value.nil? }
