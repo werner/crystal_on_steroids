@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="js/doc.js"></script>
   <title>Regex - github.com/werner/crystal_on_steroids</title>
 </head>
 <body>
 
-<div id="types-list">
-  <div id="search-box">
-    <input type="search" id="search-input" placeholder="Search...">
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
   </div>
 
-  <ul>
-    <li><a href="index.html">README</a></li>
-  </ul>
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
 
-  <ul>
+  <div class="types-list">
+    <ul>
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/AliasMethod" data-name="aliasmethod">
       <a href="AliasMethod.html">AliasMethod</a>
@@ -40,11 +56,6 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
-      <a href="Dig.html">Dig</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
       <a href="Enumerable.html">Enumerable</a>
       
@@ -57,21 +68,6 @@
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Int" data-name="int">
       <a href="Int.html">Int</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
-      <a href="JSON.html">JSON</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
-      <a href="JSON/Any.html">Any</a>
-      
-    </li>
-  
-</ul>
-
       
     </li>
   
@@ -115,31 +111,13 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
-      <a href="Tuple.html">Tuple</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
-      <a href="YAML.html">YAML</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
-      <a href="YAML/Any.html">Any</a>
-      
-    </li>
-  
 </ul>
 
-      
-    </li>
-  
-</ul>
-
+  </div>
 </div>
 
-<div id="main-content">
+
+<div class="main-content">
 <h1 class="type-name">
 
   <span class="kind">class</span> Regex
@@ -170,9 +148,9 @@ raised at runtime, if the resulting string would not be a valid regular
 expression.</p>
 
 <pre><code>x <span class="o">=</span> <span class="s">&quot;a&quot;</span>
-<span class="s">/</span><span class="i">#{</span></span>x<span class="s"><span class="i">}</span>/</span>.match(<span class="s">&quot;asdf&quot;</span>) <span class="c"># =&gt; #&lt;Regex::MatchData &quot;a&quot;&gt;</span>
+<span class="s">/</span><span class="i">#{</span>x<span class="i">}</span><span class="s">/</span>.match(<span class="s">&quot;asdf&quot;</span>) <span class="c"># =&gt; #&lt;Regex::MatchData &quot;a&quot;&gt;</span>
 x <span class="o">=</span> <span class="s">&quot;(&quot;</span>
-<span class="s">/</span><span class="i">#{</span></span>x<span class="s"><span class="i">}</span>/</span> <span class="c"># raises ArgumentError</span></code></pre>
+<span class="s">/</span><span class="i">#{</span>x<span class="i">}</span><span class="s">/</span> <span class="c"># raises ArgumentError</span></code></pre>
 
 <p>When we check to see if a particular regular expression describes a string,
 we can say that we are performing a match or matching one against the other.
@@ -243,9 +221,9 @@ can be identified by enclosing it in parentheses (<code>()</code>). The contents
 each capture group can be extracted on a successful match:</p>
 
 <pre><code><span class="s">/a(sd)f/</span>.match(<span class="s">&quot;_asdf_&quot;</span>)                     <span class="c"># =&gt; #&lt;Regex::MatchData &quot;asdf&quot; 1:&quot;sd&quot;&gt;</span>
-<span class="s">/a(sd)f/</span>.match(<span class="s">&quot;_asdf_&quot;</span>).try <span class="o">&</span>.[<span class="n">1</span>]           <span class="c"># =&gt; &quot;sd&quot;</span>
+<span class="s">/a(sd)f/</span>.match(<span class="s">&quot;_asdf_&quot;</span>).try <span class="o">&amp;</span>.[<span class="n">1</span>]           <span class="c"># =&gt; &quot;sd&quot;</span>
 <span class="s">/a(?&lt;grp&gt;sd)f/</span>.match(<span class="s">&quot;_asdf_&quot;</span>)               <span class="c"># =&gt; #&lt;Regex::MatchData &quot;asdf&quot; grp:&quot;sd&quot;&gt;</span>
-<span class="s">/a(?&lt;grp&gt;sd)f/</span>.match(<span class="s">&quot;_asdf_&quot;</span>).try <span class="o">&</span>.[<span class="s">&quot;grp&quot;</span>] <span class="c"># =&gt; &quot;sd&quot;</span></code></pre>
+<span class="s">/a(?&lt;grp&gt;sd)f/</span>.match(<span class="s">&quot;_asdf_&quot;</span>).try <span class="o">&amp;</span>.[<span class="s">&quot;grp&quot;</span>] <span class="c"># =&gt; &quot;sd&quot;</span></code></pre>
 
 <p>Capture groups are indexed starting from 1. Methods that accept a capture
 group index will usually also accept 0 to refer to the full match. Capture
@@ -338,7 +316,9 @@ unique names within a single <code><a href="Regex.html">Regex</a></code>.</p>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/regex.cr#L1" target="_blank">crystal_on_steroids/regex.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/regex.cr#L1" target="_blank">
+        crystal_on_steroids/regex.cr
+      </a>
     
     <br/>
   
@@ -383,11 +363,6 @@ unique names within a single <code><a href="Regex.html">Regex</a></code>.</p>
 
   <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
   
-  
-    <a href="Object.html#dig%3F%28index%2C%2Akeys%29-instance-method" class="tooltip">
-      <span>dig?(index, *keys)<br/>dig?</span>
-    dig?</a>, 
-    
   
     <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
       <span>in?(another_object)</span>
@@ -460,12 +435,12 @@ the start of <em>str</em>. Returns a <code>Regex::MatchData</code> if <em>str</e
 <code>nil</code>. <code>$~</code> will contain the same value that was returned.</p>
 
 <pre><code><span class="s">/ab/</span>.match?(<span class="s">&quot;abc&quot;</span>)              <span class="c"># =&gt; true</span>
-<span class="s">/z/</span>.match?(<span class="s">&quot;abc&quot;</span>, <span class="n">1</span>).try <span class="o">&</span>.[<span class="n">2</span>]  <span class="c"># =&gt; false</span></code></pre></div>
+<span class="s">/z/</span>.match?(<span class="s">&quot;abc&quot;</span>, <span class="n">1</span>).try <span class="o">&amp;</span>.[<span class="n">2</span>]  <span class="c"># =&gt; false</span></code></pre></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/regex.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/regex.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>

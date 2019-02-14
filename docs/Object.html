@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="js/doc.js"></script>
   <title>Object - github.com/werner/crystal_on_steroids</title>
 </head>
 <body>
 
-<div id="types-list">
-  <div id="search-box">
-    <input type="search" id="search-input" placeholder="Search...">
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
   </div>
 
-  <ul>
-    <li><a href="index.html">README</a></li>
-  </ul>
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
 
-  <ul>
+  <div class="types-list">
+    <ul>
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/AliasMethod" data-name="aliasmethod">
       <a href="AliasMethod.html">AliasMethod</a>
@@ -40,11 +56,6 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
-      <a href="Dig.html">Dig</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
       <a href="Enumerable.html">Enumerable</a>
       
@@ -57,21 +68,6 @@
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Int" data-name="int">
       <a href="Int.html">Int</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
-      <a href="JSON.html">JSON</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
-      <a href="JSON/Any.html">Any</a>
-      
-    </li>
-  
-</ul>
-
       
     </li>
   
@@ -115,31 +111,13 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
-      <a href="Tuple.html">Tuple</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
-      <a href="YAML.html">YAML</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
-      <a href="YAML/Any.html">Any</a>
-      
-    </li>
-  
 </ul>
 
-      
-    </li>
-  
-</ul>
-
+  </div>
 </div>
 
-<div id="main-content">
+
+<div class="main-content">
 <h1 class="type-name">
 
   <span class="kind">abstract class</span> Object
@@ -170,22 +148,23 @@
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/dig.cr#L26" target="_blank">crystal_on_steroids/dig.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/inclusion.cr#L1" target="_blank">
+        crystal_on_steroids/inclusion.cr
+      </a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/inclusion.cr#L1" target="_blank">crystal_on_steroids/inclusion.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/object.cr#L1" target="_blank">
+        crystal_on_steroids/object.cr
+      </a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/object.cr#L1" target="_blank">crystal_on_steroids/object.cr</a>
-    
-    <br/>
-  
-    
-      <a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/to_query.cr#L4" target="_blank">crystal_on_steroids/to_query.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/to_query.cr#L4" target="_blank">
+        crystal_on_steroids/to_query.cr
+      </a>
     
     <br/>
   
@@ -212,18 +191,6 @@
 
   <h2>Instance Method Summary</h2>
   <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#dig%3F%28index%2C%2Akeys%29-instance-method" class="signature"><strong>#dig?</strong>(index, *keys)</a>
-        
-          <div class="summary"><p>Retrieves the value object corresponding to the each key objects repeatedly.</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#dig%3F-instance-method" class="signature"><strong>#dig?</strong></a>
-        
-      </li>
     
       <li class="entry-summary">
         <a href="#in%3F%28another_object%29-instance-method" class="signature"><strong>#in?</strong>(another_object)</a>
@@ -302,7 +269,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/object.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/object.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -311,46 +278,6 @@
 
 
   <h2>Instance Method Detail</h2>
-  
-    <div class="entry-detail" id="dig?(index,*keys)-instance-method">
-      <div class="signature">
-        
-        def <strong>dig?</strong>(index, *keys)
-
-        <a class="method-permalink" href="#dig%3F%28index%2C%2Akeys%29-instance-method">#</a>
-      </div>
-      
-        <div class="doc"><p>Retrieves the value object corresponding to the each key objects repeatedly.
-The type needs to implement #[]? method to works.</p>
-
-<pre><code>h <span class="o">=</span> { foo: {bar: {baz: <span class="n">5</span>}}}
-
-h.dig?(<span class="n">:foo</span>, <span class="n">:bar</span>, <span class="n">:baz</span>)           <span class="c">#=&gt; 5</span>
-h.dig?(<span class="n">:foo</span>, <span class="n">:blah</span>)                <span class="c">#=&gt; nil</span></code></pre></div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/dig.cr#L40" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="dig?-instance-method">
-      <div class="signature">
-        
-        def <strong>dig?</strong>
-
-        <a class="method-permalink" href="#dig%3F-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/dig.cr#L27" target="_blank">View source</a>]
-        
-      </div>
-    </div>
   
     <div class="entry-detail" id="in?(another_object)-instance-method">
       <div class="signature">
@@ -373,7 +300,7 @@ source: Rails ActiveSupport</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/inclusion.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/inclusion.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -396,7 +323,7 @@ source: Rails ActiveSupport</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/object.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/object.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -412,14 +339,14 @@ source: Rails ActiveSupport</p></div>
         <div class="doc"><p>Returns the receiver if it's included in the argument otherwise returns <code>nil</code>.
 Argument must be any object which responds to <code>#include?</code>. Usage:</p>
 
-<pre><code>  params[<span class="n">:bucket_type</span>].presence_in <span class="s">%w(project calendar)</span></code></pre>
+<pre><code>  params[<span class="n">:bucket_type</span>].presence_in <span class="s">%w( project calendar )</span></code></pre>
 
 <p>source: Rails ActiveSupport</p></div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/inclusion.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/inclusion.cr#L25" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -439,7 +366,7 @@ Argument must be any object which responds to <code>#include?</code>. Usage:</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/object.cr#L5" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/object.cr#L5" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -457,7 +384,7 @@ Argument must be any object which responds to <code>#include?</code>. Usage:</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/to_query.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/to_query.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -476,7 +403,7 @@ using the given <code>namespace</code> as the param name.</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/to_query.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/to_query.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -495,7 +422,7 @@ no key provided</p></div>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/to_query.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/to_query.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>

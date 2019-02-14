@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="js/doc.js"></script>
   <title>Nil - github.com/werner/crystal_on_steroids</title>
 </head>
 <body>
 
-<div id="types-list">
-  <div id="search-box">
-    <input type="search" id="search-input" placeholder="Search...">
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
   </div>
 
-  <ul>
-    <li><a href="index.html">README</a></li>
-  </ul>
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
 
-  <ul>
+  <div class="types-list">
+    <ul>
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/AliasMethod" data-name="aliasmethod">
       <a href="AliasMethod.html">AliasMethod</a>
@@ -40,11 +56,6 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
-      <a href="Dig.html">Dig</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
       <a href="Enumerable.html">Enumerable</a>
       
@@ -57,21 +68,6 @@
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Int" data-name="int">
       <a href="Int.html">Int</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
-      <a href="JSON.html">JSON</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
-      <a href="JSON/Any.html">Any</a>
-      
-    </li>
-  
-</ul>
-
       
     </li>
   
@@ -115,31 +111,13 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
-      <a href="Tuple.html">Tuple</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
-      <a href="YAML.html">YAML</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
-      <a href="YAML/Any.html">Any</a>
-      
-    </li>
-  
 </ul>
 
-      
-    </li>
-  
-</ul>
-
+  </div>
 </div>
 
-<div id="main-content">
+
+<div class="main-content">
 <h1 class="type-name">
 
   <span class="kind">struct</span> Nil
@@ -161,14 +139,14 @@ For example, <code>String#index</code> returns the position of the character or 
 in the string:</p>
 
 <pre><code>str <span class="o">=</span> <span class="s">&quot;Hello world&quot;</span>
-str.index <span class="s">'e'</span> <span class="c"># =&gt; 1</span>
-str.index <span class="s">'a'</span> <span class="c"># =&gt; nil</span></code></pre>
+str.index <span class="s">&#39;e&#39;</span> <span class="c"># =&gt; 1</span>
+str.index <span class="s">&#39;a&#39;</span> <span class="c"># =&gt; nil</span></code></pre>
 
 <p>In the above example, trying to invoke a method on the returned value will
 give a compile time error unless both <code>Int32</code> and <code><a href="Nil.html">Nil</a></code> define that method:</p>
 
 <pre><code>str <span class="o">=</span> <span class="s">&quot;Hello world&quot;</span>
-idx <span class="o">=</span> str.index <span class="s">'e'</span>
+idx <span class="o">=</span> str.index <span class="s">&#39;e&#39;</span>
 idx <span class="o">+</span> <span class="n">1</span> <span class="c"># Error: undefined method &#39;+&#39; for Nil</span></code></pre>
 
 <p>The language and the standard library provide short, readable, easy ways to deal with <code>nil</code>,
@@ -177,9 +155,9 @@ such as <code>Object#try</code> and <code>Object#not_nil!</code>:</p>
 <pre><code>str <span class="o">=</span> <span class="s">&quot;Hello world&quot;</span>
 
 <span class="c"># The index of &#39;e&#39; in str or 0 if not found</span>
-idx1 <span class="o">=</span> str.index(<span class="s">'e'</span>) || <span class="n">0</span>
+idx1 <span class="o">=</span> str.index(<span class="s">&#39;e&#39;</span>) || <span class="n">0</span>
 
-idx2 <span class="o">=</span> str.index(<span class="s">'a'</span>)
+idx2 <span class="o">=</span> str.index(<span class="s">&#39;a&#39;</span>)
 <span class="k">if</span> idx2
   <span class="c"># Compiles: idx2 can&#39;t be nil here</span>
   idx2 <span class="o">+</span> <span class="n">1</span>
@@ -188,7 +166,7 @@ idx2 <span class="o">=</span> str.index(<span class="s">'a'</span>)
 <span class="c"># Tell the compiler that we are sure the returned</span>
 <span class="c"># value is not nil: raises a runtime exception</span>
 <span class="c"># if our assumption doesn&#39;t hold.</span>
-idx3 <span class="o">=</span> str.index(<span class="s">'o'</span>).not_nil!</code></pre>
+idx3 <span class="o">=</span> str.index(<span class="s">&#39;o&#39;</span>).not_nil!</code></pre>
 
 
 
@@ -206,12 +184,16 @@ idx3 <span class="o">=</span> str.index(<span class="s">'o'</span>).not_nil!</co
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/nil.cr#L1" target="_blank">crystal_on_steroids/nil.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/nil.cr#L1" target="_blank">
+        crystal_on_steroids/nil.cr
+      </a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/to_query.cr#L23" target="_blank">crystal_on_steroids/to_query.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/to_query.cr#L23" target="_blank">
+        crystal_on_steroids/to_query.cr
+      </a>
     
     <br/>
   
@@ -263,11 +245,6 @@ idx3 <span class="o">=</span> str.index(<span class="s">'o'</span>).not_nil!</co
 
   <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
   
-  
-    <a href="Object.html#dig%3F%28index%2C%2Akeys%29-instance-method" class="tooltip">
-      <span>dig?(index, *keys)<br/>dig?</span>
-    dig?</a>, 
-    
   
     <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
       <span>in?(another_object)</span>
@@ -344,7 +321,7 @@ idx3 <span class="o">=</span> str.index(<span class="s">'o'</span>).not_nil!</co
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/nil.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/nil.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -362,7 +339,7 @@ idx3 <span class="o">=</span> str.index(<span class="s">'o'</span>).not_nil!</co
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/to_query.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/to_query.cr#L25" target="_blank">View source</a>]
         
       </div>
     </div>

@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="js/doc.js"></script>
   <title>Time - github.com/werner/crystal_on_steroids</title>
 </head>
 <body>
 
-<div id="types-list">
-  <div id="search-box">
-    <input type="search" id="search-input" placeholder="Search...">
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
   </div>
 
-  <ul>
-    <li><a href="index.html">README</a></li>
-  </ul>
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
 
-  <ul>
+  <div class="types-list">
+    <ul>
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/AliasMethod" data-name="aliasmethod">
       <a href="AliasMethod.html">AliasMethod</a>
@@ -40,11 +56,6 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
-      <a href="Dig.html">Dig</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
       <a href="Enumerable.html">Enumerable</a>
       
@@ -57,21 +68,6 @@
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Int" data-name="int">
       <a href="Int.html">Int</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
-      <a href="JSON.html">JSON</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
-      <a href="JSON/Any.html">Any</a>
-      
-    </li>
-  
-</ul>
-
       
     </li>
   
@@ -115,31 +111,13 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
-      <a href="Tuple.html">Tuple</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
-      <a href="YAML.html">YAML</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
-      <a href="YAML/Any.html">Any</a>
-      
-    </li>
-  
 </ul>
 
-      
-    </li>
-  
-</ul>
-
+  </div>
 </div>
 
-<div id="main-content">
+
+<div class="main-content">
 <h1 class="type-name">
 
   <span class="kind">struct</span> Time
@@ -154,55 +132,187 @@
 
   <h2>Overview</h2>
 
-  <p><code><a href="Time.html">Time</a></code> represents an instance in time. Here are some examples:</p>
+  <p><code><a href="Time.html">Time</a></code> represents a date-time instant in
+<a href="https://www.w3.org/International/articles/definitions-time/#incremental_time" target="_blank">incremental time</a>
+observed in a specific time zone.</p>
 
-<h3>Basic Usage</h3>
+<p>The calendaric calculations are based on the rules of the proleptic Gregorian
+calendar as specified in <a href="http://xml.coverpages.org/ISO-FDIS-8601.pdf" target="_blank">ISO 8601</a>.
+Leap seconds are ignored.</p>
 
-<pre><code>time <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>)
+<p>Internally, the time is stored as an <code>Int64</code> representing seconds from epoch
+(<code>0001-01-01 00:00:00.0 UTC</code>) and an <code>Int32</code> representing
+nanosecond-of-second with value range <code>0..999_999_999</code>.</p>
 
-time.year    <span class="c"># =&gt; 2016</span>
-time.month   <span class="c"># =&gt; 2</span>
-time.day     <span class="c"># =&gt; 15</span>
-time.hour    <span class="c"># =&gt; 10</span>
-time.minute  <span class="c"># =&gt; 20</span>
-time.second  <span class="c"># =&gt; 30</span>
-time.monday? <span class="c"># =&gt; true</span>
+<p>The supported date range is <code>0001-01-01 00:00:00.0</code> to
+<code>9999-12-31 23:59:59.999_999_999</code> in any local time zone.</p>
 
-<span class="c"># Creating a time instance with a date only</span>
-<span class="t">Time</span>.<span class="k">new</span>(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>) <span class="c"># =&gt; 2016-02-15 00:00:00</span>
+<h3>Telling the Time</h3>
 
-<span class="c"># Specifying a time</span>
-<span class="t">Time</span>.<span class="k">new</span>(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>) <span class="c"># =&gt; 2016-02-15 10:20:30</span>
+<p>There are several methods to retrieve a <code><a href="Time.html">Time</a></code> instance representing the
+current time:</p>
 
-<span class="c"># Creating a time instance in UTC</span>
-<span class="t">Time</span>.utc(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>) <span class="c"># =&gt; 2016-02-15 10:20:30 UTC</span></code></pre>
+<pre><code class="language-crystal"><span class="t">Time</span>.utc_now                                  <span class="c"># returns the current time in UTC</span>
+<span class="t">Time</span>.now <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>) <span class="c"># returns the current time in time zone Europe/Berlin</span>
+<span class="t">Time</span>.now                                      <span class="c"># returns the current time in current time zone</span></code></pre>
 
-<h3>Formatting Time</h3>
+<p>It is generally recommended to keep instances in UTC and only apply a
+local time zone when formatting for user display, unless the domain logic
+requires having a specific time zone (for example for calendaric operations).</p>
 
-<p>The <code>to_s</code> method returns a <code><a href="String.html">String</a></code> value in the assigned format.</p>
+<h3>Creating a Specific Instant</h3>
 
-<pre><code>time <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">12</span>)
-time.to_s(<span class="s">&quot;%Y-%m-%d&quot;</span>) <span class="c"># =&gt; &quot;2015-10-12&quot;</span></code></pre>
+<p><code><a href="Time.html">Time</a></code> instances representing a specific instant can be created by
+<code>.utc</code> or <code>.new</code> with the date-time specified as individual arguments:</p>
 
-<p>See <code>Time::Format</code> for all the directives.</p>
+<pre><code>time <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>)
+time.to_s <span class="c"># =&gt; 2016-02-15 10:20:30 UTC</span>
+time <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
+time.to_s <span class="c"># =&gt; 2016-02-15 10:20:30 +01:00 Europe/Berlin</span>
+<span class="c"># The time-of-day can be omitted and defaults to midnight (start of day):</span>
+time <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>)
+time.to_s <span class="c"># =&gt; 2016-02-15 00:00:00 UTC</span></code></pre>
 
-<h3>Calculation</h3>
+<h3>Retrieving Time Information</h3>
 
-<pre><code><span class="t">Time</span>.<span class="k">new</span>(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">10</span>) <span class="o">-</span> <span class="n">5</span>.days <span class="c"># =&gt; 2015-10-05 00:00:00</span>
+<p>Each <code><a href="Time.html">Time</a></code> instance allows querying calendar data:</p>
 
-<span class="c"># Time calculation returns a Time::Span instance</span>
-span <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">10</span>) <span class="o">-</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2015</span>, <span class="n">9</span>, <span class="n">10</span>)
+<pre><code>time <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>)
+time.year        <span class="c"># =&gt; 2016</span>
+time.month       <span class="c"># =&gt; 2</span>
+time.day         <span class="c"># =&gt; 15</span>
+time.hour        <span class="c"># =&gt; 10</span>
+time.minute      <span class="c"># =&gt; 20</span>
+time.second      <span class="c"># =&gt; 30</span>
+time.millisecond <span class="c"># =&gt; 0</span>
+time.nanosecond  <span class="c"># =&gt; 0</span>
+time.day_of_week <span class="c"># =&gt; Time::DayOfWeek::Monday</span>
+time.day_of_year <span class="c"># =&gt; 46</span>
+time.monday?     <span class="c"># =&gt; true</span>
+time.time_of_day <span class="c"># =&gt; 10:20:30</span></code></pre>
+
+<p>For querying if a time is at a specific day of week, <code><a href="Time.html">Time</a></code> offers named
+predicate methods, delegating to <code>#day_of_week</code>:</p>
+
+<pre><code>time.monday? <span class="c"># =&gt; true</span>
+<span class="c"># ...</span>
+time.sunday? <span class="c"># =&gt; false</span></code></pre>
+
+<h3>Time Zones</h3>
+
+<p>Each time is attached to a specific time zone, represented by a <code>Location</code>
+(see <code>#location</code>).
+<code>#zone</code> returns the time zone observed in this location at the current time
+(i.e. the instant represented by this <code><a href="Time.html">Time</a></code>).
+<code>#offset</code> returns the offset of the current zone in seconds.</p>
+
+<pre><code>time <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2018</span>, <span class="n">3</span>, <span class="n">8</span>, <span class="n">22</span>, <span class="n">5</span>, <span class="n">13</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
+time          <span class="c"># =&gt; 2018-03-08 22:05:13 +01:00 Europe/Berlin</span>
+time.location <span class="c"># =&gt; #&lt;Time::Location Europe/Berlin&gt;</span>
+time.zone     <span class="c"># =&gt; #&lt;Time::Location::Zone CET +01:00 (3600s) STD&gt;</span>
+time.offset   <span class="c"># =&gt; 3600</span></code></pre>
+
+<p>Using <code>.utc</code>, the location is <code>Time::Location::UTC</code>:</p>
+
+<pre><code>time <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2018</span>, <span class="n">3</span>, <span class="n">8</span>, <span class="n">22</span>, <span class="n">5</span>, <span class="n">13</span>)
+time          <span class="c"># =&gt; 2018-03-08 22:05:13.0 UTC</span>
+time.location <span class="c"># =&gt; #&lt;Time::Location UTC&gt;</span>
+time.zone     <span class="c"># =&gt; #&lt;Time::Location::Zone UTC +00:00 (0s) STD&gt;</span>
+time.offset   <span class="c"># =&gt; 0</span></code></pre>
+
+<p>A <code><a href="Time.html">Time</a></code> instance can be transformed to a different time zone while retaining
+the same instant using <code>#in</code>:</p>
+
+<pre><code>time_de <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2018</span>, <span class="n">3</span>, <span class="n">8</span>, <span class="n">22</span>, <span class="n">5</span>, <span class="n">13</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
+time_ar <span class="o">=</span> time_de.<span class="k">in</span> <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;America/Buenos_Aires&quot;</span>)
+time_de <span class="c"># =&gt; 2018-03-08 22:05:13 +01:00 Europe/Berlin</span>
+time_ar <span class="c"># =&gt; 2018-03-08 18:05:13 -03:00 America/Buenos_Aires</span></code></pre>
+
+<p>Both <code><a href="Time.html">Time</a></code> instances show a different local date-time, but they represent
+the same date-time in the instant time-line, therefore they are considered
+equal:</p>
+
+<pre><code>time_de.to_utc     <span class="c"># =&gt; 2018-03-08 21:05:13 UTC</span>
+time_ar.to_utc     <span class="c"># =&gt; 2018-03-08 21:05:13 UTC</span>
+time_de <span class="o">==</span> time_ar <span class="c"># =&gt; true</span></code></pre>
+
+<p>There are also two special methods for converting to UTC and local time zone:</p>
+
+<pre><code>time.to_utc   <span class="c"># equals time.in(Location::UTC)</span>
+time.to_local <span class="c"># equals time.in(Location.local)</span></code></pre>
+
+<p><code>#to_local_in</code> allows changing the time zone while keeping
+the same local date-time (wall clock) which results in a different instant
+on the time line.</p>
+
+<h3>Formatting and Parsing Time</h3>
+
+<p>To make date-time instances exchangeable between different computer systems
+or readable to humans, they are usually converted to and from a string
+representation.</p>
+
+<p>The method <code>#to_s</code> formats the date-time according to a specified pattern.</p>
+
+<pre><code>time <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">12</span>, <span class="n">10</span>, <span class="n">30</span>, <span class="n">0</span>)
+time.to_s(<span class="s">&quot;%Y-%m-%d %H:%M:%S %:z&quot;</span>) <span class="c"># =&gt; &quot;2015-10-12 10:30:00 +00:00&quot;</span></code></pre>
+
+<p>Similarly, <code>Time.parse</code> and <code>Time.parse!</code> are used to construct a <code><a href="Time.html">Time</a></code> instance from date-time
+information in a string, according to a specified pattern:</p>
+
+<pre><code><span class="t">Time</span>.parse(<span class="s">&quot;2015-10-12 10:30:00 +00:00&quot;</span>, <span class="s">&quot;%Y-%m-%d %H:%M:%S %z&quot;</span>, <span class="t">Time</span><span class="t">::</span><span class="t">Location</span><span class="t">::</span><span class="t">UTC</span>)
+<span class="t">Time</span>.parse!(<span class="s">&quot;2015-10-12 10:30:00 +00:00&quot;</span>, <span class="s">&quot;%Y-%m-%d %H:%M:%S %z&quot;</span>)</code></pre>
+
+<p>See <code>Time::Format</code> for all directives.</p>
+
+<h3>Calculations</h3>
+
+<pre><code><span class="t">Time</span>.utc(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">10</span>) <span class="o">-</span> <span class="n">5</span>.days <span class="c"># =&gt; 2015-10-05 00:00:00 +00:00</span>
+
+span <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">10</span>) <span class="o">-</span> <span class="t">Time</span>.utc(<span class="n">2015</span>, <span class="n">9</span>, <span class="n">10</span>)
 span.days          <span class="c"># =&gt; 30</span>
 span.total_hours   <span class="c"># =&gt; 720</span>
-span.total_minutes <span class="c"># =&gt; 43200</span>
+span.total_minutes <span class="c"># =&gt; 43200</span></code></pre>
 
-<span class="c"># Calculation between Time::Span instances</span>
-span_a <span class="o">=</span> <span class="t">Time</span><span class="t">::</span><span class="t">Span</span>.<span class="k">new</span>(<span class="n">3</span>, <span class="n">0</span>, <span class="n">0</span>)
-span_b <span class="o">=</span> <span class="t">Time</span><span class="t">::</span><span class="t">Span</span>.<span class="k">new</span>(<span class="n">2</span>, <span class="n">0</span>, <span class="n">0</span>)
-span <span class="o">=</span> span_a <span class="o">-</span> span_b
-span       <span class="c"># =&gt; 01:00:00</span>
-span.<span class="k">class</span> <span class="c"># =&gt; Time::Span</span>
-span.hours <span class="c"># =&gt; 1</span></code></pre>
+<h2>Measuring Time</h2>
+
+<p>The typical time representation provided by the operating system is based on
+a "wall clock" which is subject to changes for clock synchronization.
+This can result in discontinuous jumps in the time-line making it not
+suitable for accurately measuring elapsed time.</p>
+
+<p>Instances of <code><a href="Time.html">Time</a></code> are focused on telling time – using a "wall clock".
+When <code>Time.now</code> is called multiple times, the difference between the
+returned instances is not guranteed to equal to the time elapsed between
+making the calls; even the order of the returned <code><a href="Time.html">Time</a></code> instances might
+not reflect invocation order.</p>
+
+<pre><code>t1 <span class="o">=</span> <span class="t">Time</span>.utc_now
+<span class="c"># operation that takes 1 minute</span>
+t2 <span class="o">=</span> <span class="t">Time</span>.utc_now
+t2 <span class="o">-</span> t1 <span class="c"># =&gt; ?</span></code></pre>
+
+<p>The resulting <code>Time::Span</code> could be anything, even negative, if the
+computer's wall clock has changed between both calls.</p>
+
+<p>As an alternative, the operating system also provides a monotonic clock.
+Its time-line has no specfied starting point but is strictly linearly
+increasing.</p>
+
+<p>This monotonic clock should always be used for measuring elapsed time.</p>
+
+<p>A reading from this clock can be taken using <code>.monotonic</code>:</p>
+
+<pre><code>t1 <span class="o">=</span> <span class="t">Time</span>.monotonic
+<span class="c"># operation that takes 1 minute</span>
+t2 <span class="o">=</span> <span class="t">Time</span>.monotonic
+t2 <span class="o">-</span> t1 <span class="c"># =&gt; 1.minute (approximately)</span></code></pre>
+
+<p>The execution time of a block can be measured using <code>.measure</code>:</p>
+
+<pre><code>elapsed_time <span class="o">=</span> <span class="t">Time</span>.measure <span class="k">do</span>
+  <span class="c"># operation that takes 20 milliseconds</span>
+<span class="k">end</span>
+elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></code></pre>
 
 
 
@@ -211,7 +321,7 @@ span.hours <span class="c"># =&gt; 1</span></code></pre>
   <h2>Included Modules</h2>
   <ul class="other-types-list">
   
-    <li class="other-type">Comparable(self)</li>
+    <li class="other-type">Comparable(<a href="Time.html">Time</a>)</li>
   
   </ul>
 
@@ -227,7 +337,9 @@ span.hours <span class="c"># =&gt; 1</span></code></pre>
   <h2>Defined in:</h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/time.cr#L1" target="_blank">crystal_on_steroids/time.cr</a>
+      <a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/time.cr#L1" target="_blank">
+        crystal_on_steroids/time.cr
+      </a>
     
     <br/>
   
@@ -321,11 +433,6 @@ span.hours <span class="c"># =&gt; 1</span></code></pre>
   <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
   
   
-    <a href="Object.html#dig%3F%28index%2C%2Akeys%29-instance-method" class="tooltip">
-      <span>dig?(index, *keys)<br/>dig?</span>
-    dig?</a>, 
-    
-  
     <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
       <span>in?(another_object)</span>
     in?</a>, 
@@ -396,7 +503,7 @@ span.hours <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/time.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/time.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -414,7 +521,7 @@ span.hours <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/time.cr#L3" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/time.cr#L3" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -432,7 +539,7 @@ span.hours <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/time.cr#L23" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/time.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -450,7 +557,7 @@ span.hours <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/time.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/time.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -468,7 +575,7 @@ span.hours <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/e6c138a09a809c9e6b659b7f6cc21ae790f2b311/src/crystal_on_steroids/time.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/a77e341e0a40febd221634de00bb84a6c0348320/src/crystal_on_steroids/time.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>

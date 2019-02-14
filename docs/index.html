@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.27.2">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="js/doc.js"></script>
+<script type="text/javascript">
+  CrystalDoc.base_path = "";
+</script>
+
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="js/doc.js"></script>
   <title>README - github.com/werner/crystal_on_steroids</title>
 </head>
 <body>
 
-<div id="types-list">
-  <div id="search-box">
-    <input type="search" id="search-input" placeholder="Search...">
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="repository-links">
+      <a href="index.html">README</a>
+    </div>
   </div>
 
-  <ul>
-    <li class="current"><a href="index.html">README</a></li>
-  </ul>
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
 
-  <ul>
+  <div class="types-list">
+    <ul>
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/AliasMethod" data-name="aliasmethod">
       <a href="AliasMethod.html">AliasMethod</a>
@@ -40,11 +56,6 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Dig" data-name="dig">
-      <a href="Dig.html">Dig</a>
-      
-    </li>
-  
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Enumerable" data-name="enumerable(t)">
       <a href="Enumerable.html">Enumerable</a>
       
@@ -57,21 +68,6 @@
   
   <li class=" " data-id="github.com/werner/crystal_on_steroids/Int" data-name="int">
       <a href="Int.html">Int</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/JSON" data-name="json">
-      <a href="JSON.html">JSON</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/JSON/Any" data-name="json::any">
-      <a href="JSON/Any.html">Any</a>
-      
-    </li>
-  
-</ul>
-
       
     </li>
   
@@ -115,31 +111,13 @@
       
     </li>
   
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/Tuple" data-name="tuple(*t)">
-      <a href="Tuple.html">Tuple</a>
-      
-    </li>
-  
-  <li class="parent " data-id="github.com/werner/crystal_on_steroids/YAML" data-name="yaml">
-      <a href="YAML.html">YAML</a>
-      
-        <ul>
-  
-  <li class=" " data-id="github.com/werner/crystal_on_steroids/YAML/Any" data-name="yaml::any">
-      <a href="YAML/Any.html">Any</a>
-      
-    </li>
-  
 </ul>
 
-      
-    </li>
-  
-</ul>
-
+  </div>
 </div>
 
-<div id="main-content">
+
+<div class="main-content">
 <h1>Crystal on Steroids <a href="https://travis-ci.org/werner/crystal_on_steroids" target="_blank"><img src="https://travis-ci.org/werner/crystal_on_steroids.png" alt="Build Status"/></a></h1>
 
 <p>A group of methods to make Crystal more programmer friendly. Methods taken from Rails ActiveSupport, Powerpack and others.</p>
@@ -150,13 +128,13 @@
 
 <p>Add this to your application's <code>shard.yml</code>:</p>
 
-<pre><code class='language-yaml'>dependencies:
+<pre><code class="language-yaml">dependencies:
   crystal_on_steroids:
     github: werner/crystal_on_steroids</code></pre>
 
 <h2>Usage</h2>
 
-<pre><code class='language-crystal'><span class="k">require</span> <span class="s">&quot;crystal_on_steroids&quot;</span></code></pre>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;crystal_on_steroids&quot;</span></code></pre>
 
 <h4>Methods</h4>
 
