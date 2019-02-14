@@ -35,7 +35,6 @@ require "crystal_on_steroids"
 * to_param
 * in?
 * presence_in
-* dig?
 
 **Array**
 
@@ -45,7 +44,6 @@ require "crystal_on_steroids"
 * fifth
 * rest
 * not_last
-* dig
 * split
 * from
 * to
@@ -56,7 +54,6 @@ require "crystal_on_steroids"
 
 * compact
 * compact!
-* dig
 
 **Enumerable**
 
@@ -107,14 +104,6 @@ require "crystal_on_steroids"
 **Range**
 
 * overlaps?
-
-**JSON::Any**
-
-* dig
-
-**YAML::Any**
-
-* dig
 
 More details in [docs](https://werner.github.io/crystal_on_steroids/)
 
