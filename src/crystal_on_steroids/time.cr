@@ -21,7 +21,7 @@ struct Time
 
   # Check if the especified time is corresponding to today.
   def today?
-    now = Time.now
+    now = Time.local
     now.at_beginning_of_day <= self <= now.at_end_of_day
   end
 end
