@@ -10,13 +10,13 @@ class Object
   # Converts an object into a string suitable for use as a URL query string,
   # no key provided
   def to_query
-    URI.escape(to_param.to_s)
+    URI.encode_www_form(to_param.to_s)
   end
 
   # Converts an object into a string suitable for use as a URL query string,
   # using the given `namespace` as the param name.
   def to_query(namespace)
-    "#{URI.escape(namespace.to_param)}=#{URI.escape(to_param.to_s)}"
+    "#{URI.encode_www_form(namespace.to_param)}=#{URI.encode_www_form(to_param.to_s)}"
   end
 end
 

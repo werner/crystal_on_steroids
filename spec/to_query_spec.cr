@@ -4,7 +4,7 @@ describe Object do
   describe "to_query" do
     it "returns the query string with a given key" do
       test = "Hello World!"
-      test.to_query("greetings").should eq("greetings=Hello%20World%21")
+      test.to_query("greetings").should eq("greetings=Hello+World%21")
     end
 
     it "returns %E2%AC%A4 from ⬤ " do
