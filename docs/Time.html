@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.27.2">
+<meta name="generator" content="Crystal Docs 0.31.1">
 
-
-<link href="css/style.css" rel="stylesheet" type="text/css">
-
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
-<script type="text/javascript">
-  CrystalDoc.base_path = "";
-</script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
 
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
   <title>Time - github.com/werner/crystal_on_steroids</title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "";
+  </script>
 </head>
 <body>
 
@@ -130,7 +134,14 @@
 
 
 
-  <h2>Overview</h2>
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
 
   <p><code><a href="Time.html">Time</a></code> represents a date-time instant in
 <a href="https://www.w3.org/International/articles/definitions-time/#incremental_time" target="_blank">incremental time</a>
@@ -147,33 +158,45 @@ nanosecond-of-second with value range <code>0..999_999_999</code>.</p>
 <p>The supported date range is <code>0001-01-01 00:00:00.0</code> to
 <code>9999-12-31 23:59:59.999_999_999</code> in any local time zone.</p>
 
-<h3>Telling the Time</h3>
+<h3><a id="telling-the-time" class="anchor" href="#telling-the-time">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Telling the Time</h3>
 
 <p>There are several methods to retrieve a <code><a href="Time.html">Time</a></code> instance representing the
 current time:</p>
 
-<pre><code class="language-crystal"><span class="t">Time</span>.utc_now                                  <span class="c"># returns the current time in UTC</span>
-<span class="t">Time</span>.now <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>) <span class="c"># returns the current time in time zone Europe/Berlin</span>
-<span class="t">Time</span>.now                                      <span class="c"># returns the current time in current time zone</span></code></pre>
+<pre><code class="language-crystal"><span class="t">Time</span>.utc                                        <span class="c"># returns the current time in UTC</span>
+<span class="t">Time</span>.local <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>) <span class="c"># returns the current time in time zone Europe/Berlin</span>
+<span class="t">Time</span>.local                                      <span class="c"># returns the current time in current time zone</span></code></pre>
 
 <p>It is generally recommended to keep instances in UTC and only apply a
 local time zone when formatting for user display, unless the domain logic
 requires having a specific time zone (for example for calendaric operations).</p>
 
-<h3>Creating a Specific Instant</h3>
+<h3><a id="creating-a-specific-instant" class="anchor" href="#creating-a-specific-instant">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Creating a Specific Instant</h3>
 
 <p><code><a href="Time.html">Time</a></code> instances representing a specific instant can be created by
 <code>.utc</code> or <code>.new</code> with the date-time specified as individual arguments:</p>
 
 <pre><code>time <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>)
 time.to_s <span class="c"># =&gt; 2016-02-15 10:20:30 UTC</span>
-time <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
+time <span class="o">=</span> <span class="t">Time</span>.local(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>, <span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
 time.to_s <span class="c"># =&gt; 2016-02-15 10:20:30 +01:00 Europe/Berlin</span>
 <span class="c"># The time-of-day can be omitted and defaults to midnight (start of day):</span>
 time <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2016</span>, <span class="n">2</span>, <span class="n">15</span>)
 time.to_s <span class="c"># =&gt; 2016-02-15 00:00:00 UTC</span></code></pre>
 
-<h3>Retrieving Time Information</h3>
+<h3><a id="retrieving-time-information" class="anchor" href="#retrieving-time-information">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Retrieving Time Information</h3>
 
 <p>Each <code><a href="Time.html">Time</a></code> instance allows querying calendar data:</p>
 
@@ -198,7 +221,11 @@ predicate methods, delegating to <code>#day_of_week</code>:</p>
 <span class="c"># ...</span>
 time.sunday? <span class="c"># =&gt; false</span></code></pre>
 
-<h3>Time Zones</h3>
+<h3><a id="time-zones" class="anchor" href="#time-zones">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Time Zones</h3>
 
 <p>Each time is attached to a specific time zone, represented by a <code>Location</code>
 (see <code>#location</code>).
@@ -206,7 +233,7 @@ time.sunday? <span class="c"># =&gt; false</span></code></pre>
 (i.e. the instant represented by this <code><a href="Time.html">Time</a></code>).
 <code>#offset</code> returns the offset of the current zone in seconds.</p>
 
-<pre><code>time <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2018</span>, <span class="n">3</span>, <span class="n">8</span>, <span class="n">22</span>, <span class="n">5</span>, <span class="n">13</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
+<pre><code>time <span class="o">=</span> <span class="t">Time</span>.local(<span class="n">2018</span>, <span class="n">3</span>, <span class="n">8</span>, <span class="n">22</span>, <span class="n">5</span>, <span class="n">13</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
 time          <span class="c"># =&gt; 2018-03-08 22:05:13 +01:00 Europe/Berlin</span>
 time.location <span class="c"># =&gt; #&lt;Time::Location Europe/Berlin&gt;</span>
 time.zone     <span class="c"># =&gt; #&lt;Time::Location::Zone CET +01:00 (3600s) STD&gt;</span>
@@ -223,7 +250,7 @@ time.offset   <span class="c"># =&gt; 0</span></code></pre>
 <p>A <code><a href="Time.html">Time</a></code> instance can be transformed to a different time zone while retaining
 the same instant using <code>#in</code>:</p>
 
-<pre><code>time_de <span class="o">=</span> <span class="t">Time</span>.<span class="k">new</span>(<span class="n">2018</span>, <span class="n">3</span>, <span class="n">8</span>, <span class="n">22</span>, <span class="n">5</span>, <span class="n">13</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
+<pre><code>time_de <span class="o">=</span> <span class="t">Time</span>.local(<span class="n">2018</span>, <span class="n">3</span>, <span class="n">8</span>, <span class="n">22</span>, <span class="n">5</span>, <span class="n">13</span>, location: <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;Europe/Berlin&quot;</span>))
 time_ar <span class="o">=</span> time_de.<span class="k">in</span> <span class="t">Time</span><span class="t">::</span><span class="t">Location</span>.load(<span class="s">&quot;America/Buenos_Aires&quot;</span>)
 time_de <span class="c"># =&gt; 2018-03-08 22:05:13 +01:00 Europe/Berlin</span>
 time_ar <span class="c"># =&gt; 2018-03-08 18:05:13 -03:00 America/Buenos_Aires</span></code></pre>
@@ -245,7 +272,11 @@ time.to_local <span class="c"># equals time.in(Location.local)</span></code></pr
 the same local date-time (wall clock) which results in a different instant
 on the time line.</p>
 
-<h3>Formatting and Parsing Time</h3>
+<h3><a id="formatting-and-parsing-time" class="anchor" href="#formatting-and-parsing-time">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Formatting and Parsing Time</h3>
 
 <p>To make date-time instances exchangeable between different computer systems
 or readable to humans, they are usually converted to and from a string
@@ -264,7 +295,11 @@ information in a string, according to a specified pattern:</p>
 
 <p>See <code>Time::Format</code> for all directives.</p>
 
-<h3>Calculations</h3>
+<h3><a id="calculations" class="anchor" href="#calculations">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Calculations</h3>
 
 <pre><code><span class="t">Time</span>.utc(<span class="n">2015</span>, <span class="n">10</span>, <span class="n">10</span>) <span class="o">-</span> <span class="n">5</span>.days <span class="c"># =&gt; 2015-10-05 00:00:00 +00:00</span>
 
@@ -273,7 +308,11 @@ span.days          <span class="c"># =&gt; 30</span>
 span.total_hours   <span class="c"># =&gt; 720</span>
 span.total_minutes <span class="c"># =&gt; 43200</span></code></pre>
 
-<h2>Measuring Time</h2>
+<h2><a id="measuring-time" class="anchor" href="#measuring-time">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Measuring Time</h2>
 
 <p>The typical time representation provided by the operating system is based on
 a "wall clock" which is subject to changes for clock synchronization.
@@ -281,14 +320,14 @@ This can result in discontinuous jumps in the time-line making it not
 suitable for accurately measuring elapsed time.</p>
 
 <p>Instances of <code><a href="Time.html">Time</a></code> are focused on telling time – using a "wall clock".
-When <code>Time.now</code> is called multiple times, the difference between the
-returned instances is not guranteed to equal to the time elapsed between
+When <code>Time.local</code> is called multiple times, the difference between the
+returned instances is not guaranteed to equal to the time elapsed between
 making the calls; even the order of the returned <code><a href="Time.html">Time</a></code> instances might
 not reflect invocation order.</p>
 
-<pre><code>t1 <span class="o">=</span> <span class="t">Time</span>.utc_now
+<pre><code>t1 <span class="o">=</span> <span class="t">Time</span>.utc
 <span class="c"># operation that takes 1 minute</span>
-t2 <span class="o">=</span> <span class="t">Time</span>.utc_now
+t2 <span class="o">=</span> <span class="t">Time</span>.utc
 t2 <span class="o">-</span> t1 <span class="c"># =&gt; ?</span></code></pre>
 
 <p>The resulting <code>Time::Span</code> could be anything, even negative, if the
@@ -318,11 +357,18 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
 
 
 
-  <h2>Included Modules</h2>
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
   <ul class="other-types-list">
-  
-    <li class="other-type">Comparable(<a href="Time.html">Time</a>)</li>
-  
+    
+      <li class="other-type">Comparable(<a href="Time.html">Time</a>)</li>
+    
   </ul>
 
 
@@ -334,10 +380,17 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
 
 
 
-  <h2>Defined in:</h2>
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/time.cr#L1" target="_blank">
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/time.cr#L1" target="_blank">
         crystal_on_steroids/time.cr
       </a>
     
@@ -352,7 +405,14 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
 
 
 
-  <h2>Instance Method Summary</h2>
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
@@ -370,7 +430,7 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
       </li>
     
       <li class="entry-summary">
-        <a href="#today%3F-instance-method" class="signature"><strong>#today?</strong></a>
+        <a href="#today?-instance-method" class="signature"><strong>#today?</strong></a>
         
           <div class="summary"><p>Check if the especified time is corresponding to today.</p></div>
         
@@ -433,7 +493,7 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
   <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
   
   
-    <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
+    <a href="Object.html#in?(another_object)-instance-method" class="tooltip">
       <span>in?(another_object)</span>
     in?</a>, 
     
@@ -443,12 +503,12 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
     presence</a>, 
     
   
-    <a href="Object.html#presence_in%28another_object%29-instance-method" class="tooltip">
+    <a href="Object.html#presence_in(another_object)-instance-method" class="tooltip">
       <span>presence_in(another_object)</span>
     presence_in</a>, 
     
   
-    <a href="Object.html#present%3F-instance-method" class="tooltip">
+    <a href="Object.html#present?-instance-method" class="tooltip">
       <span>present?</span>
     present?</a>, 
     
@@ -458,7 +518,7 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
     to_param</a>, 
     
   
-    <a href="Object.html#to_query%28namespace%29-instance-method" class="tooltip">
+    <a href="Object.html#to_query(namespace)-instance-method" class="tooltip">
       <span>to_query(namespace)<br/>to_query</span>
     to_query</a>
     
@@ -488,7 +548,14 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
 
 
 
-  <h2>Instance Method Detail</h2>
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
   
     <div class="entry-detail" id="next_day-instance-method">
       <div class="signature">
@@ -498,12 +565,15 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
         <a class="method-permalink" href="#next_day-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Moves one day in the future.</p></div>
+        <div class="doc">
+          
+          <p>Moves one day in the future.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/time.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/time.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -516,12 +586,15 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
         <a class="method-permalink" href="#prev_day-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Moves one day in the past.</p></div>
+        <div class="doc">
+          
+          <p>Moves one day in the past.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/time.cr#L3" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/time.cr#L3" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -531,15 +604,18 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
         
         def <strong>today?</strong>
 
-        <a class="method-permalink" href="#today%3F-instance-method">#</a>
+        <a class="method-permalink" href="#today?-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Check if the especified time is corresponding to today.</p></div>
+        <div class="doc">
+          
+          <p>Check if the especified time is corresponding to today.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/time.cr#L23" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/time.cr#L23" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -552,12 +628,15 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
         <a class="method-permalink" href="#tomorrow-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Moves one day in the future.</p></div>
+        <div class="doc">
+          
+          <p>Moves one day in the future.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/time.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/time.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -570,12 +649,15 @@ elapsed_time <span class="c"># =&gt; 20.milliseconds (approximately)</span></cod
         <a class="method-permalink" href="#yesterday-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Moves one day in the past.</p></div>
+        <div class="doc">
+          
+          <p>Moves one day in the past.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/time.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/time.cr#L13" target="_blank">View source</a>]
         
       </div>
     </div>

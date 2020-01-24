@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.27.2">
+<meta name="generator" content="Crystal Docs 0.31.1">
 
-
-<link href="css/style.css" rel="stylesheet" type="text/css">
-
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
-<script type="text/javascript">
-  CrystalDoc.base_path = "";
-</script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
 
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
   <title>String - github.com/werner/crystal_on_steroids</title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "";
+  </script>
 </head>
 <body>
 
@@ -130,7 +134,14 @@
 
 
 
-  <h2>Overview</h2>
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
 
   <p>A <code><a href="String.html">String</a></code> represents an immutable sequence of UTF-8 characters.</p>
 
@@ -204,7 +215,11 @@ b <span class="o">=</span> <span class="n">2</span>
 
 <p>If you need to dynamically build a string, use <code>String#build</code> or <code>IO::Memory</code>.</p>
 
-<h3>Non UTF-8 valid strings</h3>
+<h3><a id="non-utf-8-valid-strings" class="anchor" href="#non-utf-8-valid-strings">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Non UTF-8 valid strings</h3>
 
 <p>String might end up being conformed of bytes which are an invalid
 byte sequence according to UTF-8. This can happen if the string is created
@@ -243,11 +258,18 @@ show a replacement character when there's an error in incoming data.</p>
 
 
 
-  <h2>Included Modules</h2>
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
   <ul class="other-types-list">
-  
-    <li class="other-type">Comparable(<a href="String.html">String</a>)</li>
-  
+    
+      <li class="other-type">Comparable(<a href="String.html">String</a>)</li>
+    
   </ul>
 
 
@@ -259,24 +281,31 @@ show a replacement character when there's an error in incoming data.</p>
 
 
 
-  <h2>Defined in:</h2>
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/string/remove.cr#L1" target="_blank">
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/string/remove.cr#L1" target="_blank">
         crystal_on_steroids/string/remove.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/string/squish.cr#L1" target="_blank">
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/string/squish.cr#L1" target="_blank">
         crystal_on_steroids/string/squish.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/string/truncation.cr#L1" target="_blank">
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/string/truncation.cr#L1" target="_blank">
         crystal_on_steroids/string/truncation.cr
       </a>
     
@@ -291,11 +320,18 @@ show a replacement character when there's an error in incoming data.</p>
 
 
 
-  <h2>Instance Method Summary</h2>
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#remove%28%2Apatterns%29-instance-method" class="signature"><strong>#remove</strong>(*patterns)</a>
+        <a href="#remove(*patterns)-instance-method" class="signature"><strong>#remove</strong>(*patterns)</a>
         
           <div class="summary"><p>Alters the string by removing all occurrences of the patterns.</p></div>
         
@@ -309,14 +345,14 @@ show a replacement character when there's an error in incoming data.</p>
       </li>
     
       <li class="entry-summary">
-        <a href="#truncate%28truncate_at%2Coptions%3D%7B%7DofSymbol%3D%3EString%29-instance-method" class="signature"><strong>#truncate</strong>(truncate_at, options = {} <span class="k">of</span> <span class="t">Symbol</span> => <span class="t">String</span>)</a>
+        <a href="#truncate(truncate_at,options=%7B%7DofSymbol=%3EString)-instance-method" class="signature"><strong>#truncate</strong>(truncate_at, options = {} <span class="k">of</span> <span class="t">Symbol</span> => <span class="t">String</span>)</a>
         
           <div class="summary"><p>Truncates a given <code>text</code> after a given <code>size</code> if <code>text</code> is longer than <code>size</code>:</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#truncate_words%28words_count%2Coptions%3D%7B%7DofSymbol%3D%3EString%29-instance-method" class="signature"><strong>#truncate_words</strong>(words_count, options = {} <span class="k">of</span> <span class="t">Symbol</span> => <span class="t">String</span>)</a>
+        <a href="#truncate_words(words_count,options=%7B%7DofSymbol=%3EString)-instance-method" class="signature"><strong>#truncate_words</strong>(words_count, options = {} <span class="k">of</span> <span class="t">Symbol</span> => <span class="t">String</span>)</a>
         
           <div class="summary"><p>Truncates a given <code>text</code> after a given number of words (<code>words_count</code>):</p></div>
         
@@ -355,7 +391,7 @@ show a replacement character when there's an error in incoming data.</p>
   <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
   
   
-    <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
+    <a href="Object.html#in?(another_object)-instance-method" class="tooltip">
       <span>in?(another_object)</span>
     in?</a>, 
     
@@ -365,12 +401,12 @@ show a replacement character when there's an error in incoming data.</p>
     presence</a>, 
     
   
-    <a href="Object.html#presence_in%28another_object%29-instance-method" class="tooltip">
+    <a href="Object.html#presence_in(another_object)-instance-method" class="tooltip">
       <span>presence_in(another_object)</span>
     presence_in</a>, 
     
   
-    <a href="Object.html#present%3F-instance-method" class="tooltip">
+    <a href="Object.html#present?-instance-method" class="tooltip">
       <span>present?</span>
     present?</a>, 
     
@@ -380,7 +416,7 @@ show a replacement character when there's an error in incoming data.</p>
     to_param</a>, 
     
   
-    <a href="Object.html#to_query%28namespace%29-instance-method" class="tooltip">
+    <a href="Object.html#to_query(namespace)-instance-method" class="tooltip">
       <span>to_query(namespace)<br/>to_query</span>
     to_query</a>
     
@@ -410,28 +446,38 @@ show a replacement character when there's an error in incoming data.</p>
 
 
 
-  <h2>Instance Method Detail</h2>
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
   
     <div class="entry-detail" id="remove(*patterns)-instance-method">
       <div class="signature">
         
         def <strong>remove</strong>(*patterns)
 
-        <a class="method-permalink" href="#remove%28%2Apatterns%29-instance-method">#</a>
+        <a class="method-permalink" href="#remove(*patterns)-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Alters the string by removing all occurrences of the patterns.</p>
+        <div class="doc">
+          
+          <p>Alters the string by removing all occurrences of the patterns.</p>
 
 <pre><code>str <span class="o">=</span> <span class="s">&quot;foo bar test&quot;</span>
 str.remove(<span class="s">&quot; test&quot;</span>, <span class="s">/bar/</span>)         <span class="c"># =&gt; &quot;foo &quot;</span>
 str                                <span class="c"># =&gt; &quot;foo &quot;</span></code></pre>
 
-<p>source: Rails ActiveSupport</p></div>
+<p>source: Rails ActiveSupport</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/string/remove.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/string/remove.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -444,17 +490,20 @@ str                                <span class="c"># =&gt; &quot;foo &quot;</spa
         <a class="method-permalink" href="#squish-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Remove first and last whitespace and reduce to one 
+        <div class="doc">
+          
+          <p>Remove first and last whitespace and reduce to one 
 all the others in the same sentence</p>
 
 <pre><code><span class="s">&quot; foo   bar    \n   \t   boo&quot;</span>.squish <span class="c"># =&gt; &quot;foo bar boo&quot;</span></code></pre>
 
-<p>source: Rails ActiveSupport</p></div>
+<p>source: Rails ActiveSupport</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/string/squish.cr#L10" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/string/squish.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -464,10 +513,12 @@ all the others in the same sentence</p>
         
         def <strong>truncate</strong>(truncate_at, options = {} <span class="k">of</span> <span class="t">Symbol</span> => <span class="t">String</span>)
 
-        <a class="method-permalink" href="#truncate%28truncate_at%2Coptions%3D%7B%7DofSymbol%3D%3EString%29-instance-method">#</a>
+        <a class="method-permalink" href="#truncate(truncate_at,options=%7B%7DofSymbol=%3EString)-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Truncates a given <code>text</code> after a given <code>size</code> if <code>text</code> is longer than <code>size</code>:</p>
+        <div class="doc">
+          
+          <p>Truncates a given <code>text</code> after a given <code>size</code> if <code>text</code> is longer than <code>size</code>:</p>
 
 <pre><code><span class="s">&quot;Once upon a time in a world far far away&quot;</span>.truncate(<span class="n">27</span>)
 <span class="c"># =&gt; &quot;Once upon a time in a wo...&quot;</span></code></pre>
@@ -483,12 +534,13 @@ for a total size not exceeding <code>size</code>:</p>
 <pre><code><span class="s">&quot;And they found that many people were sleeping better.&quot;</span>.truncate(<span class="n">25</span>, omission: <span class="s">&quot;... (continued)&quot;</span>)
 <span class="c"># =&gt; &quot;And they f... (continued)&quot;</span></code></pre>
 
-<p>source: Rails ActiveSupport</p></div>
+<p>source: Rails ActiveSupport</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/string/truncation.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/string/truncation.cr#L25" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -498,15 +550,21 @@ for a total size not exceeding <code>size</code>:</p>
         
         def <strong>truncate_words</strong>(words_count, options = {} <span class="k">of</span> <span class="t">Symbol</span> => <span class="t">String</span>)
 
-        <a class="method-permalink" href="#truncate_words%28words_count%2Coptions%3D%7B%7DofSymbol%3D%3EString%29-instance-method">#</a>
+        <a class="method-permalink" href="#truncate_words(words_count,options=%7B%7DofSymbol=%3EString)-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Truncates a given <code>text</code> after a given number of words (<code>words_count</code>):</p>
+        <div class="doc">
+          
+          <p>Truncates a given <code>text</code> after a given number of words (<code>words_count</code>):</p>
 
 <p><code></code>`
 "Once upon a time in a world far far away".truncate_words(4)</p>
 
-<h1>=> "Once upon a time..."</h1>
+<h1><a id="once-upon-a-time..." class="anchor" href="#once-upon-a-time...">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>=> "Once upon a time..."</h1>
 
 <p><code></code>`</p>
 
@@ -520,12 +578,13 @@ for a total size not exceeding <code>size</code>:</p>
 <pre><code><span class="s">&quot;And they found that many people were sleeping better.&quot;</span>.truncate_words(<span class="n">5</span>, omission: <span class="s">&quot;... (continued)&quot;</span>)
 <span class="c"># =&gt; &quot;And they found that many... (continued)&quot;</span></code></pre>
 
-<p>source: Rails ActiveSupport</p></div>
+<p>source: Rails ActiveSupport</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/string/truncation.cr#L64" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/string/truncation.cr#L64" target="_blank">View source</a>]
         
       </div>
     </div>

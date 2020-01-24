@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.27.2">
+<meta name="generator" content="Crystal Docs 0.31.1">
 
-
-<link href="css/style.css" rel="stylesheet" type="text/css">
-
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
-<script type="text/javascript">
-  CrystalDoc.base_path = "";
-</script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
 
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
   <title>Hash(K, V) - github.com/werner/crystal_on_steroids</title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "";
+  </script>
 </head>
 <body>
 
@@ -130,23 +134,62 @@
 
 
 
-  <h2>Overview</h2>
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
 
-  <p>A <code><a href="Hash.html">Hash</a></code> represents a mapping of keys to values.</p>
+  <p>A <code><a href="Hash.html">Hash</a></code> represents a collection of key-value mappings, similar to a dictionary.</p>
 
-<p>See the <a href="http://crystal-lang.org/docs/syntax_and_semantics/literals/hash.html" target="_blank">official docs</a> for the basics.</p>
+<p>Main operations are storing a key-value mapping (<code>#[]=</code>) and
+querying the value associated to a key (<code>#[]</code>). Key-value mappings can also be
+deleted (<code>#delete</code>).
+Keys are unique within a hash. When adding a key-value mapping with a key that
+is already in use, the old value will be forgotten.</p>
+
+<pre><code><span class="c"># Create a new Hash for mapping String to Int32</span>
+hash <span class="o">=</span> <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">Int32</span>).<span class="k">new</span>
+hash[<span class="s">&quot;one&quot;</span>] <span class="o">=</span> <span class="n">1</span>
+hash[<span class="s">&quot;two&quot;</span>] <span class="o">=</span> <span class="n">2</span>
+hash[<span class="s">&quot;one&quot;</span>] <span class="c"># =&gt; 1</span></code></pre>
+
+<p><a href="http://crystal-lang.org/reference/syntax_and_semantics/literals/hash.html" target="_blank">Hash literals</a>
+can also be used to create a <code><a href="Hash.html">Hash</a></code>:</p>
+
+<pre><code>{<span class="s">&quot;one&quot;</span> => <span class="n">1</span>, <span class="s">&quot;two&quot;</span> => <span class="n">2</span>}</code></pre>
+
+<p>Implementation is based on an open hash table.
+Two objects refer to the same hash key when their hash value (<code>Object#hash</code>)
+is identical and both objects are equal to each other (<code>Object#==</code>).</p>
+
+<p>Enumeration follows the order that the corresponding keys were inserted.</p>
+
+<p><span class="flag purple">NOTE</span>  When using mutable data types as keys, changing the value of a key after
+it was inserted into the <code><a href="Hash.html">Hash</a></code> may lead to undefined behaviour. This can be
+restored by re-indexing the hash with <code>#rehash</code>.</p>
 
 
 
 
 
-  <h2>Included Modules</h2>
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
   <ul class="other-types-list">
-  
-    <li class="other-type"><a href="Enumerable.html">Enumerable({K, V})</a></li>
-  
-    <li class="other-type">Iterable({K, V})</li>
-  
+    
+      <li class="other-type"><a href="Enumerable.html">Enumerable({K, V})</a></li>
+    
+      <li class="other-type">Iterable({K, V})</li>
+    
   </ul>
 
 
@@ -158,17 +201,24 @@
 
 
 
-  <h2>Defined in:</h2>
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/hash.cr#L1" target="_blank">
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/hash.cr#L1" target="_blank">
         crystal_on_steroids/hash.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/to_query.cr#L63" target="_blank">
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/to_query.cr#L63" target="_blank">
         crystal_on_steroids/to_query.cr
       </a>
     
@@ -183,7 +233,14 @@
 
 
 
-  <h2>Instance Method Summary</h2>
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
@@ -194,7 +251,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#compact%21-instance-method" class="signature"><strong>#compact!</strong></a>
+        <a href="#compact!-instance-method" class="signature"><strong>#compact!</strong></a>
         
           <div class="summary"><p>Replaces current hash with non <code>nil</code> values.</p></div>
         
@@ -208,7 +265,7 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#to_query%28namespace%3Dnil%29-instance-method" class="signature"><strong>#to_query</strong>(namespace = <span class="n">nil</span>)</a>
+        <a href="#to_query(namespace=nil)-instance-method" class="signature"><strong>#to_query</strong>(namespace = <span class="n">nil</span>)</a>
         
           <div class="summary"><p>Returns a string representation of the receiver suitable for use as a URL query string:</p></div>
         
@@ -242,17 +299,17 @@
     avg</a>, 
     
   
-    <a href="Enumerable.html#blank%3F-instance-method" class="tooltip">
+    <a href="Enumerable.html#blank?-instance-method" class="tooltip">
       <span>blank?</span>
     blank?</a>, 
     
   
-    <a href="Enumerable.html#exactly%3F%28count%3AInt32%2C%26block%29-instance-method" class="tooltip">
-      <span>exactly?(count : Int32, &block)</span>
+    <a href="Enumerable.html#exactly?(count:Int32,&)-instance-method" class="tooltip">
+      <span>exactly?(count : Int32, &)</span>
     exactly?</a>, 
     
   
-    <a href="Enumerable.html#excludes%3F%28obj%29-instance-method" class="tooltip">
+    <a href="Enumerable.html#excludes?(obj)-instance-method" class="tooltip">
       <span>excludes?(obj)</span>
     excludes?</a>, 
     
@@ -262,22 +319,22 @@
     frequencies</a>, 
     
   
-    <a href="Enumerable.html#many%3F%28%26block%29-instance-method" class="tooltip">
-      <span>many?(&block)<br/>many?</span>
+    <a href="Enumerable.html#many?(&)-instance-method" class="tooltip">
+      <span>many?(&)<br/>many?</span>
     many?</a>, 
     
   
-    <a href="Enumerable.html#pluck%28%2Akeys%29-instance-method" class="tooltip">
+    <a href="Enumerable.html#pluck(*keys)-instance-method" class="tooltip">
       <span>pluck(*keys)</span>
     pluck</a>, 
     
   
-    <a href="Enumerable.html#pluck%3F%28%2Akeys%29-instance-method" class="tooltip">
+    <a href="Enumerable.html#pluck?(*keys)-instance-method" class="tooltip">
       <span>pluck?(*keys)</span>
     pluck?</a>, 
     
   
-    <a href="Enumerable.html#without%28%2Aitems%29-instance-method" class="tooltip">
+    <a href="Enumerable.html#without(*items)-instance-method" class="tooltip">
       <span>without(*items)</span>
     without</a>
     
@@ -306,7 +363,7 @@
   <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
   
   
-    <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
+    <a href="Object.html#in?(another_object)-instance-method" class="tooltip">
       <span>in?(another_object)</span>
     in?</a>, 
     
@@ -316,12 +373,12 @@
     presence</a>, 
     
   
-    <a href="Object.html#presence_in%28another_object%29-instance-method" class="tooltip">
+    <a href="Object.html#presence_in(another_object)-instance-method" class="tooltip">
       <span>presence_in(another_object)</span>
     presence_in</a>, 
     
   
-    <a href="Object.html#present%3F-instance-method" class="tooltip">
+    <a href="Object.html#present?-instance-method" class="tooltip">
       <span>present?</span>
     present?</a>, 
     
@@ -331,7 +388,7 @@
     to_param</a>, 
     
   
-    <a href="Object.html#to_query%28namespace%29-instance-method" class="tooltip">
+    <a href="Object.html#to_query(namespace)-instance-method" class="tooltip">
       <span>to_query(namespace)<br/>to_query</span>
     to_query</a>
     
@@ -361,7 +418,14 @@
 
 
 
-  <h2>Instance Method Detail</h2>
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
   
     <div class="entry-detail" id="compact-instance-method">
       <div class="signature">
@@ -371,7 +435,9 @@
         <a class="method-permalink" href="#compact-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns a hash with non <code>nil</code> values.</p>
+        <div class="doc">
+          
+          <p>Returns a hash with non <code>nil</code> values.</p>
 
 <pre><code>hash <span class="o">=</span> { a: <span class="n">true</span>, b: <span class="n">false</span>, c: <span class="n">nil</span>}
 hash.compact <span class="c"># =&gt; { a: true, b: false }</span>
@@ -380,12 +446,13 @@ hash <span class="c"># =&gt; { a: true, b: false, c: nil}</span>
 
 <p>source: ActiveSupport</p>
 
-<p>This method is already included in Crystal, but there is a bug, so I'm keeping my own implementation of Hash#compact.</p></div>
+<p>This method is already included in Crystal, but there is a bug, so I'm keeping my own implementation of Hash#compact.</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/hash.cr#L14" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/hash.cr#L14" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -395,21 +462,24 @@ hash <span class="c"># =&gt; { a: true, b: false, c: nil}</span>
         
         def <strong>compact!</strong>
 
-        <a class="method-permalink" href="#compact%21-instance-method">#</a>
+        <a class="method-permalink" href="#compact!-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Replaces current hash with non <code>nil</code> values.</p>
+        <div class="doc">
+          
+          <p>Replaces current hash with non <code>nil</code> values.</p>
 
 <pre><code>hash <span class="o">=</span> { a: <span class="n">true</span>, b: <span class="n">false</span>, c: <span class="n">nil</span> }
 hash.compact! <span class="c"># =&gt; { a: true, b: false }</span>
 hash <span class="c"># =&gt; { a: true, b: false }</span></code></pre>
 
-<p>source: Rails ActiveSupport</p></div>
+<p>source: Rails ActiveSupport</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/hash.cr#L27" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/hash.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -422,12 +492,15 @@ hash <span class="c"># =&gt; { a: true, b: false }</span></code></pre>
         <a class="method-permalink" href="#to_param-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Alias for to_query</p></div>
+        <div class="doc">
+          
+          <p>Alias for to_query</p>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/to_query.cr#L86" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/to_query.cr#L86" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -437,10 +510,12 @@ hash <span class="c"># =&gt; { a: true, b: false }</span></code></pre>
         
         def <strong>to_query</strong>(namespace = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#to_query%28namespace%3Dnil%29-instance-method">#</a>
+        <a class="method-permalink" href="#to_query(namespace=nil)-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Returns a string representation of the receiver suitable for use as a URL
+        <div class="doc">
+          
+          <p>Returns a string representation of the receiver suitable for use as a URL
 query string:</p>
 
 <pre><code>{name: <span class="s">&quot;David&quot;</span>, nationality: <span class="s">&quot;Danish&quot;</span>}.to_query
@@ -449,12 +524,13 @@ query string:</p>
 <p>An optional namespace can be passed to enclose key names:</p>
 
 <pre><code>{name: <span class="s">&quot;David&quot;</span>, nationality: <span class="s">&quot;Danish&quot;</span>}.to_query(<span class="s">&quot;user&quot;</span>)
-<span class="c"># =&gt; &quot;user%5Bname%5D=David&amp;user%5Bnationality%5D=Danish&quot;</span></code></pre></div>
+<span class="c"># =&gt; &quot;user%5Bname%5D=David&amp;user%5Bnationality%5D=Danish&quot;</span></code></pre>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/to_query.cr#L79" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/to_query.cr#L79" target="_blank">View source</a>]
         
       </div>
     </div>

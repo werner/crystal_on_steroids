@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.27.2">
+<meta name="generator" content="Crystal Docs 0.31.1">
 
-
-<link href="css/style.css" rel="stylesheet" type="text/css">
-
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
-<script type="text/javascript">
-  CrystalDoc.base_path = "";
-</script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
 
   <meta id="repository-name" content="github.com/werner/crystal_on_steroids">
   <title>Range(B, E) - github.com/werner/crystal_on_steroids</title>
+  <script type="text/javascript">
+    CrystalDoc.base_path = "";
+  </script>
 </head>
 <body>
 
@@ -130,14 +134,24 @@
 
 
 
-  <h2>Overview</h2>
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
 
   <p>A <code><a href="Range.html">Range</a></code> represents an interval: a set of values with a beginning and an end.</p>
 
 <p>Ranges may be constructed using the usual <code>new</code> method or with literals:</p>
 
 <pre><code>x..y  <span class="c"># an inclusive range, in mathematics: [x, y]</span>
-x...y <span class="c"># an exclusive range, in mathematics: [x, y)</span></code></pre>
+x...y <span class="c"># an exclusive range, in mathematics: [x, y)</span>
+(x..) <span class="c"># an endless range, in mathematics: &gt;= x</span>
+..y   <span class="c"># a beginless inclusive range, in mathematics: &lt;= y</span>
+...y  <span class="c"># a beginless exclusive range, in mathematics: &lt; y</span></code></pre>
 
 <p>An easy way to remember which one is inclusive and which one is exclusive it
 to think of the extra dot as if it pushes <em>y</em> further away, thus leaving it outside of the range.</p>
@@ -184,13 +198,20 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
 
 
 
-  <h2>Included Modules</h2>
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
   <ul class="other-types-list">
-  
-    <li class="other-type"><a href="Enumerable.html">Enumerable(B)</a></li>
-  
-    <li class="other-type">Iterable(B)</li>
-  
+    
+      <li class="other-type"><a href="Enumerable.html">Enumerable(B)</a></li>
+    
+      <li class="other-type">Iterable(B)</li>
+    
   </ul>
 
 
@@ -202,10 +223,17 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
 
 
 
-  <h2>Defined in:</h2>
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
   
     
-      <a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/range.cr#L1" target="_blank">
+      <a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/range.cr#L1" target="_blank">
         crystal_on_steroids/range.cr
       </a>
     
@@ -220,11 +248,18 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
 
 
 
-  <h2>Instance Method Summary</h2>
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#overlaps%3F%28other%3ARange%29%3ABool-instance-method" class="signature"><strong>#overlaps?</strong>(other : Range) : Bool</a>
+        <a href="#overlaps?(other:Range):Bool-instance-method" class="signature"><strong>#overlaps?</strong>(other : Range) : Bool</a>
         
           <div class="summary"><p>Compare two ranges and see if they overlap each other <code></code>`  (1..5).overlaps?(4..6) # => true  (1..5).overlaps?(7..9) # => false <code></code>`</p></div>
         
@@ -258,17 +293,17 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
     avg</a>, 
     
   
-    <a href="Enumerable.html#blank%3F-instance-method" class="tooltip">
+    <a href="Enumerable.html#blank?-instance-method" class="tooltip">
       <span>blank?</span>
     blank?</a>, 
     
   
-    <a href="Enumerable.html#exactly%3F%28count%3AInt32%2C%26block%29-instance-method" class="tooltip">
-      <span>exactly?(count : Int32, &block)</span>
+    <a href="Enumerable.html#exactly?(count:Int32,&)-instance-method" class="tooltip">
+      <span>exactly?(count : Int32, &)</span>
     exactly?</a>, 
     
   
-    <a href="Enumerable.html#excludes%3F%28obj%29-instance-method" class="tooltip">
+    <a href="Enumerable.html#excludes?(obj)-instance-method" class="tooltip">
       <span>excludes?(obj)</span>
     excludes?</a>, 
     
@@ -278,22 +313,22 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
     frequencies</a>, 
     
   
-    <a href="Enumerable.html#many%3F%28%26block%29-instance-method" class="tooltip">
-      <span>many?(&block)<br/>many?</span>
+    <a href="Enumerable.html#many?(&)-instance-method" class="tooltip">
+      <span>many?(&)<br/>many?</span>
     many?</a>, 
     
   
-    <a href="Enumerable.html#pluck%28%2Akeys%29-instance-method" class="tooltip">
+    <a href="Enumerable.html#pluck(*keys)-instance-method" class="tooltip">
       <span>pluck(*keys)</span>
     pluck</a>, 
     
   
-    <a href="Enumerable.html#pluck%3F%28%2Akeys%29-instance-method" class="tooltip">
+    <a href="Enumerable.html#pluck?(*keys)-instance-method" class="tooltip">
       <span>pluck?(*keys)</span>
     pluck?</a>, 
     
   
-    <a href="Enumerable.html#without%28%2Aitems%29-instance-method" class="tooltip">
+    <a href="Enumerable.html#without(*items)-instance-method" class="tooltip">
       <span>without(*items)</span>
     without</a>
     
@@ -332,7 +367,7 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
   <h3>Instance methods inherited from class <code><a href="Object.html">Object</a></code></h3>
   
   
-    <a href="Object.html#in%3F%28another_object%29-instance-method" class="tooltip">
+    <a href="Object.html#in?(another_object)-instance-method" class="tooltip">
       <span>in?(another_object)</span>
     in?</a>, 
     
@@ -342,12 +377,12 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
     presence</a>, 
     
   
-    <a href="Object.html#presence_in%28another_object%29-instance-method" class="tooltip">
+    <a href="Object.html#presence_in(another_object)-instance-method" class="tooltip">
       <span>presence_in(another_object)</span>
     presence_in</a>, 
     
   
-    <a href="Object.html#present%3F-instance-method" class="tooltip">
+    <a href="Object.html#present?-instance-method" class="tooltip">
       <span>present?</span>
     present?</a>, 
     
@@ -357,7 +392,7 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
     to_param</a>, 
     
   
-    <a href="Object.html#to_query%28namespace%29-instance-method" class="tooltip">
+    <a href="Object.html#to_query(namespace)-instance-method" class="tooltip">
       <span>to_query(namespace)<br/>to_query</span>
     to_query</a>
     
@@ -387,25 +422,35 @@ r.includes?(<span class="t">Xs</span>.<span class="k">new</span>(<span class="n"
 
 
 
-  <h2>Instance Method Detail</h2>
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
   
     <div class="entry-detail" id="overlaps?(other:Range):Bool-instance-method">
       <div class="signature">
         
         def <strong>overlaps?</strong>(other : <a href="Range.html">Range</a>) : <a href="Bool.html">Bool</a>
 
-        <a class="method-permalink" href="#overlaps%3F%28other%3ARange%29%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#overlaps?(other:Range):Bool-instance-method">#</a>
       </div>
       
-        <div class="doc"><p>Compare two ranges and see if they overlap each other</p>
+        <div class="doc">
+          
+          <p>Compare two ranges and see if they overlap each other</p>
 
 <pre><code> (<span class="n">1</span>..<span class="n">5</span>).overlaps?(<span class="n">4</span>..<span class="n">6</span>) <span class="c"># =&gt; true</span>
- (<span class="n">1</span>..<span class="n">5</span>).overlaps?(<span class="n">7</span>..<span class="n">9</span>) <span class="c"># =&gt; false</span></code></pre></div>
+ (<span class="n">1</span>..<span class="n">5</span>).overlaps?(<span class="n">7</span>..<span class="n">9</span>) <span class="c"># =&gt; false</span></code></pre>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/werner/crystal_on_steroids/blob/53da28a1ab4b06f3b927f090bc4e248221abb43d/src/crystal_on_steroids/range.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/werner/crystal_on_steroids/blob/1f82a152a3c238717cf0bd04a60ab0c8487591a0/src/crystal_on_steroids/range.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
